@@ -110,6 +110,16 @@ unsigned long nextRetryDelay(unsigned long delayMs) {
   return delayMs < 15000UL ? delayMs * 2UL : 30000UL;
 }
 
+void printMqttError(const char* action) {
+  Serial.print(kBoardName);
+  Serial.print(" | MQTT ");
+  Serial.print(action);
+  Serial.print(" | last_error=");
+  Serial.print(static_cast<int>(gMqtt.lastError()));
+  Serial.print(" return_code=");
+  Serial.println(static_cast<int>(gMqtt.returnCode()));
+}
+
 // No wait-until-connected loops: scans continue during network/broker outages.
 // TCP/MQTT connection calls themselves are bounded to approximately one second.
 void serviceNetwork() {
@@ -146,6 +156,15 @@ void serviceNetwork() {
   if (!gMqttAttempted || now - gMqttLastAttemptMs >= gMqttRetryMs) {
     gMqttAttempted = true;
     gMqttLastAttemptMs = now;
+#if PARKING_MQTT_LOG_PAYLOAD
+    Serial.print(kBoardName);
+    Serial.print(" | MQTT connect attempt: client=");
+    Serial.print(kMqttClientId);
+    Serial.print(" broker=");
+    Serial.print(PARKING_MQTT_HOST);
+    Serial.print(":");
+    Serial.println(PARKING_MQTT_PORT);
+#endif
     const bool connected = PARKING_MQTT_USERNAME[0] != '\0'
         ? gMqtt.connect(kMqttClientId, PARKING_MQTT_USERNAME, PARKING_MQTT_PASSWORD)
         : gMqtt.connect(kMqttClientId);
@@ -156,7 +175,7 @@ void serviceNetwork() {
       Serial.println(kTelemetryTopic);
     } else {
       gMqttRetryMs = nextRetryDelay(gMqttRetryMs);
-      Serial.println("MQTT connection failed; retry scheduled.");
+      printMqttError("connection failed; retry scheduled");
     }
   }
 }
@@ -228,9 +247,17 @@ bool buildTelemetry(const SlotSample (&samples)[4], char* buffer, size_t capacit
 }
 
 void publishTelemetry(const SlotSample (&samples)[4]) {
-  if (!gMqtt.connected()) return;
+  const bool connected = gMqtt.connected();
   const unsigned long now = millis();
-  if (gPublishAttempted && now - gLastPublishAttemptMs < kPublishIntervalMs) return;
+  const bool due = !gPublishAttempted || now - gLastPublishAttemptMs >= kPublishIntervalMs;
+#if PARKING_MQTT_LOG_PAYLOAD
+  Serial.print(kBoardName);
+  Serial.print(" | MQTT publish check: connected=");
+  Serial.print(connected ? "yes" : "no");
+  Serial.print(" due=");
+  Serial.println(due ? "yes" : "no");
+#endif
+  if (!connected || !due) return;
   gPublishAttempted = true;
   gLastPublishAttemptMs = now;
   char payload[kPayloadCapacity];
@@ -239,12 +266,22 @@ void publishTelemetry(const SlotSample (&samples)[4]) {
     return;
   }
   // QoS 1, non-retained. Duplicate delivery is possible; no old scan replay.
+#if PARKING_MQTT_LOG_PAYLOAD
+  Serial.print(kBoardName);
+  Serial.print(" | MQTT publish attempt: ");
+  Serial.println(kTelemetryTopic);
+#endif
   if (gMqtt.publish(kTelemetryTopic, payload, false, 1)) {
     ++gSequence;
     Serial.print("MQTT telemetry published: ");
     Serial.println(kTelemetryTopic);
+#if PARKING_MQTT_LOG_PAYLOAD
+    Serial.print(kBoardName);
+    Serial.print(" | MQTT acknowledged payload: ");
+    Serial.println(payload);
+#endif
   } else {
-    Serial.println("MQTT publish failed; next interval uses a fresh scan.");
+    printMqttError("publish failed; next interval uses a fresh scan");
   }
 }
 

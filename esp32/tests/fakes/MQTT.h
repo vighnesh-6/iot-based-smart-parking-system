@@ -23,6 +23,8 @@ struct MQTTClient {
   void begin(const char* value, int number, WiFiClient&) { host=value; port=number; }
   void setOptions(int, bool, int) {}
   bool connected() { return online; }
+  int lastError() { return -1; }
+  int returnCode() { return 0; }
   bool loop() { ++loopCalls; return online; }
   void disconnect() { online = false; }
   bool connect(const char* id) {

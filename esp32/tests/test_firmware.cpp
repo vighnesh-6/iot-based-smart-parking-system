@@ -122,6 +122,9 @@ void testTelemetry() {
   assert(gSequence == 1 && gMqtt.published.size() == 1);
   const auto publication = gMqtt.published.front();
   assert(publication.topic == kTelemetryTopic && !publication.retained && publication.qos == 1);
+  assert(Serial.output.str().find("MQTT publish check: connected=yes due=yes") != std::string::npos);
+  assert(Serial.output.str().find("MQTT publish attempt: " + std::string(kTelemetryTopic)) != std::string::npos);
+  assert(Serial.output.str().find("MQTT acknowledged payload: " + publication.payload) != std::string::npos);
   fakeMillis += kPublishIntervalMs - 1;
   publishTelemetry(samples);
   assert(gMqtt.publishCalls == 1);
@@ -129,9 +132,12 @@ void testTelemetry() {
   publishTelemetry(samples);
   assert(gSequence == 2 && gMqtt.published.size() == 2);
   gMqtt.publishResult = false;
+  Serial.clear();
   fakeMillis += kPublishIntervalMs;
   publishTelemetry(samples);
   assert(gSequence == 2 && gMqtt.publishCalls == 3);
+  assert(Serial.output.str().find("MQTT publish failed;") != std::string::npos);
+  assert(Serial.output.str().find("MQTT acknowledged payload:") == std::string::npos);
   publishTelemetry(samples);
   assert(gMqtt.publishCalls == 3); // failed publications are rate-limited too
   std::cout << "PAYLOAD " << json << '\n';

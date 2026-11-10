@@ -11,5 +11,8 @@
 #define PARKING_MQTT_USERNAME ""
 #define PARKING_MQTT_PASSWORD ""
 #define PARKING_MQTT_PUBLISH_INTERVAL_MS 5000UL
+// Phase 1 diagnostics: publish gates, attempts and acknowledged sensor JSON.
+// Set to 0 to silence payload/gate logs after runtime verification.
+#define PARKING_MQTT_LOG_PAYLOAD 1
 // Optional sensor threshold override; the default is 20.0f.
 // #define PARKING_OCCUPIED_THRESHOLD_CM 25.0f
