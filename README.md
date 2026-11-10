@@ -8,13 +8,14 @@ Academic project for simulated parking occupancy monitoring and a labelled
 The sensor layer now targets **12 parking slots across three ESP32 boards**,
 with four HC-SR04 sensors and four ECHO voltage dividers per board. Firmware
 has three board-specific builds with Phase 1 Wi-Fi/MQTT telemetry and Serial
-diagnostics. Actual Wokwi ESP32 MQTT runtime verification remains pending.
-Ingestion, database operations, APIs, ML and dashboard behavior are not implemented.
-No runtime database has been created. See `esp32/README.md` for wiring,
-build/test commands and the Wokwi runtime verification status.
+diagnostics. Phase 1 production delivery is operator-observed; detailed archived
+ESP32 runtime acceptance remains incomplete. Phase 2 adds validated MQTT ingestion,
+SQLite history/current state and a FastAPI REST API. See `backend/README.md` for
+startup, endpoints, tests and limitations. ML and dashboard remain placeholders.
+Automated verification uses private temporary databases, preserving live data.
 
 The updated planned architecture is: three ESP32 boards + 12 HC-SR04 sensors
--> MQTT / Mosquitto -> future FastAPI + SQLite -> Streamlit / Plotly, with a
+-> MQTT / Mosquitto -> FastAPI + SQLite -> future Streamlit / Plotly, with a
 separate offline ML preparation path and backend prediction serving. Phase 1
 MQTT details and validation limits are in `esp32/MQTT.md`. Future aggregation must use 12 total
 slots and distinguish missing devices from vacant spaces.
@@ -116,24 +117,33 @@ to inspect it in Windows PowerShell:
 ```
 
 The sensor build and test commands are documented in `esp32/README.md`.
-Other modules remain placeholders; this is not an end-to-end parking system.
+ML and dashboard modules remain placeholders; end-to-end ESP32-to-API verification
+requires fresh production telemetry. Phase 2 broker tests use labelled synthetic fixtures.
 
 ## Local configuration and data policy
 
 - Keep `.env`, firmware `config.h`, credentials, private keys and logs out of Git.
-- `.env.example` contains safe defaults only; the topic suffix must be unique
-  for the project when implementation starts.
+- `.env.example` contains safe backend defaults. Production topics stay fixed
+  to the three existing ESP32 topics; private credentials remain untracked.
 - Store the live database at `%LOCALAPPDATA%\SmartParking\parking.db`, outside
   this OneDrive-backed project directory. See `database/README.md`.
 - Keep synthetic training history explicitly labelled and separate from live
   Wokwi sensor telemetry. Do not use synthetic values for live slot status.
-- Wokwi runtime testing remains pending. Build/host-logic/netlist checks do not
-  establish successful simulation, physical voltage levels or sensor accuracy.
+- Phase 1 delivery is operator-observed, with no archived payloads. Detailed
+  ESP32 runtime tests remain open; Phase 2 synthetic backend checks do not prove
+  sensor accuracy or physical voltage levels. See the reports index.
 
 ## Version control
 
-Use meaningful commits for completed work, verify staged content and push each
-commit. Never commit secrets, environments, build output, live databases or
+For the Phase 2 implementation, complete all checks first, then make one
+meaningful commit per changed file with exactly one file per commit, followed
+by one push containing all commits. Never commit secrets, environments, build output, live databases or
 temporary files. The compiled original four-slot implementation is preserved
 at tag `backup/4-slot-serial-baseline` (commit `c1acc46`). To inspect it without
 overwriting this checkout, use a separate clone or `git worktree add`.
+
+## Phase 2 reference
+
+See [backend instructions](backend/README.md), [database policy](database/README.md),
+and [Phase 2 report](reports/phase2_fastapi_sqlite.pdf). The report distinguishes
+automated tests, isolated local-broker integration and production observations.
