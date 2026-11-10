@@ -74,12 +74,41 @@ configuration. Instead, each of these folders is a separate Wokwi project:
 | simulations/esp32-03 | P9-P12 | ../../.pio/build/esp32_03/firmware.bin |
 
 Each has a local diagram with one ESP32, four sensors, eight resistors and a
-Serial Monitor connection. Use `Wokwi: Select Config File` in VS Code to choose
-the relevant `wokwi.toml`, then `Wokwi: Start Simulator`. If the extension
-requires firmware within the workspace, open the parent `esp32/` workspace and
-select the nested config. Concurrent runs require separate VS Code instances;
-no communication between them is implemented. Browser/Computer Use is not used
-by this change.
+Serial Monitor connection. The repository contains three portable VS Code
+workspace files to make discovery deterministic:
+
+| Open with File > Open Workspace from File | First workspace folder |
+| --- | --- |
+| smart-parking-esp32-01.code-workspace | esp32/simulations/esp32-01 |
+| smart-parking-esp32-02.code-workspace | esp32/simulations/esp32-02 |
+| smart-parking-esp32-03.code-workspace | esp32/simulations/esp32-03 |
+
+These files live at the repository root. Each also includes the full repository
+as a second workspace folder, preserving access to shared source and compiled
+artifacts. Relative firmware paths in all three TOML files remain unchanged.
+After opening the intended workspace, run **Wokwi: Start Simulator** from the
+Command Palette. Alternatively, open the local `diagram.json` under the first,
+named simulation folder and press Play there. Build the corresponding PlatformIO
+environment first if its firmware files do not exist.
+
+The installed Wokwi extension automatically checks workspace-folder roots for
+`wokwi.toml`; a nested config is not an automatic default when only the whole
+repository is opened as a single folder. Its diagram-editor Play button also
+looks for `wokwi.toml` beside that particular diagram. Consequently, pressing
+Play on the **overview** at `esp32/diagram.json` reports a missing config; that
+overview is intentionally not runnable. No root config is added to launch the
+unsupported three-board combination.
+
+To stay in an existing repository window instead, run **Wokwi: Select Config
+File**, select `esp32/simulations/esp32-0N/wokwi.toml`, then run **Wokwi: Start
+Simulator** from the Command Palette. If an old selection persists, reselect
+the intended TOML or reload the intended `.code-workspace`. Do not press Play
+on the overview after selecting a local configuration.
+
+Concurrent runs require separate VS Code windows, each opened with its board's
+workspace. No communication between simulations is implemented. Workspace
+discovery and artifact-path checks are separate from runtime verification;
+simulation execution is still pending. Browser/Computer Use is not used.
 
 ## Build and static/host tests
 

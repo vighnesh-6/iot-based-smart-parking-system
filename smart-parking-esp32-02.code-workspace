@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "name": "ESP32-02 simulation - P5-P8",
+      "path": "esp32/simulations/esp32-02"
+    },
+    {
+      "name": "Smart Parking source",
+      "path": "."
+    }
+  ]
+}

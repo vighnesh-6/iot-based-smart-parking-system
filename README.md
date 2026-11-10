@@ -26,6 +26,23 @@ The original PDF in local `output/pdf/` describes the historical four-slot
 baseline; this README and `esp32/README.md` supersede its slot-count assumptions.
 The PDF is preserved, and generated output remains untracked.
 
+## Open a simulation in VS Code
+
+Use **File > Open Workspace from File** and choose one of the repository-root
+workspace files:
+
+- `smart-parking-esp32-01.code-workspace`: ESP32-01, P1-P4.
+- `smart-parking-esp32-02.code-workspace`: ESP32-02, P5-P8.
+- `smart-parking-esp32-03.code-workspace`: ESP32-03, P9-P12.
+
+Each workspace puts the intended simulation folder first, so Wokwi can discover
+its `wokwi.toml` automatically, and includes the full repository for access to
+the shared firmware/build outputs. Run **Wokwi: Start Simulator** from the
+Command Palette, or use Play on the `diagram.json` in the named simulation
+folder. Do not use Play on the three-board overview `esp32/diagram.json`.
+Build the selected environment first if its `.bin`/`.elf` files are missing.
+Discovery/path checks do not establish a successful simulation run.
+
 ## Layout
 
 ```text
@@ -71,6 +88,9 @@ config/mosquitto.conf
 .gitignore
 requirements.txt
 README.md
+smart-parking-esp32-01.code-workspace
+smart-parking-esp32-02.code-workspace
+smart-parking-esp32-03.code-workspace
 ```
 
 `.gitkeep` files preserve otherwise empty directories in Git. Each notebook
