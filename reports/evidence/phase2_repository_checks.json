@@ -1,0 +1,16 @@
+{
+  "source": "actual_repository_and_environment_checks",
+  "recorded_at_utc": "2026-11-10T16:51:35.070Z",
+  "circuit_tests_command": "C:\\Users\\vighn\\OneDrive\\Desktop\\iot project\\.venv\\Scripts\\python.exe esp32/tests/test_circuits.py",
+  "circuit_tests_returncode": 0,
+  "circuit_tests_output": "test_generated_circuits_have_not_drifted (__main__.CircuitTests.test_generated_circuits_have_not_drifted) ... ok\ntest_independent_simulations (__main__.CircuitTests.test_independent_simulations) ... ok\ntest_twelve_slot_overview (__main__.CircuitTests.test_twelve_slot_overview) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.107s\n\nOK\n",
+  "protected_paths_changed": [],
+  "requirements_matches_existing_freeze": true,
+  "mosquitto_config_sha256": "0352BBC96A84AD378DB11F1C23B3A191D1989E9A86879163C50B8599D7200374",
+  "mosquitto_config_matches_phase1": true,
+  "default_live_database_opened_by_verification": false,
+  "test_databases": "private unique Windows Temp directories outside project and OneDrive",
+  "pdf_tooling": "bundled Python; no dependency installation into project environment",
+  "phase1_mosquitto_config_sha256": "0352bbc96a84ad378db11f1c23b3a191d1989e9a86879163c50b8599d7200374",
+  "comparison_note": "Initial assertion compared uppercase and lowercase hex strings; corrected to case-insensitive comparison. Recorded hash bytes did not change."
+}
