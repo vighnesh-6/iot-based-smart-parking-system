@@ -1,0 +1,42 @@
+{
+  "recorded_at_utc": "2026-11-10T14:31:54.325136+00:00",
+  "source_commit": "e0ae26d729341779d06df91257c2735ac09707b4",
+  "cli_executable_present": true,
+  "process_cli_token_configured": false,
+  "operator_reported_all_three_running": true,
+  "operator_reported_connection_text": [
+    "Wi-Fi connected",
+    "MQTT connected"
+  ],
+  "exact_per_board_publication_lines_supplied": false,
+  "broker_smoke_observation": {
+    "passed": true,
+    "publishers": "three Python fixtures, not ESP32 firmware",
+    "namespace": "smartparking/validation/phase1/1571f806e6",
+    "production_topics_used_for_fixture_publish": false
+  },
+  "artifacts": [
+    {
+      "board": "esp32_01",
+      "path": "esp32/.pio/build/esp32_01/firmware.bin",
+      "bytes": 1008848,
+      "sha256": "a2a9328d6980a7661c4c5d5661ee48d20bef7a1f322e000656e09fa7926ad8c2",
+      "modified_at_utc": "2026-11-10T13:52:30.020053+00:00"
+    },
+    {
+      "board": "esp32_02",
+      "path": "esp32/.pio/build/esp32_02/firmware.bin",
+      "bytes": 1008848,
+      "sha256": "a576eab5569cf4a36e4788a51af7132af472e825104e4b04e7acfdd633b25a03",
+      "modified_at_utc": "2026-11-10T13:53:12.048929+00:00"
+    },
+    {
+      "board": "esp32_03",
+      "path": "esp32/.pio/build/esp32_03/firmware.bin",
+      "bytes": 1008848,
+      "sha256": "b030fb4f227465755381319d479c938a15d0e0d00848da2eaedf758c755e0a34",
+      "modified_at_utc": "2026-11-10T13:53:59.059361+00:00"
+    }
+  ],
+  "mosquitto_config_sha256": "0352bbc96a84ad378db11f1c23b3a191d1989e9a86879163c50b8599d7200374"
+}

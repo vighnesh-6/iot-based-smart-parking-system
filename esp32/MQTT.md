@@ -137,7 +137,48 @@ four GPIO mappings, unique MQTT topic/client ID and private gateway hostname.
 Security policy was not changed.
 
 The running local Mosquitto broker passed the isolated three-Python-publisher
-smoke test. An 8-second read-only subscription observed no fresh messages on
-any of the three production telemetry topics. Actual Wokwi ESP32-to-broker publishing and gateway reachability
-remain unverified; simulation runtime testing was left pending by user choice.
+smoke test. Saved production captures of 90, 60 and 45 seconds received no
+production messages in their separate windows. The operator subsequently
+reported that all three simultaneous Wokwi simulations delivered telemetry to
+the three production topics with P1-P12. **Delivery is operator-observed**, with
+no original subscriber screenshot, raw payload or Serial log available.
+The earlier captures remain unchanged; they do not contradict a later observation.
+Cadence, exact production JSON, timestamp accuracy, occupancy transitions and
+controlled reconnection remain unverified. No complete runtime-suite pass is claimed.
+
+## Serial diagnostics and saved capture
+
+`publishTelemetry(samples)` is called after each completed four-sensor scan.
+It returns without publishing when disconnected or before the interval is due.
+`PARKING_MQTT_LOG_PAYLOAD=1` (default) exposes each stage without credentials:
+
+```text
+ESP32-01 | MQTT publish check: connected=yes due=yes
+ESP32-01 | MQTT publish attempt: smartparking/esp32_01/telemetry
+MQTT telemetry published: smartparking/esp32_01/telemetry
+ESP32-01 | MQTT acknowledged payload: {actual JSON printed here}
+```
+
+These lines illustrate log formats, not an archived runtime log. Each board has
+its corresponding prefix/topic. Failure logs include `last_error` and
+`return_code`. The acknowledged-payload line is emitted only after the MQTT
+library returns success; subscriber receipt is a separate observation.
+
+To capture exact output, stop/start each simulation after building, open its
+Wokwi Serial Monitor, and copy the startup identity plus gate/attempt/payload
+lines from all three windows. Remove credentials before saving. Disable verbose
+payload logging with the flag set to 0 after diagnosis if desired.
+
+Capture production messages independently from the repository root:
+
+```powershell
+.\.venv\Scripts\python.exe esp32/tools/verify_mqtt_runtime.py `
+  --duration 90 --label followup `
+  --output reports/evidence/phase1_mqtt_followup.json
+```
+
+Use a new output name each time. The tool is read-only, ignores retained packets,
+and requires fresh valid messages; it never injects production traffic.
+See [the Phase 1 report](../reports/phase1_mqtt_integration.pdf) and
+[the evidence index](../reports/README.md) for commands, provenance and open tests.
 No FastAPI, SQLite, ML or dashboard functionality is added by this phase.

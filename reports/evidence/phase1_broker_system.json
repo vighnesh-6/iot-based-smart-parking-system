@@ -1,0 +1,24 @@
+{
+  "started_at_utc": "2026-11-10T14:29:51.776337+00:00",
+  "source": "read_only_mosquitto_system_topics",
+  "values": {
+    "$SYS/broker/version": {
+      "value": "mosquitto version 2.1.2",
+      "retained": true
+    },
+    "$SYS/broker/clients/connected": {
+      "value": "2",
+      "retained": false
+    },
+    "$SYS/broker/messages/received": {
+      "value": "590",
+      "retained": false
+    },
+    "$SYS/broker/uptime": {
+      "value": "17193 seconds",
+      "retained": false
+    }
+  },
+  "connack": "Success",
+  "ended_at_utc": "2026-11-10T14:30:03.784307+00:00"
+}

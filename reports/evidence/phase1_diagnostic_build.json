@@ -1,0 +1,31 @@
+{
+  "recorded_at_utc": "2026-11-10T14:43:56.676103+00:00",
+  "source": "diagnostic_firmware_build_and_operator_clarification",
+  "operator_clarification": "Exact published payload has not been captured; do not assume production publishing is working.",
+  "firmware_source_sha256": "d5da14f2de6cc79376c3edcf6642b52136175dfa571aa2fb4f56118dba53807e",
+  "build_status": {
+    "esp32_01": "SUCCESS",
+    "esp32_02": "SUCCESS",
+    "esp32_03": "SUCCESS"
+  },
+  "ram_bytes_per_board": 48636,
+  "flash_bytes_per_board": 997633,
+  "host_test_compilation": "all_three_passed_compile_only; no execution attempted due to prior Application Control blocks",
+  "artifacts": [
+    {
+      "board": "esp32_01",
+      "bytes": 1009712,
+      "sha256": "cd55ee105289ec26ec05441a71afb0c08769dc690d3897a97d254bc07a47c6a5"
+    },
+    {
+      "board": "esp32_02",
+      "bytes": 1009712,
+      "sha256": "5bae0562976dd045c1d42ca68d8117021dc49416e83f5437b7f9af5f90b846d7"
+    },
+    {
+      "board": "esp32_03",
+      "bytes": 1009712,
+      "sha256": "3554b32d7e074b60056d4c4a8a4a972adf4165c5ad9ddf44d4538d6d1cbd180e"
+    }
+  ]
+}

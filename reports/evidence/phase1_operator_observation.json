@@ -1,0 +1,21 @@
+{
+  "source": "operator_observed_runtime_verification",
+  "reported_on": "2026-11-10",
+  "time_basis": "Operator report date; exact observation time not supplied",
+  "statement": "All three Wokwi simulations were running simultaneously, and I observed MQTT telemetry arriving in the subscriber terminal for all three production topics.",
+  "topics_and_slots_reported": {
+    "smartparking/esp32_01/telemetry": ["P1", "P2", "P3", "P4"],
+    "smartparking/esp32_02/telemetry": ["P5", "P6", "P7", "P8"],
+    "smartparking/esp32_03/telemetry": ["P9", "P10", "P11", "P12"]
+  },
+  "simultaneous_simulations_reported": true,
+  "subscriber_screenshot_available": false,
+  "raw_payload_or_serial_log_available": false,
+  "independently_archived_production_evidence": false,
+  "limitations": [
+    "This file archives the operator statement, not the original runtime output.",
+    "Exact payload schema, periodic intervals, timestamp accuracy, occupancy transitions and reconnection were not independently verified.",
+    "Earlier saved zero-message captures remain unchanged and describe separate observation windows.",
+    "The exact firmware binary running during the operator observation is not independently established."
+  ]
+}

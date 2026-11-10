@@ -1,0 +1,65 @@
+{
+  "label": "operator_reported_mqtt_connected",
+  "source": "read_only_production_mqtt_subscription",
+  "source_commit": "e0ae26d729341779d06df91257c2735ac09707b4",
+  "started_at_utc": "2026-11-10T14:29:39.004Z",
+  "requested_duration_seconds": 45.0,
+  "broker": {
+    "host": "127.0.0.1",
+    "port": 1883
+  },
+  "expected_states": {},
+  "connack": "Success",
+  "suback": [
+    "Granted QoS 1",
+    "Granted QoS 1",
+    "Granted QoS 1"
+  ],
+  "observer_disconnects": [],
+  "messages": [],
+  "errors": [],
+  "retained_ignored": 0,
+  "duplicates_ignored": 0,
+  "ended_at_utc": "2026-11-10T14:30:24.037Z",
+  "elapsed_seconds": 45.031,
+  "devices": {
+    "esp32_01": {
+      "valid_unique_messages": 0,
+      "fully_timestamped_messages": 0,
+      "wall_intervals_seconds": [],
+      "device_intervals_ms": [],
+      "median_wall_interval_seconds": null,
+      "expected_state_matching_messages": 0,
+      "minimum_messages_passed": false,
+      "periodic_device_cadence_passed": false,
+      "timestamp_observation_passed": false,
+      "expected_states_observed": false
+    },
+    "esp32_02": {
+      "valid_unique_messages": 0,
+      "fully_timestamped_messages": 0,
+      "wall_intervals_seconds": [],
+      "device_intervals_ms": [],
+      "median_wall_interval_seconds": null,
+      "expected_state_matching_messages": 0,
+      "minimum_messages_passed": false,
+      "periodic_device_cadence_passed": false,
+      "timestamp_observation_passed": false,
+      "expected_states_observed": false
+    },
+    "esp32_03": {
+      "valid_unique_messages": 0,
+      "fully_timestamped_messages": 0,
+      "wall_intervals_seconds": [],
+      "device_intervals_ms": [],
+      "median_wall_interval_seconds": null,
+      "expected_state_matching_messages": 0,
+      "minimum_messages_passed": false,
+      "periodic_device_cadence_passed": false,
+      "timestamp_observation_passed": false,
+      "expected_states_observed": false
+    }
+  },
+  "capture_checks_passed": false,
+  "provenance_limit": "Topic/payload observation alone is not simulator process/Serial provenance. Reconnection requires separate controlled evidence."
+}
