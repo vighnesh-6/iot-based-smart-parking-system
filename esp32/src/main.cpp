@@ -1,5 +1,12 @@
 #include <Arduino.h>
 
+#ifndef PARKING_BOARD_ID
+#error "Select a board-specific build: esp32_01, esp32_02 or esp32_03"
+#endif
+
+static_assert(PARKING_BOARD_ID >= 1 && PARKING_BOARD_ID <= 3,
+              "PARKING_BOARD_ID must be 1, 2 or 3");
+
 // Change this default or supply -DPARKING_OCCUPIED_THRESHOLD_CM=25.0f
 // when compiling. Valid distances at or below the threshold are OCCUPIED.
 #ifndef PARKING_OCCUPIED_THRESHOLD_CM
@@ -26,12 +33,34 @@ struct ParkingSlot {
   uint8_t echoPin;
 };
 
+#if PARKING_BOARD_ID == 1
+constexpr const char* kBoardName = "ESP32-01";
 constexpr ParkingSlot kSlots[] = {
     {"P1", 13, 34},
     {"P2", 14, 35},
     {"P3", 25, 32},
     {"P4", 26, 33},
 };
+#elif PARKING_BOARD_ID == 2
+constexpr const char* kBoardName = "ESP32-02";
+constexpr ParkingSlot kSlots[] = {
+    {"P5", 13, 34},
+    {"P6", 14, 35},
+    {"P7", 25, 32},
+    {"P8", 26, 33},
+};
+#else
+constexpr const char* kBoardName = "ESP32-03";
+constexpr ParkingSlot kSlots[] = {
+    {"P9", 13, 34},
+    {"P10", 14, 35},
+    {"P11", 25, 32},
+    {"P12", 26, 33},
+};
+#endif
+
+static_assert(sizeof(kSlots) / sizeof(kSlots[0]) == 4,
+              "Each ESP32 must handle exactly four local sensors");
 
 enum class ReadingStatus { Valid, EchoTimeout, OutOfRange };
 
@@ -62,6 +91,8 @@ DistanceReading measureDistance(const ParkingSlot& slot) {
 }
 
 void printReading(const ParkingSlot& slot, const DistanceReading& reading) {
+  Serial.print(kBoardName);
+  Serial.print(" | ");
   Serial.print(slot.id);
   Serial.print(" | TRIG=");
   Serial.print(slot.trigPin);
@@ -98,7 +129,9 @@ void setup() {
   }
 
   delay(200);
-  Serial.println("Smart Parking: four HC-SR04 sensors, Serial only");
+  Serial.print("Smart Parking: ");
+  Serial.print(kBoardName);
+  Serial.println(" | four local sensors / twelve total slots | Serial only");
   Serial.print("OCCUPIED when valid distance_cm <= ");
   Serial.println(kOccupiedThresholdCm, 1);
   Serial.println("Invalid readings are UNKNOWN, never VACANT.");

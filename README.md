@@ -5,15 +5,26 @@ Academic project for simulated parking occupancy monitoring and a labelled
 
 ## Current stage
 
-Repository scaffolding only. Firmware, ingestion, database operations, APIs,
-data generation, model training and dashboard behavior are not implemented.
-No sensor circuit or runtime database has been created.
+The sensor layer now targets **12 parking slots across three ESP32 boards**,
+with four HC-SR04 sensors and four ECHO voltage dividers per board. Firmware
+is Serial-only and has three board-specific builds. Wi-Fi, MQTT, ingestion,
+database operations, APIs, ML and dashboard behavior are not implemented.
+No runtime database has been created. See `esp32/README.md` for wiring,
+build/test commands and the Wokwi runtime verification status.
 
-The finalized architecture remains: Wokwi + ESP32 + four HC-SR04 sensors ->
-MQTT / Mosquitto -> FastAPI + SQLite -> Streamlit / Plotly, with a separate
-offline ML preparation path and backend prediction serving. See page 14 of
-the architecture report for the repository layout. The existing report stays
-in the local `output/pdf/` directory; generated output is not tracked.
+The updated planned architecture is: three ESP32 boards + 12 HC-SR04 sensors
+-> future MQTT / Mosquitto -> FastAPI + SQLite -> Streamlit / Plotly, with a
+separate offline ML preparation path and backend prediction serving. No MQTT
+integration is added in this milestone. Future aggregation must use 12 total
+slots and distinguish missing devices from vacant spaces.
+
+Wokwi does not support multiple microcontrollers in one simulation. Therefore
+`esp32/diagram.json` is a three-board wiring overview, while three separate
+single-board projects under `esp32/simulations/` are the runnable configurations.
+See the [Wokwi FAQ](https://docs.wokwi.com/faq#how-do-i-use-multiple-microcontrollers-in-a-single-project).
+The original PDF in local `output/pdf/` describes the historical four-slot
+baseline; this README and `esp32/README.md` supersede its slot-count assumptions.
+The PDF is preserved, and generated output remains untracked.
 
 ## Layout
 
@@ -23,7 +34,18 @@ esp32/
   include/config.example.h
   platformio.ini
   diagram.json
-  wokwi.toml
+  README.md
+  simulations/
+    esp32-01/{diagram.json,wokwi.toml}
+    esp32-02/{diagram.json,wokwi.toml}
+    esp32-03/{diagram.json,wokwi.toml}
+  tools/
+    generate_diagrams.py
+    run_host_tests.py
+  tests/
+    test_circuits.py
+    test_firmware.cpp
+    fakes/Arduino.h
 backend/
   __init__.py
   main.py
@@ -67,8 +89,8 @@ to inspect it in Windows PowerShell:
 .\.venv\Scripts\python.exe -m pip freeze
 ```
 
-Implementation and launch commands will be added only when those components
-exist. The current placeholders are not a runnable system.
+The sensor build and test commands are documented in `esp32/README.md`.
+Other modules remain placeholders; this is not an end-to-end parking system.
 
 ## Local configuration and data policy
 
@@ -79,11 +101,13 @@ exist. The current placeholders are not a runnable system.
   this OneDrive-backed project directory. See `database/README.md`.
 - Keep synthetic training history explicitly labelled and separate from live
   Wokwi sensor telemetry. Do not use synthetic values for live slot status.
-- Wokwi VS Code entitlement and connectivity will be verified in the next
-  implementation stage; no architecture change is introduced here.
+- Wokwi runtime testing remains pending. Build/host-logic/netlist checks do not
+  establish successful simulation, physical voltage levels or sensor accuracy.
 
 ## Version control
 
 Use meaningful commits for completed work, verify staged content and push each
 commit. Never commit secrets, environments, build output, live databases or
-temporary files. This repository starts with scaffolding, not completed modules.
+temporary files. The compiled original four-slot implementation is preserved
+at tag `backup/4-slot-serial-baseline` (commit `c1acc46`). To inspect it without
+overwriting this checkout, use a separate clone or `git worktree add`.
