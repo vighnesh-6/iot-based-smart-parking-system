@@ -1,0 +1,5 @@
+# Single-board simulation: ESP32-01 handles P1-P4.
+[wokwi]
+version = 1
+firmware = "../../.pio/build/esp32_01/firmware.bin"
+elf = "../../.pio/build/esp32_01/firmware.elf"

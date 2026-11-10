@@ -1,0 +1,400 @@
+{
+  "version": 1,
+  "author": "",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp32_02",
+      "top": 160,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P5",
+      "top": -180,
+      "left": -360,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P5_echo_series",
+      "top": -10,
+      "left": -280,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P5_echo_shunt",
+      "top": 90,
+      "left": -280,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P6",
+      "top": -180,
+      "left": -120,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P6_echo_series",
+      "top": -10,
+      "left": -40,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P6_echo_shunt",
+      "top": 90,
+      "left": -40,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P7",
+      "top": -180,
+      "left": 120,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P7_echo_series",
+      "top": -10,
+      "left": 200,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P7_echo_shunt",
+      "top": 90,
+      "left": 200,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P8",
+      "top": -180,
+      "left": 360,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P8_echo_series",
+      "top": -10,
+      "left": 440,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P8_echo_shunt",
+      "top": 90,
+      "left": 440,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "P5:VCC",
+      "esp32_02:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P5:GND",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P5:TRIG",
+      "esp32_02:13",
+      "green",
+      [
+        "v70",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P5:ECHO",
+      "P5_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P5_echo_series:2",
+      "esp32_02:34",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P5_echo_series:2",
+      "P5_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P5_echo_shunt:2",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P6:VCC",
+      "esp32_02:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P6:GND",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P6:TRIG",
+      "esp32_02:14",
+      "green",
+      [
+        "v110",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P6:ECHO",
+      "P6_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P6_echo_series:2",
+      "esp32_02:35",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P6_echo_series:2",
+      "P6_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P6_echo_shunt:2",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P7:VCC",
+      "esp32_02:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P7:GND",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P7:TRIG",
+      "esp32_02:25",
+      "green",
+      [
+        "v150",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P7:ECHO",
+      "P7_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P7_echo_series:2",
+      "esp32_02:32",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P7_echo_series:2",
+      "P7_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P7_echo_shunt:2",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P8:VCC",
+      "esp32_02:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P8:GND",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P8:TRIG",
+      "esp32_02:26",
+      "green",
+      [
+        "v190",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P8:ECHO",
+      "P8_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P8_echo_series:2",
+      "esp32_02:33",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P8_echo_series:2",
+      "P8_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P8_echo_shunt:2",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "esp32_02:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp32_02:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ]
+  ]
+}

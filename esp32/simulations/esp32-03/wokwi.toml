@@ -1,0 +1,5 @@
+# Single-board simulation: ESP32-03 handles P9-P12.
+[wokwi]
+version = 1
+firmware = "../../.pio/build/esp32_03/firmware.bin"
+elf = "../../.pio/build/esp32_03/firmware.elf"

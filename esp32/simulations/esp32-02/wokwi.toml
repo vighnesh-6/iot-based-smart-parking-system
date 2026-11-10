@@ -1,0 +1,5 @@
+# Single-board simulation: ESP32-02 handles P5-P8.
+[wokwi]
+version = 1
+firmware = "../../.pio/build/esp32_02/firmware.bin"
+elf = "../../.pio/build/esp32_02/firmware.elf"

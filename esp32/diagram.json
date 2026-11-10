@@ -3,48 +3,1144 @@
   "author": "",
   "editor": "wokwi",
   "parts": [
-    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 160, "left": 0, "attrs": {} },
-    { "type": "wokwi-hc-sr04", "id": "P1", "top": -180, "left": -360, "attrs": { "distance": "100" } },
-    { "type": "wokwi-hc-sr04", "id": "P2", "top": -180, "left": -120, "attrs": { "distance": "100" } },
-    { "type": "wokwi-hc-sr04", "id": "P3", "top": -180, "left": 120, "attrs": { "distance": "100" } },
-    { "type": "wokwi-hc-sr04", "id": "P4", "top": -180, "left": 360, "attrs": { "distance": "100" } },
-    { "type": "wokwi-resistor", "id": "P1_echo_series", "top": -10, "left": -280, "rotate": 90, "attrs": { "value": "1000" } },
-    { "type": "wokwi-resistor", "id": "P1_echo_shunt", "top": 90, "left": -280, "rotate": 90, "attrs": { "value": "1800" } },
-    { "type": "wokwi-resistor", "id": "P2_echo_series", "top": -10, "left": -40, "rotate": 90, "attrs": { "value": "1000" } },
-    { "type": "wokwi-resistor", "id": "P2_echo_shunt", "top": 90, "left": -40, "rotate": 90, "attrs": { "value": "1800" } },
-    { "type": "wokwi-resistor", "id": "P3_echo_series", "top": -10, "left": 200, "rotate": 90, "attrs": { "value": "1000" } },
-    { "type": "wokwi-resistor", "id": "P3_echo_shunt", "top": 90, "left": 200, "rotate": 90, "attrs": { "value": "1800" } },
-    { "type": "wokwi-resistor", "id": "P4_echo_series", "top": -10, "left": 440, "rotate": 90, "attrs": { "value": "1000" } },
-    { "type": "wokwi-resistor", "id": "P4_echo_shunt", "top": 90, "left": 440, "rotate": 90, "attrs": { "value": "1800" } }
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp32_01",
+      "top": 160,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P1",
+      "top": -180,
+      "left": -360,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P1_echo_series",
+      "top": -10,
+      "left": -280,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P1_echo_shunt",
+      "top": 90,
+      "left": -280,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P2",
+      "top": -180,
+      "left": -120,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P2_echo_series",
+      "top": -10,
+      "left": -40,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P2_echo_shunt",
+      "top": 90,
+      "left": -40,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P3",
+      "top": -180,
+      "left": 120,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P3_echo_series",
+      "top": -10,
+      "left": 200,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P3_echo_shunt",
+      "top": 90,
+      "left": 200,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P4",
+      "top": -180,
+      "left": 360,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P4_echo_series",
+      "top": -10,
+      "left": 440,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P4_echo_shunt",
+      "top": 90,
+      "left": 440,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp32_02",
+      "top": 160,
+      "left": 1120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P5",
+      "top": -180,
+      "left": 760,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P5_echo_series",
+      "top": -10,
+      "left": 840,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P5_echo_shunt",
+      "top": 90,
+      "left": 840,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P6",
+      "top": -180,
+      "left": 1000,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P6_echo_series",
+      "top": -10,
+      "left": 1080,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P6_echo_shunt",
+      "top": 90,
+      "left": 1080,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P7",
+      "top": -180,
+      "left": 1240,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P7_echo_series",
+      "top": -10,
+      "left": 1320,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P7_echo_shunt",
+      "top": 90,
+      "left": 1320,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P8",
+      "top": -180,
+      "left": 1480,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P8_echo_series",
+      "top": -10,
+      "left": 1560,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P8_echo_shunt",
+      "top": 90,
+      "left": 1560,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp32_03",
+      "top": 160,
+      "left": 2240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P9",
+      "top": -180,
+      "left": 1880,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P9_echo_series",
+      "top": -10,
+      "left": 1960,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P9_echo_shunt",
+      "top": 90,
+      "left": 1960,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P10",
+      "top": -180,
+      "left": 2120,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P10_echo_series",
+      "top": -10,
+      "left": 2200,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P10_echo_shunt",
+      "top": 90,
+      "left": 2200,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P11",
+      "top": -180,
+      "left": 2360,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P11_echo_series",
+      "top": -10,
+      "left": 2440,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P11_echo_shunt",
+      "top": 90,
+      "left": 2440,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P12",
+      "top": -180,
+      "left": 2600,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P12_echo_series",
+      "top": -10,
+      "left": 2680,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P12_echo_shunt",
+      "top": 90,
+      "left": 2680,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    }
   ],
   "connections": [
-    [ "P1:VCC", "esp:5V", "red", [ "v30", "*", "h-100" ] ],
-    [ "P1:GND", "esp:GND.1", "black", [ "v50", "*", "h-80" ] ],
-    [ "P1:TRIG", "esp:13", "green", [ "v70", "*", "h-60" ] ],
-    [ "P1:ECHO", "P1_echo_series:1", "blue", [ "v20" ] ],
-    [ "P1_echo_series:2", "esp:34", "blue", [ "v20", "*", "h-40" ] ],
-    [ "P1_echo_series:2", "P1_echo_shunt:1", "blue", [] ],
-    [ "P1_echo_shunt:2", "esp:GND.1", "black", [ "v20", "*", "h-80" ] ],
-    [ "P2:VCC", "esp:5V", "red", [ "v30", "*", "h-100" ] ],
-    [ "P2:GND", "esp:GND.1", "black", [ "v50", "*", "h-80" ] ],
-    [ "P2:TRIG", "esp:14", "green", [ "v110", "*", "h-70" ] ],
-    [ "P2:ECHO", "P2_echo_series:1", "blue", [ "v20" ] ],
-    [ "P2_echo_series:2", "esp:35", "blue", [ "v20", "*", "h-50" ] ],
-    [ "P2_echo_series:2", "P2_echo_shunt:1", "blue", [] ],
-    [ "P2_echo_shunt:2", "esp:GND.1", "black", [ "v20", "*", "h-80" ] ],
-    [ "P3:VCC", "esp:5V", "red", [ "v30", "*", "h-100" ] ],
-    [ "P3:GND", "esp:GND.1", "black", [ "v50", "*", "h-80" ] ],
-    [ "P3:TRIG", "esp:25", "green", [ "v150", "*", "h-90" ] ],
-    [ "P3:ECHO", "P3_echo_series:1", "blue", [ "v20" ] ],
-    [ "P3_echo_series:2", "esp:32", "blue", [ "v20", "*", "h-110" ] ],
-    [ "P3_echo_series:2", "P3_echo_shunt:1", "blue", [] ],
-    [ "P3_echo_shunt:2", "esp:GND.1", "black", [ "v20", "*", "h-80" ] ],
-    [ "P4:VCC", "esp:5V", "red", [ "v30", "*", "h-100" ] ],
-    [ "P4:GND", "esp:GND.1", "black", [ "v50", "*", "h-80" ] ],
-    [ "P4:TRIG", "esp:26", "green", [ "v190", "*", "h-130" ] ],
-    [ "P4:ECHO", "P4_echo_series:1", "blue", [ "v20" ] ],
-    [ "P4_echo_series:2", "esp:33", "blue", [ "v20", "*", "h-150" ] ],
-    [ "P4_echo_series:2", "P4_echo_shunt:1", "blue", [] ],
-    [ "P4_echo_shunt:2", "esp:GND.1", "black", [ "v20", "*", "h-80" ] ]
+    [
+      "P1:VCC",
+      "esp32_01:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P1:GND",
+      "esp32_01:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P1:TRIG",
+      "esp32_01:13",
+      "green",
+      [
+        "v70",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P1:ECHO",
+      "P1_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P1_echo_series:2",
+      "esp32_01:34",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P1_echo_series:2",
+      "P1_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P1_echo_shunt:2",
+      "esp32_01:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P2:VCC",
+      "esp32_01:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P2:GND",
+      "esp32_01:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P2:TRIG",
+      "esp32_01:14",
+      "green",
+      [
+        "v110",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P2:ECHO",
+      "P2_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P2_echo_series:2",
+      "esp32_01:35",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P2_echo_series:2",
+      "P2_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P2_echo_shunt:2",
+      "esp32_01:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P3:VCC",
+      "esp32_01:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P3:GND",
+      "esp32_01:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P3:TRIG",
+      "esp32_01:25",
+      "green",
+      [
+        "v150",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P3:ECHO",
+      "P3_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P3_echo_series:2",
+      "esp32_01:32",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P3_echo_series:2",
+      "P3_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P3_echo_shunt:2",
+      "esp32_01:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P4:VCC",
+      "esp32_01:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P4:GND",
+      "esp32_01:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P4:TRIG",
+      "esp32_01:26",
+      "green",
+      [
+        "v190",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P4:ECHO",
+      "P4_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P4_echo_series:2",
+      "esp32_01:33",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P4_echo_series:2",
+      "P4_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P4_echo_shunt:2",
+      "esp32_01:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P5:VCC",
+      "esp32_02:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P5:GND",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P5:TRIG",
+      "esp32_02:13",
+      "green",
+      [
+        "v70",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P5:ECHO",
+      "P5_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P5_echo_series:2",
+      "esp32_02:34",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P5_echo_series:2",
+      "P5_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P5_echo_shunt:2",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P6:VCC",
+      "esp32_02:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P6:GND",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P6:TRIG",
+      "esp32_02:14",
+      "green",
+      [
+        "v110",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P6:ECHO",
+      "P6_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P6_echo_series:2",
+      "esp32_02:35",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P6_echo_series:2",
+      "P6_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P6_echo_shunt:2",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P7:VCC",
+      "esp32_02:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P7:GND",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P7:TRIG",
+      "esp32_02:25",
+      "green",
+      [
+        "v150",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P7:ECHO",
+      "P7_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P7_echo_series:2",
+      "esp32_02:32",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P7_echo_series:2",
+      "P7_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P7_echo_shunt:2",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P8:VCC",
+      "esp32_02:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P8:GND",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P8:TRIG",
+      "esp32_02:26",
+      "green",
+      [
+        "v190",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P8:ECHO",
+      "P8_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P8_echo_series:2",
+      "esp32_02:33",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P8_echo_series:2",
+      "P8_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P8_echo_shunt:2",
+      "esp32_02:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P9:VCC",
+      "esp32_03:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P9:GND",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P9:TRIG",
+      "esp32_03:13",
+      "green",
+      [
+        "v70",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P9:ECHO",
+      "P9_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P9_echo_series:2",
+      "esp32_03:34",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P9_echo_series:2",
+      "P9_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P9_echo_shunt:2",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P10:VCC",
+      "esp32_03:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P10:GND",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P10:TRIG",
+      "esp32_03:14",
+      "green",
+      [
+        "v110",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P10:ECHO",
+      "P10_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P10_echo_series:2",
+      "esp32_03:35",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P10_echo_series:2",
+      "P10_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P10_echo_shunt:2",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P11:VCC",
+      "esp32_03:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P11:GND",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P11:TRIG",
+      "esp32_03:25",
+      "green",
+      [
+        "v150",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P11:ECHO",
+      "P11_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P11_echo_series:2",
+      "esp32_03:32",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P11_echo_series:2",
+      "P11_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P11_echo_shunt:2",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P12:VCC",
+      "esp32_03:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P12:GND",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P12:TRIG",
+      "esp32_03:26",
+      "green",
+      [
+        "v190",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P12:ECHO",
+      "P12_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P12_echo_series:2",
+      "esp32_03:33",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P12_echo_series:2",
+      "P12_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P12_echo_shunt:2",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ]
   ]
 }

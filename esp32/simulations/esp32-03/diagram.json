@@ -1,0 +1,400 @@
+{
+  "version": 1,
+  "author": "",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp32_03",
+      "top": 160,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P9",
+      "top": -180,
+      "left": -360,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P9_echo_series",
+      "top": -10,
+      "left": -280,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P9_echo_shunt",
+      "top": 90,
+      "left": -280,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P10",
+      "top": -180,
+      "left": -120,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P10_echo_series",
+      "top": -10,
+      "left": -40,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P10_echo_shunt",
+      "top": 90,
+      "left": -40,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P11",
+      "top": -180,
+      "left": 120,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P11_echo_series",
+      "top": -10,
+      "left": 200,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P11_echo_shunt",
+      "top": 90,
+      "left": 200,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "P12",
+      "top": -180,
+      "left": 360,
+      "attrs": {
+        "distance": "100"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P12_echo_series",
+      "top": -10,
+      "left": 440,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "P12_echo_shunt",
+      "top": 90,
+      "left": 440,
+      "rotate": 90,
+      "attrs": {
+        "value": "1800"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "P9:VCC",
+      "esp32_03:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P9:GND",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P9:TRIG",
+      "esp32_03:13",
+      "green",
+      [
+        "v70",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P9:ECHO",
+      "P9_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P9_echo_series:2",
+      "esp32_03:34",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P9_echo_series:2",
+      "P9_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P9_echo_shunt:2",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P10:VCC",
+      "esp32_03:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P10:GND",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P10:TRIG",
+      "esp32_03:14",
+      "green",
+      [
+        "v110",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P10:ECHO",
+      "P10_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P10_echo_series:2",
+      "esp32_03:35",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P10_echo_series:2",
+      "P10_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P10_echo_shunt:2",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P11:VCC",
+      "esp32_03:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P11:GND",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P11:TRIG",
+      "esp32_03:25",
+      "green",
+      [
+        "v150",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P11:ECHO",
+      "P11_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P11_echo_series:2",
+      "esp32_03:32",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P11_echo_series:2",
+      "P11_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P11_echo_shunt:2",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P12:VCC",
+      "esp32_03:5V",
+      "red",
+      [
+        "v30",
+        "*",
+        "h-100"
+      ]
+    ],
+    [
+      "P12:GND",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v50",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "P12:TRIG",
+      "esp32_03:26",
+      "green",
+      [
+        "v190",
+        "*",
+        "h-60"
+      ]
+    ],
+    [
+      "P12:ECHO",
+      "P12_echo_series:1",
+      "blue",
+      [
+        "v20"
+      ]
+    ],
+    [
+      "P12_echo_series:2",
+      "esp32_03:33",
+      "blue",
+      [
+        "v20",
+        "*",
+        "h-40"
+      ]
+    ],
+    [
+      "P12_echo_series:2",
+      "P12_echo_shunt:1",
+      "blue",
+      []
+    ],
+    [
+      "P12_echo_shunt:2",
+      "esp32_03:GND.1",
+      "black",
+      [
+        "v20",
+        "*",
+        "h-80"
+      ]
+    ],
+    [
+      "esp32_03:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp32_03:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ]
+  ]
+}
