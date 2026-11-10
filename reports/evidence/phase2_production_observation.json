@@ -1,0 +1,179 @@
+{
+  "source": "read_only_production_backend_observation",
+  "started_at_utc": "2026-11-10T16:46:31.535Z",
+  "duration_seconds": 30,
+  "production_messages_published": false,
+  "health_http_status": 200,
+  "health": {
+    "status": "ok",
+    "database_ok": true,
+    "mqtt": {
+      "connected": true,
+      "subscribed": true,
+      "reconnects": 0,
+      "received": 0,
+      "stored": 0,
+      "history_only": 0,
+      "duplicates": 0,
+      "rejected": 0,
+      "retained_ignored": 0,
+      "queue_overflows": 0,
+      "database_errors": 0,
+      "database_error_active": false,
+      "worker_error_active": false,
+      "last_received_at": null,
+      "last_stored_at": null,
+      "last_error": null,
+      "queue_depth": 0,
+      "worker_alive": true,
+      "network_alive": true,
+      "enabled": true
+    }
+  },
+  "history_total": 0,
+  "slots": [
+    {
+      "slot_id": "P1",
+      "device_id": "esp32_01",
+      "occupancy_status": "UNKNOWN",
+      "distance_cm": null,
+      "measured_at": null,
+      "received_at": null,
+      "sequence": null,
+      "stale": true,
+      "observed": false
+    },
+    {
+      "slot_id": "P2",
+      "device_id": "esp32_01",
+      "occupancy_status": "UNKNOWN",
+      "distance_cm": null,
+      "measured_at": null,
+      "received_at": null,
+      "sequence": null,
+      "stale": true,
+      "observed": false
+    },
+    {
+      "slot_id": "P3",
+      "device_id": "esp32_01",
+      "occupancy_status": "UNKNOWN",
+      "distance_cm": null,
+      "measured_at": null,
+      "received_at": null,
+      "sequence": null,
+      "stale": true,
+      "observed": false
+    },
+    {
+      "slot_id": "P4",
+      "device_id": "esp32_01",
+      "occupancy_status": "UNKNOWN",
+      "distance_cm": null,
+      "measured_at": null,
+      "received_at": null,
+      "sequence": null,
+      "stale": true,
+      "observed": false
+    },
+    {
+      "slot_id": "P5",
+      "device_id": "esp32_02",
+      "occupancy_status": "UNKNOWN",
+      "distance_cm": null,
+      "measured_at": null,
+      "received_at": null,
+      "sequence": null,
+      "stale": true,
+      "observed": false
+    },
+    {
+      "slot_id": "P6",
+      "device_id": "esp32_02",
+      "occupancy_status": "UNKNOWN",
+      "distance_cm": null,
+      "measured_at": null,
+      "received_at": null,
+      "sequence": null,
+      "stale": true,
+      "observed": false
+    },
+    {
+      "slot_id": "P7",
+      "device_id": "esp32_02",
+      "occupancy_status": "UNKNOWN",
+      "distance_cm": null,
+      "measured_at": null,
+      "received_at": null,
+      "sequence": null,
+      "stale": true,
+      "observed": false
+    },
+    {
+      "slot_id": "P8",
+      "device_id": "esp32_02",
+      "occupancy_status": "UNKNOWN",
+      "distance_cm": null,
+      "measured_at": null,
+      "received_at": null,
+      "sequence": null,
+      "stale": true,
+      "observed": false
+    },
+    {
+      "slot_id": "P9",
+      "device_id": "esp32_03",
+      "occupancy_status": "UNKNOWN",
+      "distance_cm": null,
+      "measured_at": null,
+      "received_at": null,
+      "sequence": null,
+      "stale": true,
+      "observed": false
+    },
+    {
+      "slot_id": "P10",
+      "device_id": "esp32_03",
+      "occupancy_status": "UNKNOWN",
+      "distance_cm": null,
+      "measured_at": null,
+      "received_at": null,
+      "sequence": null,
+      "stale": true,
+      "observed": false
+    },
+    {
+      "slot_id": "P11",
+      "device_id": "esp32_03",
+      "occupancy_status": "UNKNOWN",
+      "distance_cm": null,
+      "measured_at": null,
+      "received_at": null,
+      "sequence": null,
+      "stale": true,
+      "observed": false
+    },
+    {
+      "slot_id": "P12",
+      "device_id": "esp32_03",
+      "occupancy_status": "UNKNOWN",
+      "distance_cm": null,
+      "measured_at": null,
+      "received_at": null,
+      "sequence": null,
+      "stale": true,
+      "observed": false
+    }
+  ],
+  "stats": {
+    "total_slots": 12,
+    "occupied": 0,
+    "vacant": 0,
+    "unknown": 12,
+    "stale": 12,
+    "unseen": 12,
+    "occupancy_percent_of_total": 0.0
+  },
+  "ended_at_utc": "2026-11-10T16:47:02.137Z",
+  "esp32_runtime_delivery_observed": false
+}
