@@ -1,0 +1,54 @@
+# Existing Python environment and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Firmware build output
+.pio/
+
+# Local settings and credentials (safe templates stay tracked)
+.env
+.env.*
+!.env.example
+secrets/
+**/secrets/
+secrets.*
+**/secrets.*
+credentials/
+**/credentials/
+credentials.*
+**/credentials.*
+config.h
+config.local.h
+*.pem
+*.key
+*.p12
+*.pfx
+.aws/
+.ssh/
+.streamlit/secrets.toml
+.netrc
+_netrc
+*.token
+
+# Runtime databases, journals and logs
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.log
+logs/
+
+# Notebook checkpoints and local generated files
+.ipynb_checkpoints/
+tmp/
+temp/
+output/
+.DS_Store
+Thumbs.db
