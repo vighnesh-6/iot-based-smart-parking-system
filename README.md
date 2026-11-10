@@ -7,15 +7,16 @@ Academic project for simulated parking occupancy monitoring and a labelled
 
 The sensor layer now targets **12 parking slots across three ESP32 boards**,
 with four HC-SR04 sensors and four ECHO voltage dividers per board. Firmware
-is Serial-only and has three board-specific builds. Wi-Fi, MQTT, ingestion,
-database operations, APIs, ML and dashboard behavior are not implemented.
+has three board-specific builds with Phase 1 Wi-Fi/MQTT telemetry and Serial
+diagnostics. Actual Wokwi ESP32 MQTT runtime verification remains pending.
+Ingestion, database operations, APIs, ML and dashboard behavior are not implemented.
 No runtime database has been created. See `esp32/README.md` for wiring,
 build/test commands and the Wokwi runtime verification status.
 
 The updated planned architecture is: three ESP32 boards + 12 HC-SR04 sensors
--> future MQTT / Mosquitto -> FastAPI + SQLite -> Streamlit / Plotly, with a
-separate offline ML preparation path and backend prediction serving. No MQTT
-integration is added in this milestone. Future aggregation must use 12 total
+-> MQTT / Mosquitto -> future FastAPI + SQLite -> Streamlit / Plotly, with a
+separate offline ML preparation path and backend prediction serving. Phase 1
+MQTT details and validation limits are in `esp32/MQTT.md`. Future aggregation must use 12 total
 slots and distinguish missing devices from vacant spaces.
 
 Wokwi does not support multiple microcontrollers in one simulation. Therefore
@@ -49,9 +50,11 @@ Discovery/path checks do not establish a successful simulation run.
 esp32/
   src/main.cpp
   include/config.example.h
+  include/mqtt_config.h
   platformio.ini
   diagram.json
   README.md
+  MQTT.md
   simulations/
     esp32-01/{diagram.json,wokwi.toml}
     esp32-02/{diagram.json,wokwi.toml}
@@ -59,10 +62,13 @@ esp32/
   tools/
     generate_diagrams.py
     run_host_tests.py
+    check_mqtt.py
   tests/
     test_circuits.py
     test_firmware.cpp
     fakes/Arduino.h
+    fakes/WiFi.h
+    fakes/MQTT.h
 backend/
   __init__.py
   main.py

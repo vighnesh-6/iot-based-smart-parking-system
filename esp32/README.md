@@ -55,9 +55,11 @@ The default threshold is still 20 cm; Serial speed is **115200**. To override
 the threshold, add a second flag such as `-DPARKING_OCCUPIED_THRESHOLD_CM=25.0f`
 to the selected environment while retaining its board-ID flag.
 
-No Wi-Fi, MQTT, inter-board networking or aggregate occupancy service is added.
-Future backend work must use 12 configured slots and per-device freshness;
-the current backend/ML/database/dashboard modules remain untouched.
+Phase 1 Wi-Fi/MQTT telemetry is now implemented; see [MQTT.md](MQTT.md) for
+topics, client IDs, timestamp semantics, reconnection and runtime checks.
+The same readings and classifications still appear on Serial. No aggregate
+occupancy service is added. Future backend work must use 12 configured slots
+and per-device freshness; backend/ML/database/dashboard remain untouched.
 
 ## Wokwi project selection
 
@@ -159,7 +161,7 @@ Lint verifies supported components and pin references, not multi-board runtime
 support or electrical behavior. Wokwi has only [basic analog simulation](https://docs.wokwi.com/parts/wokwi-resistor),
 so a divider voltage must not be described as measured in Wokwi.
 
-Validation on this workstation: all three PlatformIO environments compiled
+Prior sensor-only milestone validation: all three PlatformIO environments compiled
 successfully (22,116 bytes RAM, 294,000 bytes flash each), and the independent
 netlist/config tests passed. Wokwi CLI 0.29.1 lint exited 0 on all four diagrams,
 with no errors or warnings, but an informational `unsupported-part` diagnostic
@@ -169,9 +171,11 @@ limitation visible; a zero lint exit code is not a simulation pass.
 
 All 126 ESP32 board endpoints across the overview and local diagrams were also
 checked against the [official DevKitC V4 board definition](https://github.com/wokwi/wokwi-boards/blob/main/boards/esp32-devkit-c-v4/board.json),
-including their GPIO/power/ground targets. Host logic tests passed for ESP32-01.
-Windows Application Control blocked execution of the ESP32-02 host test binary
-(WinError 4551); ESP32-03 host runtime tests were not run. The compile-only
+including their GPIO/power/ground targets. Initial Phase 1 host checks passed
+for ESP32-01, including JSON encoding, publish pacing and reconnects. Windows
+Application Control blocked ESP32-02 and the final ESP32-01 rerun after additional
+identity assertions (WinError 4551); a complete final host-suite pass is not
+claimed. ESP32-03 host runtime tests were not run. The compile-only
 command passed for all three host test programs without weakening security
 settings. The compiled ESP32 ELF slot tables were also inspected: each has
 exactly four entries with its assigned P1-P4, P5-P8 or P9-P12 identities and

@@ -60,11 +60,13 @@ def main():
         executable = OUTPUT / (f"esp32_{board:02d}" + (".exe" if os.name == "nt" else ""))
         if compiler:
             subprocess.run([compiler, "-std=c++17", "-Wall", "-Wextra", "-pedantic",
-                            f"-DPARKING_BOARD_ID={board}", "-I", str(FAKES), str(TEST),
+                            f"-DPARKING_BOARD_ID={board}", "-I", str(FAKES),
+                            "-I", str(ROOT / "include"), str(TEST),
                             "-o", str(executable)], check=True, cwd=OUTPUT)
         else:
             subprocess.run([msvc, "/nologo", "/std:c++17", "/EHsc", "/W4",
-                            f"/DPARKING_BOARD_ID={board}", f"/I{FAKES}", str(TEST),
+                            f"/DPARKING_BOARD_ID={board}", f"/I{FAKES}",
+                            f"/I{ROOT / 'include'}", str(TEST),
                             f"/Fe:{executable}", f"/Fo:{OUTPUT / (str(board) + '.obj')}"],
                            check=True, cwd=OUTPUT, env=compiler_env)
         executables.append(executable)
