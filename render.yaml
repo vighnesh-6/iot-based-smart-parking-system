@@ -1,0 +1,32 @@
+# Do not apply until local + Ubuntu verification passes and card-free eligibility is confirmed.
+services:
+  - type: web
+    name: smart-parking-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r backend/requirements-cloud.txt
+    startCommand: python -m uvicorn backend.main:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /livez
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: DEPLOYMENT_MODE
+        value: cloud
+      - key: DATABASE_URL
+        sync: false
+      - key: MQTT_TLS
+        value: "true"
+      - key: MQTT_PORT
+        value: "8883"
+      - key: MQTT_HOST
+        sync: false
+      - key: MQTT_CLIENT_ID
+        value: smartparking-cloud-backend
+      - key: MQTT_USERNAME
+        sync: false
+      - key: MQTT_PASSWORD
+        sync: false
+      - key: API_BEARER_TOKEN
+        sync: false
+      - key: STALE_SECONDS
+        value: "30"
