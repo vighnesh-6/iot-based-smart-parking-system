@@ -11,12 +11,15 @@ has three board-specific builds with Phase 1 Wi-Fi/MQTT telemetry and Serial
 diagnostics. Phase 1 production delivery is operator-observed; detailed archived
 ESP32 runtime acceptance remains incomplete. Phase 2 adds validated MQTT ingestion,
 SQLite history/current state and a FastAPI REST API. See `backend/README.md` for
-startup, endpoints, tests and limitations. ML and dashboard remain placeholders.
+startup, endpoints, tests and limitations. Phases 3/4 provide frozen synthetic
+history, causal features and the validation-selected Persistence prediction bundle.
+Phase 5 adds a read-only Streamlit dashboard; see `dashboard/README.md` for startup,
+configuration, prediction adapters and separate Phase 6 deployment requirements.
 Automated verification uses private temporary databases, preserving live data.
 
 The updated planned architecture is: three ESP32 boards + 12 HC-SR04 sensors
--> MQTT / Mosquitto -> FastAPI + SQLite -> future Streamlit / Plotly, with a
-separate offline ML preparation path and backend prediction serving. Phase 1
+-> MQTT / Mosquitto -> FastAPI + SQLite -> Streamlit / Plotly, with a
+separate frozen offline ML path and modular dashboard prediction execution. Phase 1
 MQTT details and validation limits are in `esp32/MQTT.md`. Future aggregation must use 12 total
 slots and distinguish missing devices from vacant spaces.
 
@@ -84,11 +87,25 @@ ml/
   data/.gitkeep
   artifacts/.gitkeep
   notebooks/
-    01_synthetic_data_generation_and_eda.ipynb
-    02_feature_engineering.ipynb
-    03_model_training.ipynb
-    04_model_evaluation.ipynb
-dashboard/app.py
+    01_synthetic_history_and_eda.ipynb
+    02_causal_feature_engineering.ipynb
+    03_training_artifact_review.ipynb
+    04_frozen_evaluation_review.ipynb
+    05_persistence_baseline.ipynb
+    06_linear_regression.ipynb
+    07_random_forest.ipynb
+    08_model_evaluation_and_selection.ipynb
+dashboard/
+  app.py
+  api_client.py
+  config.py
+  config.example.toml
+  data_views.py
+  prediction.py
+  requirements.txt
+  README.md
+  tests/test_dashboard.py
+  tools/verify_local.py
 database/README.md
 config/mosquitto.conf
 .env.example
@@ -100,9 +117,9 @@ smart-parking-esp32-02.code-workspace
 smart-parking-esp32-03.code-workspace
 ```
 
-`.gitkeep` files preserve otherwise empty directories in Git. Each notebook
-contains only one title Markdown cell; code cells will be added manually in
-the ML phase.
+`.gitkeep` files preserve otherwise empty directories in Git. The eight manually
+authored notebooks contain verified execution outputs. Frozen phase artifacts
+and the original four-slot architecture PDF are retained unchanged.
 
 ## Existing environment
 
@@ -117,8 +134,10 @@ to inspect it in Windows PowerShell:
 ```
 
 The sensor build and test commands are documented in `esp32/README.md`.
-ML and dashboard modules remain placeholders; end-to-end ESP32-to-API verification
-requires fresh production telemetry. Phase 2 broker tests use labelled synthetic fixtures.
+End-to-end ESP32-to-API verification requires fresh production telemetry. Phase 2
+broker tests use labelled synthetic fixtures. Model scores and the dashboard's
+retrospective example remain explicitly synthetic; missing live history never
+enables a fabricated forecast.
 
 ## Local configuration and data policy
 
