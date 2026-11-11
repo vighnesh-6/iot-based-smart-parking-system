@@ -39,7 +39,9 @@ class ApiClient:
                 if degraded_health and path == '/health' and error.code == 503:
                     response = error
                 else:
-                    raise ApiError(f'{path}: API returned HTTP {error.code}') from error
+                    hint = ('; service may be waking from free-tier sleep; retry shortly'
+                            if error.code in (502, 503, 504) else '')
+                    raise ApiError(f'{path}: API returned HTTP {error.code}{hint}') from error
             with response:
                 content = response.read(4_000_001)
             if len(content) > 4_000_000:
