@@ -1,5 +1,88 @@
 # Smart Parking integration reports
 
+## Executed Phase 3/4 notebooks
+
+The four title-only notebooks were replaced with these eight manually authored
+notebooks in the existing `ml/notebooks/` folder:
+
+| Notebook | Purpose |
+| --- | --- |
+| [01 Synthetic history and EDA](../ml/notebooks/01_synthetic_history_and_eda.ipynb) | Frozen provenance, minute cadence, slot transitions and patterns |
+| [02 Causal feature engineering](../ml/notebooks/02_causal_feature_engineering.ipynb) | Past-only features, exact future labels, intervention and purge checks |
+| [03 Training artifact review](../ml/notebooks/03_training_artifact_review.ipynb) | Saved training configuration and training-only scaler verification |
+| [04 Frozen evaluation review](../ml/notebooks/04_frozen_evaluation_review.ipynb) | Explicitly archived results, acceptance evidence and limitations |
+| [05 Persistence baseline](../ml/notebooks/05_persistence_baseline.ipynb) | Actual saved-baseline predictions and held-out metric reproduction |
+| [06 Linear Regression](../ml/notebooks/06_linear_regression.ipynb) | Saved pipeline, clipping and held-out metric reproduction |
+| [07 Random Forest](../ml/notebooks/07_random_forest.ipynb) | Saved tuning, configuration and held-out metric reproduction |
+| [08 Evaluation and selection](../ml/notebooks/08_model_evaluation_and_selection.ipynb) | Fair comparison, locked selection and prediction interface |
+
+All **8 notebooks / 27 code cells** executed successfully in fresh kernels using
+the approved isolated Windows ML runtime. The existing ML suite also passed
+**42 tests**. Outputs are saved in the notebooks. Notebook 04 labels archived
+evidence explicitly; notebooks 05–08 recompute predictions from the trusted
+saved model. No frozen data, source, models or PDFs were rewritten.
+
+[Notebook execution evidence](evidence/notebook_execution_verification.json)
+records exact dependency pins, checksums, actual execution timings, regression
+test output and preservation checks. It also records an initial failed notebook
+assertion corrected by signed integer differencing, plus the blocked Jupyter
+launcher. After the operator reported an out-of-order `Path` NameError in
+notebook 08, its final verification cell received an explicit import and the
+entire notebook passed again from a fresh approved kernel (counts 1–4).
+These earlier failures are not counted as passes.
+
+### Local execution
+
+Select `%LOCALAPPDATA%\SmartParking\ml-runtime\Scripts\python.exe` as the notebook
+interpreter in VS Code, then run all cells in order. Each notebook verifies its
+interpreter and locates the repository root. The project `.venv` is unchanged.
+Notebook outputs describe synthetic data only; no live forecast or real-world
+accuracy is established. There is no model fitting or dataset generation in
+the notebooks. The regression tests separately train small temporary fixtures.
+
+The approved Jupyter packages are `ipykernel==6.30.1`, `nbclient==0.10.2` and
+`nbformat==5.10.4`; exact transitive versions and official PyPI wheel hashes are
+in the evidence JSON. ML package versions were preserved.
+
+Windows Application Control blocked the installed `jupyter-execute.exe` launcher
+with WinError 4551. Python imports passed. With explicit operator approval,
+execution used the supported **nbclient Python API** through the approved
+interpreter. No policy, trust exception or DLL location was changed.
+
+For the same API route, register a temporary kernel from the repository root:
+
+```powershell
+$py = "$env:LOCALAPPDATA\SmartParking\ml-runtime\Scripts\python.exe"
+& $py -B -m ipykernel install --prefix "$PWD/tmp/notebook_jupyter" `
+  --name smartparking-ml --display-name 'Smart Parking (approved ML runtime)'
+$env:JUPYTER_PATH = "$PWD/tmp/notebook_jupyter/share/jupyter"
+$env:JUPYTER_RUNTIME_DIR = "$PWD/tmp/notebook_jupyter/runtime"
+$env:IPYTHONDIR = "$PWD/tmp/notebook_jupyter/ipython"
+$env:PYTHONDONTWRITEBYTECODE = '1'
+```
+
+Then run this Python code with that interpreter from the repository root.
+It executes existing, manually authored notebooks; it does not generate cells:
+
+```python
+import asyncio
+from pathlib import Path
+import nbformat
+from nbclient import NotebookClient
+
+asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+for path in sorted(Path("ml/notebooks").glob("*.ipynb")):
+    notebook = nbformat.read(path, as_version=4)
+    NotebookClient(notebook, kernel_name="smartparking-ml", timeout=180,
+                   resources={"metadata": {"path": str(Path.cwd())}}).execute()
+    nbformat.write(notebook, path)  # Save actual execution outputs only.
+```
+
+On another machine, use an approved local environment and adjust the explicit
+interpreter assertion in an authorized working copy. If native imports are
+blocked, stop and obtain an approved runtime; do not disable security controls.
+All existing phase PDFs below remain unchanged.
+
 ## Phase 4: Machine Learning Model Development
 
 [Comprehensive Phase 4 PDF](phase4_machine_learning_model_development.pdf) covers
