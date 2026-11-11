@@ -1,0 +1,243 @@
+{
+  "source": "actual_full_artifact_validation",
+  "data_source": "synthetic",
+  "checks": {
+    "eight_weeks_one_minute": {
+      "status": "PASS",
+      "evidence": {
+        "rows": 80640,
+        "expected_rows": 80640,
+        "first": "2026-09-14 00:00:00+05:30",
+        "last": "2026-11-08 23:59:00+05:30"
+      }
+    },
+    "all_twelve_slots": {
+      "status": "PASS",
+      "evidence": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5",
+        "P6",
+        "P7",
+        "P8",
+        "P9",
+        "P10",
+        "P11",
+        "P12"
+      ]
+    },
+    "synthetic_provenance": {
+      "status": "PASS",
+      "evidence": "All records explicitly synthetic; no live database input"
+    },
+    "missing_values_and_numeric_ranges": {
+      "status": "PASS",
+      "evidence": {
+        "raw_missing": 0,
+        "processed_missing": 0
+      }
+    },
+    "total_equals_slot_sum": {
+      "status": "PASS",
+      "evidence": "Every raw minute checked, not a sample"
+    },
+    "slot_arrivals_departures_and_dwell": {
+      "status": "PASS",
+      "evidence": {
+        "per_slot": {
+          "P1": {
+            "arrivals": 100,
+            "departures": 100,
+            "occupied_fraction": 0.22428
+          },
+          "P2": {
+            "arrivals": 93,
+            "departures": 93,
+            "occupied_fraction": 0.20857
+          },
+          "P3": {
+            "arrivals": 91,
+            "departures": 91,
+            "occupied_fraction": 0.20362
+          },
+          "P4": {
+            "arrivals": 95,
+            "departures": 95,
+            "occupied_fraction": 0.18994
+          },
+          "P5": {
+            "arrivals": 84,
+            "departures": 84,
+            "occupied_fraction": 0.1765
+          },
+          "P6": {
+            "arrivals": 84,
+            "departures": 84,
+            "occupied_fraction": 0.17502
+          },
+          "P7": {
+            "arrivals": 86,
+            "departures": 86,
+            "occupied_fraction": 0.20156
+          },
+          "P8": {
+            "arrivals": 89,
+            "departures": 89,
+            "occupied_fraction": 0.21022
+          },
+          "P9": {
+            "arrivals": 82,
+            "departures": 82,
+            "occupied_fraction": 0.19587
+          },
+          "P10": {
+            "arrivals": 82,
+            "departures": 82,
+            "occupied_fraction": 0.19942
+          },
+          "P11": {
+            "arrivals": 79,
+            "departures": 79,
+            "occupied_fraction": 0.18905
+          },
+          "P12": {
+            "arrivals": 77,
+            "departures": 77,
+            "occupied_fraction": 0.17774
+          }
+        },
+        "completed_stays": 1042,
+        "dwell_min": 21,
+        "dwell_median": 141.0,
+        "dwell_max": 720
+      }
+    },
+    "synthetic_daily_weekly_patterns": {
+      "status": "PASS",
+      "evidence": {
+        "weekday_business_mean": 6.407291666666667,
+        "weekend_business_mean": 1.78046875,
+        "weekday_night_mean": 0.21658333333333332,
+        "lag1_autocorrelation": 0.9986024284218993
+      }
+    },
+    "exact_fifteen_minute_target": {
+      "status": "PASS",
+      "evidence": {
+        "checked_rows": 70515,
+        "horizon_minutes": 15
+      }
+    },
+    "current_features_match_observation": {
+      "status": "PASS",
+      "evidence": "Current state/count features compared against raw timestamp lookup"
+    },
+    "all_lags_are_past_only": {
+      "status": "PASS",
+      "evidence": {
+        "1": true,
+        "5": true,
+        "15": true,
+        "30": true,
+        "60": true,
+        "1440": true,
+        "10080": true
+      }
+    },
+    "all_rolling_windows_exclude_future": {
+      "status": "PASS",
+      "evidence": {
+        "mean_5": true,
+        "mean_15": true,
+        "std_15": true,
+        "mean_60": true,
+        "std_60": true,
+        "mean_1440": true
+      }
+    },
+    "calendar_and_change_features": {
+      "status": "PASS",
+      "evidence": {
+        "hour": true,
+        "minute": true,
+        "day_of_week": true,
+        "is_weekend": true,
+        "time_sin": true,
+        "time_cos": true,
+        "week_sin": true,
+        "week_cos": true,
+        "occupied_change_15": true
+      }
+    },
+    "future_intervention_and_prefix_invariance": {
+      "status": "PASS",
+      "evidence": {
+        "features_checked": 37,
+        "past_rows_checked": 10181,
+        "future_rows_changed": 49
+      }
+    },
+    "chronological_70_15_15_purged_boundaries": {
+      "status": "PASS",
+      "evidence": {
+        "train": {
+          "rows": 49360,
+          "fraction": 0.69999291,
+          "first": "2026-09-21 00:00:00+05:30",
+          "last": "2026-10-25 06:39:00+05:30",
+          "last_target": "2026-10-25 06:54:00+05:30"
+        },
+        "validation": {
+          "rows": 10577,
+          "fraction": 0.14999645,
+          "first": "2026-10-25 06:55:00+05:30",
+          "last": "2026-11-01 15:11:00+05:30",
+          "last_target": "2026-11-01 15:26:00+05:30"
+        },
+        "test": {
+          "rows": 10578,
+          "fraction": 0.15001064,
+          "first": "2026-11-01 15:27:00+05:30",
+          "last": "2026-11-08 23:44:00+05:30",
+          "last_target": "2026-11-08 23:59:00+05:30"
+        }
+      }
+    },
+    "schema_predictor_allowlist": {
+      "status": "PASS",
+      "evidence": {
+        "predictor_count": 37,
+        "no_fitted_transforms": true
+      }
+    },
+    "fixed_seed_full_reproducibility": {
+      "status": "PASS",
+      "evidence": {
+        "seed": 42,
+        "regenerated_rows": 80640,
+        "content_sha256": "a252a1eb54956a8e898b3a74d12cebbace35a4efec0c9ad48caea2426dfb54cf"
+      }
+    },
+    "artifact_checksums": {
+      "status": "PASS",
+      "evidence": "Raw and processed files match generation manifest"
+    },
+    "storage_below_50_MB": {
+      "status": "PASS",
+      "evidence": {
+        "files": {
+          "ml/data/phase3_dataset_manifest.json": 4489,
+          "ml/data/synthetic_parking_8weeks_ml.csv.gz": 2077563,
+          "ml/data/synthetic_parking_8weeks_raw.csv": 5245712
+        },
+        "total_bytes": 7327764,
+        "limit_bytes": 50000000,
+        "model_artifacts_created": false
+      }
+    }
+  },
+  "critical_passed": true,
+  "limitations": "Synthetic face-validity only; no calibration or real-world predictive validation"
+}
