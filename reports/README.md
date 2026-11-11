@@ -1,5 +1,30 @@
 # Smart Parking integration reports
 
+## Phase 4: Machine Learning Model Development
+
+[Comprehensive Phase 4 PDF](phase4_machine_learning_model_development.pdf) covers
+actual local fitting, validation-only selection, held-out metrics, model bundle,
+interface, runtime resolution and limitations.
+
+- The approved isolated Windows runtime passed imports and all **21 tests**.
+- All **28 saved-model checks passed**; the original project venv was preserved.
+- **Persistence wins validation MAE** (0.339983); test MAE/RMSE/R2 are
+  0.307714 / 0.648092 / 0.945254. Linear and forest are saved for comparison.
+- All models use identical validation and test rows; selection was locked first.
+- Bundle: **851,974 bytes**; total data/model storage: **8,190,119 bytes**.
+- Original native import denials and a strict RF floating-point reload failure
+  are preserved. Finalization used the unchanged trained artifact with 1e-12
+  reload tolerance, without retraining, retuning or changing selection.
+- Phase 1/2/3 artifacts remain frozen. These results establish synthetic holdout
+  performance only, not real-world accuracy or Wokwi runtime success.
+
+See [local instructions](../ml/PHASE4.md),
+[acceptance checklist](phase4_acceptance_checklist.md),
+[installation evidence](evidence/phase4_installation_trial.json),
+[final native tests](evidence/phase4_native_tests_final.json),
+[model verification](evidence/phase4_model_verification.json), and
+[final checks](evidence/phase4_final_checks.json).
+
 ## Phase 3: Historical Dataset Preparation
 
 [Comprehensive Phase 3 PDF](phase3_historical_dataset_preparation.pdf) documents
