@@ -9,7 +9,7 @@ from urllib.parse import urlsplit
 
 from backend.db import Database
 from backend.postgres import PostgresDatabase
-from backend.tools.import_sqlite_history import copy_history
+from backend.tools.import_sqlite_history import copy_history, export_sql
 from support import validated, fixture
 
 
@@ -67,6 +67,19 @@ class PostgresIntegrationTests(unittest.TestCase):
             self.assertEqual(local.current(),self.database.current())
             with self.assertRaises(ValueError):copy_history(source,self.database)
             self.assertEqual(self.database.history()['total'],12)
+
+    def test_sql_editor_export_executes_transactionally(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source=Path(directory)/'export.db'
+            local=Database(source);local.initialize();local.persist(validated())
+            script,_result=export_sql(source)
+            with self.database.raw_connection() as connection:
+                connection.execute(script)
+            self.assertEqual(local.current(),self.database.current())
+            with self.assertRaises(sqlite3.Error):
+                with self.database.raw_connection() as connection:
+                    connection.execute(script)
+            self.assertEqual(self.database.history()['total'],4)
 
 
 if __name__ == '__main__':unittest.main(verbosity=2)
