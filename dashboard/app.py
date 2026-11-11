@@ -22,6 +22,7 @@ if not all(callable(getattr(_views, name, None)) for name in
 
 from dashboard.data_views import live_feature_record, minute_history, slot_snapshot, slot_history
 from dashboard.prediction import PredictionError, predict, read_results, synthetic_example
+from dashboard.persistence_panel import show_persistence_live
 
 
 def show_slots(slots=None):
@@ -108,7 +109,9 @@ def main():
             show_slots()
             slots, counts = None, None
 
-        st.subheader('15-minute occupancy forecast')
+        show_persistence_live(client, settings)
+
+        st.subheader('Full 37-feature ML occupancy forecast')
         st.caption('Selected model: Persistence. Trained/evaluated on synthetic history; no real-world accuracy claim.')
         if not counts or counts['unknown']:
             st.warning('Live prediction unavailable — all 12 slots must have fresh, known observations.')
