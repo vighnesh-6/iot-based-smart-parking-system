@@ -257,3 +257,28 @@ the project's dependency snapshot and virtual environment were preserved.
 At the Phase 1 milestone, Mosquitto configuration, circuits and unrelated modules
 were unchanged, and FastAPI/SQLite had not started. Phase 2 is documented above;
 detailed ESP32 acceptance tests remain open.
+# Phase 6 - Sequential integration and deployment readiness
+
+- [Comprehensive Phase 6 PDF](phase6_end_to_end_integration_and_deployment.pdf)
+- [Acceptance checklist](phase6_acceptance_checklist.md)
+- [Final test and live API evidence](evidence/phase6_final_acceptance.json)
+- Per-board raw captures and exact SQLite matches:
+  [ESP32-01 capture](evidence/phase6_sequential_esp32_01_mqtt.json),
+  [verification](evidence/phase6_sequential_esp32_01_persistence.json);
+  [ESP32-02 capture](evidence/phase6_sequential_esp32_02_mqtt.json),
+  [verification](evidence/phase6_sequential_esp32_02_persistence.json);
+  [ESP32-03 capture](evidence/phase6_sequential_esp32_03_mqtt.json),
+  [verification](evidence/phase6_sequential_esp32_03_persistence.json).
+
+All three boards passed **sequential** MQTT-to-SQLite checks (40 messages / 160
+matching slot observations). This does not establish simultaneous operation,
+continuous monitoring or a genuine live forecast. ESP32-02 repeated one sequence;
+the second payload was retained as history-only. No continuous UART log archive
+was established. Earlier failed captures and intermediate local checks remain
+under `evidence/phase6_*`; the final acceptance file is authoritative.
+
+Individual-slot plots now preserve actual receipt events and gaps; total occupancy
+still requires twelve known states. Cloud deployment and Linux runtime verification
+remain deferred under the no-install/no-credentials constraints. Previous PDFs
+are unchanged. Reproduction commands and zero-cost hosting limitations are in the
+Phase 6 report.
