@@ -12,6 +12,14 @@ import streamlit as st
 
 from dashboard.api_client import ApiClient, ApiError
 from dashboard.config import Settings
+from dashboard import data_views as _views
+
+# A running Streamlit process can retain the pre-Phase-6 module across reruns.
+if not all(callable(getattr(_views, name, None)) for name in
+           ('live_feature_record', 'minute_history', 'slot_snapshot', 'slot_history')):
+    from importlib import reload
+    reload(_views)
+
 from dashboard.data_views import live_feature_record, minute_history, slot_snapshot, slot_history
 from dashboard.prediction import PredictionError, predict, read_results, synthetic_example
 
