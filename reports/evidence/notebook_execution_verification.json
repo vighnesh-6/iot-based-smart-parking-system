@@ -1,0 +1,747 @@
+{
+  "source": "actual_local_notebook_execution_and_preservation_verification",
+  "recorded_at_utc": "2026-11-11T12:03:03.339285+00:00",
+  "baseline_commit": "48d57682d3255159c6346230c20b253dd16e36b8",
+  "runtime": {
+    "executable": "C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Scripts\\python.exe",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "jupyter_packages": [
+      {
+        "name": "ipykernel",
+        "version": "6.30.1",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/fc/c7/b445faca8deb954fe536abebff4ece5b097b923de482b26e78448c89d1dd/ipykernel-6.30.1-py3-none-any.whl",
+        "wheel_sha256": "aa6b9fb93dca949069d8b85b6c79b2518e32ac583ae9c7d37c51d119e18b3fb4"
+      },
+      {
+        "name": "nbclient",
+        "version": "0.10.2",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/34/6d/e7fa07f03a4a7b221d94b4d586edb754a9b0dc3c9e2c93353e9fa4e0d117/nbclient-0.10.2-py3-none-any.whl",
+        "wheel_sha256": "4ffee11e788b4a27fabeb7955547e4318a5298f34342a4bfd01f2e1faaeadc3d"
+      },
+      {
+        "name": "nbformat",
+        "version": "5.10.4",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/a9/82/0340caa499416c78e5d8f5f05947ae4bc3cba53c9f038ab6e9ed964e22f1/nbformat-5.10.4-py3-none-any.whl",
+        "wheel_sha256": "3b48d6c8fbca4b299bf3982ea7db1af21580e4fec269ad087b9e81588891200b"
+      },
+      {
+        "name": "comm",
+        "version": "0.2.3",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/60/97/891a0971e1e4a8c5d2b20bbe0e524dc04548d2307fee33cdeba148fd4fc7/comm-0.2.3-py3-none-any.whl",
+        "wheel_sha256": "c615d91d75f7f04f095b30d1c1711babd43bdc6419c1be9886a85f2f4e489417"
+      },
+      {
+        "name": "debugpy",
+        "version": "1.8.22",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/4b/fe/e7d3b72874cdd327bda295d1995a01e426857ae9cbaaba74fd997bc3afbc/debugpy-1.8.22-cp312-cp312-win_amd64.whl",
+        "wheel_sha256": "371a4ba4a5975eb958393903f3254cf983da7b1c7c178b3f987ee427f42515e3"
+      },
+      {
+        "name": "fastjsonschema",
+        "version": "2.22.3",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/d7/0d/6caab33488dc9d26440c24221fa610c7c8b83c30715ab45d31f0e004308e/fastjsonschema-2.22.3-py3-none-any.whl",
+        "wheel_sha256": "f670b443830b75aca3f00b75949efa20f4b2a80302ec7a21505c28dd54cffd43"
+      },
+      {
+        "name": "ipython",
+        "version": "9.18.1",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/bb/1c/91da4a1c541b75e97eb99d09c6a9b0534de55bb4a466669d1170e39b915c/ipython-9.18.1-py3-none-any.whl",
+        "wheel_sha256": "997ce9140d374531a61069c70c0f9ef299d6dd3559ea0f94b8af589726e3c1d5"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/69/90/f63fb5873511e014207a475e2bb4e8b2e570d655b00ac19a9a0ca0a385ee/jsonschema-4.26.0-py3-none-any.whl",
+        "wheel_sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce"
+      },
+      {
+        "name": "jupyter_client",
+        "version": "8.10.0",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/0f/88/7c548de1f6c2ade7c931a3282da73f9274fa6a1531091be682f89c85efb9/jupyter_client-8.10.0-py3-none-any.whl",
+        "wheel_sha256": "5f73f24f22fa25192cfff6b23c051932a2473a797b05734aff495b392103e14e"
+      },
+      {
+        "name": "jupyter_core",
+        "version": "5.9.1",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/e7/e7/80988e32bf6f73919a113473a604f5a8f09094de312b9d52b79c2df7612b/jupyter_core-5.9.1-py3-none-any.whl",
+        "wheel_sha256": "ebf87fdc6073d142e114c72c9e29a9d7ca03fad818c5d300ce2adc1fb0743407"
+      },
+      {
+        "name": "matplotlib-inline",
+        "version": "0.2.2",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/41/09/5b161152e2d90f7b87f781c2e1267494aef9c32498df793f73ad0a0a494a/matplotlib_inline-0.2.2-py3-none-any.whl",
+        "wheel_sha256": "3c821cf1c209f59fb2d2d64abbf5b23b67bcb2210d663f9918dd851c6da1fcf6"
+      },
+      {
+        "name": "nest-asyncio",
+        "version": "1.6.0",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/a0/c4/c2971a3ba4c6103a3d10c4b0f24f461ddc027f0f09763220cf35ca1401b3/nest_asyncio-1.6.0-py3-none-any.whl",
+        "wheel_sha256": "87af6efd6b5e897c81050477ef65c62e2b2f35d51703cae01aff2905b1852e1c"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+        "wheel_sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+      },
+      {
+        "name": "psutil",
+        "version": "7.2.2",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/b4/90/e2159492b5426be0c1fef7acba807a03511f97c5f86b3caeda6ad92351a7/psutil-7.2.2-cp37-abi3-win_amd64.whl",
+        "wheel_sha256": "eb7e81434c8d223ec4a219b5fc1c47d0417b12be7ea866e24fb5ad6e84b3d988"
+      },
+      {
+        "name": "pyzmq",
+        "version": "27.3.0",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/fa/6d/23a02024011a494fb52bcfb179f10a3b230cff7b6fe0d5b8a3c775ce3b82/pyzmq-27.3.0-cp312-abi3-win_amd64.whl",
+        "wheel_sha256": "3ea8e8fa5c097e68fef91d70b150fda96f307758103868018fc4deeb9c214122"
+      },
+      {
+        "name": "tornado",
+        "version": "6.6.1",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/36/57/35439a779582e3b19c98e799b6a41519fb3bdaa3a21b7a94ce4dd7b3b732/tornado-6.6.1-cp311-abi3-win_amd64.whl",
+        "wheel_sha256": "5cb82ca38596e1350fceaf994f287847f82f7b8436380d36ba0937a03107d0ee"
+      },
+      {
+        "name": "traitlets",
+        "version": "5.16.1",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/ad/66/0d785f0bc5e4315a96c989bb476d0fc07ea4f85132550c7b156ca2035d52/traitlets-5.16.1-py3-none-any.whl",
+        "wheel_sha256": "f775618166caa0396c8e337099240f2bd3e5e917d203b2e6fbe21a58d3cb1f6b"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+        "wheel_sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+      },
+      {
+        "name": "colorama",
+        "version": "0.4.6",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl",
+        "wheel_sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+      },
+      {
+        "name": "ipython_pygments_lexers",
+        "version": "1.1.1",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/d9/33/1f075bf72b0b747cb3288d011319aaf64083cf2efef8354174e3ed4540e2/ipython_pygments_lexers-1.1.1-py3-none-any.whl",
+        "wheel_sha256": "a9462224a505ade19a605f71f8fa63c2048833ce50abc86768a0d81d876dc81c"
+      },
+      {
+        "name": "jedi",
+        "version": "0.20.1",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/be/c7/71eb0d51cdcbb63b857c931aa4e9218b078b5d9f8ecd383b234f28fe7b0f/jedi-0.20.1-py2.py3-none-any.whl",
+        "wheel_sha256": "0fb16d86c4a4c73c37ba518c77419975e30fcc620658a8d14fbb5720cdd34142"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+        "wheel_sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"
+      },
+      {
+        "name": "platformdirs",
+        "version": "4.14.5",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/7c/ae/ecbbbfd0e4343a6a521d49b3c8656fb4643dee2a4f6eaf941cf3280391a8/platformdirs-4.14.5-py3-none-any.whl",
+        "wheel_sha256": "8e778c6fa421516f4d3369449f8df3b0e1b72c0e0005fe88e3ec772d0a14e750"
+      },
+      {
+        "name": "prompt_toolkit",
+        "version": "3.0.53",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/54/6f/84908cad2d6aa5144abcf7b42709fe4fdb459bc640ec7ac5786e7693dabc/prompt_toolkit-3.0.53-py3-none-any.whl",
+        "wheel_sha256": "01c0891d7f9237d5e339f7d3e42cdae80b7534abb1c7c0e3352efba6231492f2"
+      },
+      {
+        "name": "Pygments",
+        "version": "2.21.0",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl",
+        "wheel_sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl",
+        "wheel_sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/1c/84/1700cc748d0eaa747486e4e82882d2575224e6e9a3148df583058850c629/rpds_py-2026.9.1-cp312-cp312-win_amd64.whl",
+        "wheel_sha256": "5ce8943f79c2210f7abcc28e86367b03b28d95027fd01c46d2472373ae70c86f"
+      },
+      {
+        "name": "stack-data",
+        "version": "0.6.3",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/f1/7b/ce1eafaf1a76852e2ec9b22edecf1daa58175c090266e9f6c64afcd81d91/stack_data-0.6.3-py3-none-any.whl",
+        "wheel_sha256": "d5558e0c25a4cb0853cddad3d77da9891a08cb85dd9f9f91b9f8cd66e511e695"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+        "wheel_sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+      },
+      {
+        "name": "asttokens",
+        "version": "3.0.2",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/d4/2b/04b8a15f3a1c77bc79ddf5c73875327f34b4fa75982df2b76e45e402d364/asttokens-3.0.2-py3-none-any.whl",
+        "wheel_sha256": "9da13157f5b28becde0bd374fc677dcd3c290614264eff096f167c469cd9f933"
+      },
+      {
+        "name": "executing",
+        "version": "2.3.0",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/4d/dd/8bc67e7d5ffc1d88aa5af511189dfb76dc4e1e5b808fab186146ef2663e5/executing-2.3.0-py3-none-any.whl",
+        "wheel_sha256": "736e859c9f8701f11fcf516856f26f562e04776387824b43a35a1dfe21c84122"
+      },
+      {
+        "name": "parso",
+        "version": "0.8.7",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/99/5d/8268b644392ee874ee82a635cd0df1773de230bde356c38de28e298392cc/parso-0.8.7-py2.py3-none-any.whl",
+        "wheel_sha256": "a8926eb2a1b915486941fdbd31e86a4baf88fe8c210f25f2f35ecec5b574ca1c"
+      },
+      {
+        "name": "wcwidth",
+        "version": "0.9.4",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/d6/f1/c123f902bc2ff9e9c2ab66241b8872204df87cbb18ecdf035e120860fedc/wcwidth-0.9.4-cp310-abi3-win_amd64.whl",
+        "wheel_sha256": "f28d77153303450ee13ebbe888297e75cf532c754555b6cabafc9bdda16c421c"
+      },
+      {
+        "name": "pure_eval",
+        "version": "0.2.4",
+        "official_wheel_url": "https://files.pythonhosted.org/packages/6d/18/83376915176eb058cb86470eb7396388a13350b09a8f233a79303bbcbc5b/pure_eval-0.2.4-py3-none-any.whl",
+        "wheel_sha256": "96cae060a313cfaad51bb761278bfb0e62dc0248d9315a81173752dc546cd37a"
+      }
+    ],
+    "ml_packages_before_install": [
+      "cloudpickle==3.1.2",
+      "joblib==1.6.0",
+      "narwhals==2.28.0",
+      "numpy==2.5.4",
+      "pandas==3.1.1",
+      "python-dateutil==4.0.0",
+      "scikit-learn==1.9.1",
+      "scipy==1.18.1",
+      "threadpoolctl==3.8.0",
+      "tzdata==2026.6"
+    ],
+    "packages_after_install": [
+      "asttokens==3.0.2",
+      "attrs==26.1.0",
+      "cloudpickle==3.1.2",
+      "colorama==0.4.6",
+      "comm==0.2.3",
+      "debugpy==1.8.22",
+      "executing==2.3.0",
+      "fastjsonschema==2.22.3",
+      "ipykernel==6.30.1",
+      "ipython==9.18.1",
+      "ipython_pygments_lexers==1.1.1",
+      "jedi==0.20.1",
+      "joblib==1.6.0",
+      "jsonschema==4.26.0",
+      "jsonschema-specifications==2025.9.1",
+      "jupyter_client==8.10.0",
+      "jupyter_core==5.9.1",
+      "matplotlib-inline==0.2.2",
+      "narwhals==2.28.0",
+      "nbclient==0.10.2",
+      "nbformat==5.10.4",
+      "nest-asyncio==1.6.0",
+      "numpy==2.5.4",
+      "packaging==26.3",
+      "pandas==3.1.1",
+      "parso==0.8.7",
+      "platformdirs==4.14.5",
+      "prompt_toolkit==3.0.53",
+      "psutil==7.2.2",
+      "pure_eval==0.2.4",
+      "Pygments==2.21.0",
+      "python-dateutil==4.0.0",
+      "pyzmq==27.3.0",
+      "referencing==0.37.0",
+      "rpds-py==2026.9.1",
+      "scikit-learn==1.9.1",
+      "scipy==1.18.1",
+      "stack-data==0.6.3",
+      "threadpoolctl==3.8.0",
+      "tornado==6.6.1",
+      "traitlets==5.16.1",
+      "typing_extensions==4.16.0",
+      "tzdata==2026.6",
+      "wcwidth==0.9.4"
+    ],
+    "project_venv_packages_before_and_after": [
+      "altair==6.3.0",
+      "annotated-doc==0.0.5",
+      "annotated-types==0.8.0",
+      "anyio==4.16.0",
+      "attrs==26.1.0",
+      "certifi==2026.10.23",
+      "charset-normalizer==3.5.2",
+      "click==8.5.1",
+      "cloudpickle==3.1.2",
+      "fastapi==0.162.2",
+      "h11==0.16.0",
+      "idna==3.20",
+      "itsdangerous==2.2.0",
+      "Jinja2==3.1.6",
+      "joblib==1.6.0",
+      "jsonschema==4.26.0",
+      "jsonschema-specifications==2025.9.1",
+      "MarkupSafe==3.0.4",
+      "narwhals==2.28.0",
+      "numpy==2.5.4",
+      "opentelemetry-api==1.45.2",
+      "packaging==26.3",
+      "paho-mqtt==2.2.0",
+      "pandas==3.1.1",
+      "pillow==13.0.0",
+      "plotly==7.1.0",
+      "protobuf==7.36.2",
+      "pyarrow==26.0.1",
+      "pydantic==2.14.3",
+      "pydantic_core==2.50.4",
+      "pydeck==0.9.3",
+      "python-dateutil==4.0.0",
+      "python-dotenv==1.2.4",
+      "python-multipart==0.0.33",
+      "referencing==0.37.0",
+      "requests==2.34.2",
+      "rpds-py==2026.9.1",
+      "scikit-learn==1.9.1",
+      "scipy==1.18.1",
+      "starlette==1.10.0",
+      "streamlit==1.67.0",
+      "threadpoolctl==3.8.0",
+      "typing-inspection==0.4.5",
+      "typing_extensions==4.16.0",
+      "tzdata==2026.6",
+      "urllib3==2.8.0",
+      "uvicorn==0.54.0",
+      "watchdog==7.1.0",
+      "websockets==17.4"
+    ],
+    "pip_check": "No broken requirements found.",
+    "native_and_jupyter_imports": "PASS"
+  },
+  "authoring": "Eight notebooks hand-authored as literal nbformat JSON edits; no notebook generator used. nbclient executed existing cells and nbformat saved actual outputs.",
+  "execution_method": {
+    "api": "nbclient.NotebookClient(...).execute()",
+    "kernel": "smartparking-ml",
+    "fresh_kernel_per_notebook": true,
+    "timeout_seconds_per_cell": 180,
+    "working_directory": "repository root",
+    "temporary_kernel_prefix": "tmp/notebook_jupyter",
+    "process_environment": {
+      "JUPYTER_PATH": "tmp/notebook_jupyter/share/jupyter",
+      "JUPYTER_RUNTIME_DIR": "tmp/notebook_jupyter/runtime",
+      "IPYTHONDIR": "tmp/notebook_jupyter/ipython",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "event_loop": "asyncio.WindowsSelectorEventLoopPolicy",
+    "writes": "Only existing notebook outputs; temporary kernel/runtime files are ignored by Git."
+  },
+  "launcher_failure": {
+    "command": "approved_python -B -m jupyter execute --help",
+    "error": "Error executing Jupyter command 'execute': [WinError 4551] An Application Control policy has blocked this file",
+    "code_integrity_event_id": 3077,
+    "observed_local_time": "2026-11-11 17:18:20 Asia/Kolkata",
+    "blocked_file": "C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Scripts\\jupyter-execute.exe",
+    "reason": "Did not meet the Enterprise signing level requirements or violated code integrity policy",
+    "response": "Stopped launcher attempts, obtained explicit user approval for supported Python API execution; blocked executable left untouched. No security changes, trust exceptions or DLL relocation."
+  },
+  "earlier_execution_failure": {
+    "records": [
+      {
+        "path": "ml/notebooks/01_synthetic_history_and_eda.ipynb",
+        "started_utc": "2026-11-11T11:55:33.614637+00:00",
+        "status": "FAIL",
+        "error": "Traceback (most recent call last):\n  File \"<stdin>\", line 14, in <module>\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\jupyter_core\\utils\\__init__.py\", line 165, in wrapped\n    return loop.run_until_complete(inner)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\vighn\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\asyncio\\base_events.py\", line 691, in run_until_complete\n    return future.result()\n           ^^^^^^^^^^^^^^^\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\nbclient\\client.py\", line 709, in async_execute\n    await self.async_execute_cell(\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\nbclient\\client.py\", line 1062, in async_execute_cell\n    await self._check_raise_for_error(cell, cell_index, exec_reply)\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\nbclient\\client.py\", line 918, in _check_raise_for_error\n    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)\nnbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:\n------------------\nchanges = raw[list(SLOTS)].astype('int16').diff().fillna(0)\narrivals = changes.eq(1).sum(axis=1)\ndepartures = changes.eq(-1).sum(axis=1)\nassert arrivals.eq(raw.arrivals).all() and departures.eq(raw.departures).all()\ntransitions = pd.DataFrame({'arrivals': changes.eq(1).sum(), 'departures': changes.eq(-1).sum(), 'occupied_fraction': raw[list(SLOTS)].mean()})\nassert transitions[['arrivals', 'departures']].gt(0).all().all()\nassert raw.total_occupied.diff().iloc[1:].eq((arrivals - departures).iloc[1:]).all()\ndisplay(transitions)\nsummary = raw.assign(hour=raw.timestamp.dt.hour, weekend=raw.timestamp.dt.dayofweek.ge(5))\ndisplay(summary.groupby('weekend').agg(mean_occupied=('total_occupied', 'mean'), arrivals=('arrivals', 'sum'), departures=('departures', 'sum')))\ndisplay(summary.groupby('hour').total_occupied.mean().round(3).rename('mean_occupied').to_frame())\nprint('PASS: all slots have arrivals/departures; occupancy changes reconcile')\n------------------\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[3], line 7\n      3 departures = changes.eq(-1).sum(axis=1)\n      4 assert arrivals.eq(raw.arrivals).all() and departures.eq(raw.departures).all()\n      5 transitions = pd.DataFrame({'arrivals': changes.eq(1).sum(), 'departures': changes.eq(-1).sum(), 'occupied_fraction': raw[list(SLOTS)].mean()})\n      6 assert transitions[['arrivals', 'departures']].gt(0).all().all()\n----> 7 assert raw.total_occupied.diff().iloc[1:].eq((arrivals - departures).iloc[1:]).all()\n      8 display(transitions)\n      9 summary = raw.assign(hour=raw.timestamp.dt.hour, weekend=raw.timestamp.dt.dayofweek.ge(5))\n     10 display(summary.groupby('weekend').agg(mean_occupied=('total_occupied', 'mean'), arrivals=('arrivals', 'sum'), departures=('departures', 'sum')))\n\nAssertionError: \n\n",
+        "seconds": 3.308,
+        "code_cells": 4
+      }
+    ],
+    "cause": "Notebook 01 differenced uint8 total occupancy, causing negative changes to wrap.",
+    "fix": "Cast total occupancy to int16 before diff in the notebook check only.",
+    "resolution": "All eight notebooks re-executed in fresh kernels; final run passed.",
+    "warning": "Initial Windows Proactor/zmq warning resolved using standard process-local WindowsSelectorEventLoopPolicy."
+  },
+  "external_save_observation": {
+    "path": "ml/notebooks/08_model_evaluation_and_selection.ipynb",
+    "observation": "After a successful execution, metadata changed to .venv/python3 and final execution count became null. This was detected before committing.",
+    "operator_reported_error": "NameError: name 'Path' is not defined in final verification cell",
+    "response": "On explicit operator request, added from pathlib import Path directly to the final verification cell, restored approved kernel metadata, and re-executed all of notebook 08 from a fresh kernel.",
+    "final_execution_counts": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "other_seven_sha256_before_and_after_fix": {
+      "ml\\notebooks\\01_synthetic_history_and_eda.ipynb": "0700a4807186eb5e60d63302c800087a2fe463f3908cdb8a7e6fa00f45fd0184",
+      "ml\\notebooks\\02_causal_feature_engineering.ipynb": "d2110eaeb7c7c6ac47cfb2b10f917821784a7d2e4e3d1b507e84ec5ccefbb7c2",
+      "ml\\notebooks\\03_training_artifact_review.ipynb": "9a2c1be12a204615b11a6c665af741efa233c7433b8a1ce4e2e61efc9a470f81",
+      "ml\\notebooks\\04_frozen_evaluation_review.ipynb": "aa3c6666cefee21f2a4e0056d4a29138c900913191a2ae4d8615ee62284737b1",
+      "ml\\notebooks\\05_persistence_baseline.ipynb": "68c26ea07c261b677ea309bb1c655a9062abbf88daa68b94668c2018c5d12b24",
+      "ml\\notebooks\\06_linear_regression.ipynb": "51b45870f60dc4615ac5d8971ee253c07d311cbf528c6817ebe1a5ac84f15b56",
+      "ml\\notebooks\\07_random_forest.ipynb": "d4bf8700cbe5b01a680ba19d9cbc94e90191c8dec7d85a9ac04b1b24cc6ccd43"
+    }
+  },
+  "notebooks": [
+    {
+      "path": "ml/notebooks/01_synthetic_history_and_eda.ipynb",
+      "started_utc": "2026-11-11T11:56:14.919989+00:00",
+      "status": "PASS",
+      "seconds": 1.95,
+      "code_cells": 4,
+      "bytes": 26208,
+      "sha256": "0700a4807186eb5e60d63302c800087a2fe463f3908cdb8a7e6fa00f45fd0184",
+      "source_cells_sha256": "4ef12738623d989e23086e063e5b62451a83d47caaecc5d3635911dd7f116c02",
+      "execution_counts": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "output_count": 11,
+      "schema_valid": true,
+      "all_code_cells_executed": true,
+      "error_outputs": 0,
+      "kernelspec": "smartparking-ml",
+      "printed_check_results": [
+        "PASS: checksum, 80,640 minute rows, 12 binary slots, provenance and slot sums",
+        "PASS: all slots have arrivals/departures; occupancy changes reconcile",
+        "PASS: existing history reviewed without regeneration or artifact writes"
+      ]
+    },
+    {
+      "path": "ml/notebooks/02_causal_feature_engineering.ipynb",
+      "started_utc": "2026-11-11T11:56:16.883040+00:00",
+      "status": "PASS",
+      "seconds": 1.895,
+      "code_cells": 4,
+      "bytes": 14674,
+      "sha256": "d2110eaeb7c7c6ac47cfb2b10f917821784a7d2e4e3d1b507e84ec5ccefbb7c2",
+      "source_cells_sha256": "e1d00f9d53dc11527fe53bd131dd1fda92686ddcfd806d5f289da5321a969d8e",
+      "execution_counts": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "output_count": 6,
+      "schema_valid": true,
+      "all_code_cells_executed": true,
+      "error_outputs": 0,
+      "kernelspec": "smartparking-ml",
+      "printed_check_results": [
+        "PASS: every frozen target equals occupancy at the exact future timestamp",
+        "PASS: all persisted lag, rolling and change values match causal calculations",
+        "PASS: future-intervention invariance and both 15-row purge gaps"
+      ]
+    },
+    {
+      "path": "ml/notebooks/03_training_artifact_review.ipynb",
+      "started_utc": "2026-11-11T11:56:18.778406+00:00",
+      "status": "PASS",
+      "seconds": 3.249,
+      "code_cells": 3,
+      "bytes": 18580,
+      "sha256": "9a2c1be12a204615b11a6c665af741efa233c7433b8a1ce4e2e61efc9a470f81",
+      "source_cells_sha256": "d8652c2c5a7635b0e2ab6505bd046cb0bc2d7a81abb63f10b4482ade9662f28b",
+      "execution_counts": [
+        1,
+        2,
+        3
+      ],
+      "output_count": 6,
+      "schema_valid": true,
+      "all_code_cells_executed": true,
+      "error_outputs": 0,
+      "kernelspec": "smartparking-ml",
+      "printed_check_results": [
+        "PASS: scaler mean, variance and sample count agree with training rows only",
+        "PASS: saved forest matches validation-selected configuration"
+      ]
+    },
+    {
+      "path": "ml/notebooks/04_frozen_evaluation_review.ipynb",
+      "started_utc": "2026-11-11T11:56:22.023114+00:00",
+      "status": "PASS",
+      "seconds": 1.564,
+      "code_cells": 3,
+      "bytes": 16685,
+      "sha256": "aa3c6666cefee21f2a4e0056d4a29138c900913191a2ae4d8615ee62284737b1",
+      "source_cells_sha256": "b3c926686ede405472584aad7969ce934aa21b9cdc8af09d662e369aa7419de4",
+      "execution_counts": [
+        1,
+        2,
+        3
+      ],
+      "output_count": 6,
+      "schema_valid": true,
+      "all_code_cells_executed": true,
+      "error_outputs": 0,
+      "kernelspec": "smartparking-ml",
+      "printed_check_results": [
+        "PASS: saved selection uses validation only; archived comparison has equal row counts",
+        "PASS: archived evidence is internally consistent; no new training is claimed"
+      ]
+    },
+    {
+      "path": "ml/notebooks/05_persistence_baseline.ipynb",
+      "started_utc": "2026-11-11T11:56:23.585415+00:00",
+      "status": "PASS",
+      "seconds": 2.762,
+      "code_cells": 3,
+      "bytes": 12125,
+      "sha256": "68c26ea07c261b677ea309bb1c655a9062abbf88daa68b94668c2018c5d12b24",
+      "source_cells_sha256": "d5483f693668cede6a5e31f08ac79892f3f7c5e0715cca7ca3a14dd2eca1beee",
+      "execution_counts": [
+        1,
+        2,
+        3
+      ],
+      "output_count": 5,
+      "schema_valid": true,
+      "all_code_cells_executed": true,
+      "error_outputs": 0,
+      "kernelspec": "smartparking-ml",
+      "printed_check_results": [
+        "PASS: identical frozen rows, metric agreement, baseline formula and bounded reload interface"
+      ]
+    },
+    {
+      "path": "ml/notebooks/06_linear_regression.ipynb",
+      "started_utc": "2026-11-11T11:56:26.351494+00:00",
+      "status": "PASS",
+      "seconds": 3.182,
+      "code_cells": 3,
+      "bytes": 15888,
+      "sha256": "51b45870f60dc4615ac5d8971ee253c07d311cbf528c6817ebe1a5ac84f15b56",
+      "source_cells_sha256": "a9ed2a4aeb23ba81f6018231bac960702f74516a8ada37af5601e92dc65318dc",
+      "execution_counts": [
+        1,
+        2,
+        3
+      ],
+      "output_count": 6,
+      "schema_valid": true,
+      "all_code_cells_executed": true,
+      "error_outputs": 0,
+      "kernelspec": "smartparking-ml",
+      "printed_check_results": [
+        "PASS: identical rows, raw/clipped metric agreement and saved pipeline prediction interface"
+      ]
+    },
+    {
+      "path": "ml/notebooks/07_random_forest.ipynb",
+      "started_utc": "2026-11-11T11:56:29.539880+00:00",
+      "status": "PASS",
+      "seconds": 3.066,
+      "code_cells": 3,
+      "bytes": 19811,
+      "sha256": "d4bf8700cbe5b01a680ba19d9cbc94e90191c8dec7d85a9ac04b1b24cc6ccd43",
+      "source_cells_sha256": "a6f6a3fe68d07152290a3496f95aab3fd119696c37c6defca1fd06f788f70878",
+      "execution_counts": [
+        1,
+        2,
+        3
+      ],
+      "output_count": 8,
+      "schema_valid": true,
+      "all_code_cells_executed": true,
+      "error_outputs": 0,
+      "kernelspec": "smartparking-ml",
+      "printed_check_results": [
+        "PASS: same frozen rows, score agreement and bounded saved-model reload predictions"
+      ]
+    },
+    {
+      "path": "ml/notebooks/08_model_evaluation_and_selection.ipynb",
+      "started_utc": "2026-11-11T12:02:29.109815+00:00",
+      "status": "PASS",
+      "seconds": 3.901,
+      "code_cells": 4,
+      "fix": "Explicit pathlib.Path import in final verification cell; approved kernelspec restored.",
+      "bytes": 22052,
+      "sha256": "8c3e46287b987f17fdc9c0a5e4d0bf996ea5e172e8330159452cdfa01a4d197a",
+      "source_cells_sha256": "089fa7be8b2413530717b0875e65a64914b18f6efeb0849ca96ef08b1e23d63a",
+      "execution_counts": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "output_count": 10,
+      "schema_valid": true,
+      "all_code_cells_executed": true,
+      "error_outputs": 0,
+      "kernelspec": "smartparking-ml",
+      "printed_check_results": [
+        "PASS: original validation-only selection reconfirmed before test recomputation",
+        "PASS: all six score sets agree with frozen results; selection lock unchanged",
+        "PASS: reload, dictionary/DataFrame agreement, bounds and missing-feature rejection"
+      ]
+    }
+  ],
+  "regression_tests": {
+    "command": "approved_python -B -m unittest discover -s ml/tests -v",
+    "exit_code": 0,
+    "tests_run": 42,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "output": "python.exe : test_calendar_is_local_and_cyclic (test_phase3.FeatureTests.test_calendar_is_local_and_cyclic) ... ok\r\nAt line:2 char:86\r\n+ ... ython.exe'; & $runtime -B -m unittest discover -s ml/tests -v *> tmp/ ...\r\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (test_calendar_i..._cyclic) ... ok:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\ntest_each_lag_uses_exact_past_minute (test_phase3.FeatureTests.test_each_lag_uses_exact_past_minute) ... ok\r\ntest_future_intervention_cannot_change_any_past_feature \r\n(test_phase3.FeatureTests.test_future_intervention_cannot_change_any_past_feature) ... ok\r\ntest_invalid_timestamp_or_source_fails_instead_of_imputation \r\n(test_phase3.FeatureTests.test_invalid_timestamp_or_source_fails_instead_of_imputation) ... ok\r\ntest_no_missing_features_after_filtering (test_phase3.FeatureTests.test_no_missing_features_after_filtering) ... ok\r\ntest_prefix_computation_equals_full_past (test_phase3.FeatureTests.test_prefix_computation_equals_full_past) ... ok\r\ntest_rolling_features_use_only_past (test_phase3.FeatureTests.test_rolling_features_use_only_past) ... ok\r\ntest_split_ratios_rounding_and_purged_label_boundaries \r\n(test_phase3.FeatureTests.test_split_ratios_rounding_and_purged_label_boundaries) ... ok\r\ntest_target_exact_future_timestamp_and_value (test_phase3.FeatureTests.test_target_exact_future_timestamp_and_value) \r\n... ok\r\ntest_all_slots_binary_and_total (test_phase3.GenerationTests.test_all_slots_binary_and_total) ... ok\r\ntest_complete_dwell_times_and_persistence (test_phase3.GenerationTests.test_complete_dwell_times_and_persistence) ... \r\nok\r\ntest_each_slot_arrives_and_departs (test_phase3.GenerationTests.test_each_slot_arrives_and_departs) ... ok\r\ntest_exact_timeline_and_timezone (test_phase3.GenerationTests.test_exact_timeline_and_timezone) ... ok\r\ntest_fixed_seed_and_changed_seed (test_phase3.GenerationTests.test_fixed_seed_and_changed_seed) ... ok\r\ntest_invalid_days (test_phase3.GenerationTests.test_invalid_days) ... ok\r\ntest_source_and_missing_values (test_phase3.GenerationTests.test_source_and_missing_values) ... ok\r\ntest_committed_artifact_roundtrip_and_fingerprints \r\n(test_phase3.SerializationTests.test_committed_artifact_roundtrip_and_fingerprints) ... ok\r\ntest_existing_raw_output_is_never_overwritten \r\n(test_phase3.SerializationTests.test_existing_raw_output_is_never_overwritten) ... ok\r\ntest_invalid_raw_count_does_not_overflow_into_valid_value \r\n(test_phase3.SerializationTests.test_invalid_raw_count_does_not_overflow_into_valid_value) ... ok\r\ntest_processed_bytes_are_reproducible_without_duplicate_file \r\n(test_phase3.SerializationTests.test_processed_bytes_are_reproducible_without_duplicate_file) ... ok\r\ntest_raw_csv_roundtrip (test_phase3.SerializationTests.test_raw_csv_roundtrip) ... ok\r\ntest_bundle_selects_model_and_clips (test_phase4.ContractTests.test_bundle_selects_model_and_clips) ... ok\r\ntest_checksum_rejected_before_unpickling (test_phase4.ContractTests.test_checksum_rejected_before_unpickling) ... ok\r\ntest_clipping_preserves_fractional_counts (test_phase4.ContractTests.test_clipping_preserves_fractional_counts) ... ok\r\ntest_constant_r2_is_explicitly_undefined (test_phase4.ContractTests.test_constant_r2_is_explicitly_undefined) ... ok\r\ntest_dict_and_frame_interfaces_agree (test_phase4.ContractTests.test_dict_and_frame_interfaces_agree) ... ok\r\ntest_fake_bundle_roundtrip_is_contract_only (test_phase4.ContractTests.test_fake_bundle_roundtrip_is_contract_only) \r\n... ok\r\ntest_manifest_verifies_frozen_checksums (test_phase4.ContractTests.test_manifest_verifies_frozen_checksums) ... ok\r\ntest_metric_alignment_and_target_range (test_phase4.ContractTests.test_metric_alignment_and_target_range) ... ok\r\ntest_metric_mathematics_and_clipping_frequency \r\n(test_phase4.ContractTests.test_metric_mathematics_and_clipping_frequency) ... ok\r\ntest_named_input_reorders_safely (test_phase4.ContractTests.test_named_input_reorders_safely) ... ok\r\ntest_partition_reader_does_not_read_test_during_validation \r\n(test_phase4.ContractTests.test_partition_reader_does_not_read_test_during_validation) ... ok\r\ntest_persistence_uses_current_total (test_phase4.ContractTests.test_persistence_uses_current_total) ... ok\r\ntest_reject_missing_extra_duplicate_and_target_columns \r\n(test_phase4.ContractTests.test_reject_missing_extra_duplicate_and_target_columns) ... ok\r\ntest_reject_nonfinite_strings_booleans_and_wrong_totals \r\n(test_phase4.ContractTests.test_reject_nonfinite_strings_booleans_and_wrong_totals) ... ok\r\ntest_reload_agreement_allows_only_tiny_roundoff \r\n(test_phase4.ContractTests.test_reload_agreement_allows_only_tiny_roundoff) ... ok\r\ntest_selection_is_validation_only_and_tie_prefers_simple \r\n(test_phase4.ContractTests.test_selection_is_validation_only_and_tie_prefers_simple) ... ok\r\ntest_identical_validation_row_counts (test_phase4.NativeModelTests.test_identical_validation_row_counts) ... ok\r\ntest_native_metric_agreement (test_phase4.NativeModelTests.test_native_metric_agreement) ... ok\r\ntest_preprocessing_fitted_on_train_only (test_phase4.NativeModelTests.test_preprocessing_fitted_on_train_only) ... ok\r\ntest_seeded_forest_training_repeats (test_phase4.NativeModelTests.test_seeded_forest_training_repeats) ... ok\r\ntest_trained_bundle_reload_predictions (test_phase4.NativeModelTests.test_trained_bundle_reload_predictions) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 42 tests in 6.545s\r\n\r\nOK\r\n",
+    "scope": "Existing Phase 3/4 suites. Native training tests use small temporary fixtures, not the frozen project model."
+  },
+  "acceptance_checks": {
+    "exactly_eight_final_notebooks": true,
+    "manual_authoring": true,
+    "all_27_code_cells_executed": true,
+    "fresh_kernel_per_notebook": true,
+    "no_error_outputs": true,
+    "all_schema_valid": true,
+    "frozen_tracked_files_unchanged": true,
+    "original_project_venv_packages_unchanged": true,
+    "existing_ml_runtime_package_versions_preserved": true,
+    "official_pinned_jupyter_packages_installed": true,
+    "existing_42_ml_tests_passed": true,
+    "notebooks_do_not_fit_or_export_artifacts": true,
+    "all_pdfs_preserved": true,
+    "other_seven_notebooks_unchanged_during_notebook08_fix": true
+  },
+  "protected_files": {
+    "count": 112,
+    "sha256_before_and_after": {
+      ".env.example": "d6343e47cc4669b2a7a47dc15bf29caa8ad51e99796530d008dcd16aeb3d3139",
+      ".gitattributes": "6036dad7219c91f028c7e3b6b60620d1ca61b4f07d2bc38c5a7c27557975ad32",
+      ".gitignore": "9620398adb513cdc4a25771a73ada7e99b4af5ee8a4af11aa883b5016327668d",
+      "README.md": "b2a15c64b5658452c78beee96e4d7a0f4b31f3395f299b0c6d6e8c70c04309e4",
+      "backend/README.md": "8c4f39ab28fb91b87524f124df4505076313aef0bd895e37e768a795870d4087",
+      "backend/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "backend/config.py": "00224d307520d9250bcb116107b55db4dc24e02f7b66715ce09a062edd899f97",
+      "backend/db.py": "81fa551205a9b567b48f92abae0b3df8f9f42721263b54d6773bd318b0f9bc4e",
+      "backend/main.py": "62b52a76ff2bb7f930df42b26c8e33018474b1a6e6c795bda0ead2c4d4e829dc",
+      "backend/mqtt_ingest.py": "d0ec095bd1e638897000f3d3500008908a58146b486f00b8b93a5e3c350293f3",
+      "backend/schemas.py": "2a4d11a620f257ac131281eb33b30d54527988635230ce91a55474d85efb8a42",
+      "backend/tests/support.py": "39d22c7b7eb59c4f27bdc4a64a54b2425e3ac980c6e8a10b5a6d262efcbb2b4f",
+      "backend/tests/test_api.py": "5d2069774b364ffff83b0f68154b70b827f59c5000457516c63fca4107707e83",
+      "backend/tests/test_database.py": "2579dd0ca2290a69a12b431f1eb77d603df45e90311aa6c6ed66aa737f0dc265",
+      "backend/tests/test_ingestion.py": "fe5d7b753381da6d81daf4726fd7adf12de06d011534e132c643ab15f4665f48",
+      "backend/tests/test_validation.py": "512393258f7960ca25e2f9863d27127e14bebcf905017579a35bd57bf5825ab8",
+      "backend/tools/verify_integration.py": "308c4bd9cd6a1d70bdcc7756cf28feca809e7609cd9688854ebb73ad5579c20b",
+      "config/mosquitto.conf": "758ecbdf7307f59eff988e195aa22714f558736a44084b559eda7fbebb5493dd",
+      "dashboard/app.py": "d7d225a80fa159d8106e07309d57dd57cf803843c9c1899c5c127592c7f66b9e",
+      "database/README.md": "e60dbfc929081073e538853863b2ad54f25180ca4176565ca1ef174ed672ce72",
+      "esp32/MQTT.md": "f6ec40e9229bc12b6ed7a3bb5cbba84a32437174082eba37059e280bb52ddb3d",
+      "esp32/README.md": "cad99c5751a439a141bd971e4d292d99c60e3346c6519fdfbd8898be9a744adb",
+      "esp32/diagram.json": "9976f0889cfd30bf49e890a5c1f48eed220635d9ec0104db0978a68c23ef2ff9",
+      "esp32/include/config.example.h": "63f5bf0b6de3d6f22dc4e510f55c99dd7b69b0a51eb429e5aaafa201aafe57b5",
+      "esp32/include/mqtt_config.h": "5f5fe922daf4a983b485ff987d9d4204056d6ec95b4d4e759f4532c23fbf78b0",
+      "esp32/platformio.ini": "13cfb2388838f2deecdab234f82febf35a644a44565a62f60be64336e72a689d",
+      "esp32/simulations/esp32-01/diagram.json": "f7b80108548fc6ec472aa92a83fe0d04309b076789c45db3f735f0aa2598aab8",
+      "esp32/simulations/esp32-01/wokwi.toml": "15aa597fb23325e518fbca4e2fe6d373158700c2037ed765317acdc24f7f03ab",
+      "esp32/simulations/esp32-02/diagram.json": "a5821877dd326fbff2e664d5bd9038850df87ef8fe7d21e76e6aec1cad9afb75",
+      "esp32/simulations/esp32-02/wokwi.toml": "3e4116f1d63be920b2c6bd6b3893d519a22233cb2007706c09957422678180c6",
+      "esp32/simulations/esp32-03/diagram.json": "b75cf0cd3bedafa8e60bb380cc4047a2bd51f3ddd8e3647920828cc048bfc30f",
+      "esp32/simulations/esp32-03/wokwi.toml": "e111f5613895f155fd826441c90890891f41214db4e5aa41e0a41f013d8ed864",
+      "esp32/src/main.cpp": "d5da14f2de6cc79376c3edcf6642b52136175dfa571aa2fb4f56118dba53807e",
+      "esp32/tests/fakes/Arduino.h": "bd4a5035d95ecb39d9a7998b9bc646bf87a9225f6d97aec2f379a69f80b6e627",
+      "esp32/tests/fakes/MQTT.h": "2c470be7d0590618e32af6163c7ad1bc28f99d1d86593cf97b9599ce9f6e458e",
+      "esp32/tests/fakes/WiFi.h": "c0a1cc307630189a4cc68c1adcbdd0cf07805817b825e41a6a285c460ee237d7",
+      "esp32/tests/test_circuits.py": "8b90cbd53896991a67ec23502dd8143d0438240aa12e362e4015328d6d176d9f",
+      "esp32/tests/test_firmware.cpp": "62cfa7180f8e9973365487e18d6861272ce88df8fcab36cd64077b0c73f03566",
+      "esp32/tools/check_mqtt.py": "cda51343d2e3948fb65a3e02ba1a2f9accd2912515c21cc4e1fc00d4bfae97d1",
+      "esp32/tools/generate_diagrams.py": "b06e2c6945af9d78fb6b1690e119335d170cf9465efef286d72197b40c2d34f6",
+      "esp32/tools/run_host_tests.py": "e2d169e84b95e40600e09ecf8367fa14177d3a92bbcd0a84ce41ce88f3435db9",
+      "esp32/tools/verify_mqtt_runtime.py": "718a6459feffd9df1345fbd493337507fa5243c3d1e34824f17ca68e319fb1bd",
+      "ml/.gitattributes": "4a31ffee00a38dc6588bc906d1241ee9fd330f9a28f78d9deab26e5df11fa717",
+      "ml/PHASE4.md": "c78e65b91962badbdba201f7cafcc99160e11af9537855379cf7fa1aade3d957",
+      "ml/README.md": "0565f8c6ff727baeba8b4b6d01059f5be309419ea3aa368addbf4fcd2b6300f4",
+      "ml/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ml/artifacts/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ml/artifacts/phase4/.gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "ml/artifacts/phase4/model_results.json": "b0c66733c85da4ee870ec98467cdcfd34f0aa06f74739a937ff29496fb264602",
+      "ml/artifacts/phase4/parking_models.joblib": "cfc2adc80cc949e3c097530bca500079b857eee8b931be1e6d7de522f50335e1",
+      "ml/artifacts/phase4/validation_selection.json": "1c87ab156a4189b20e825a73f77bd3373d5a63ec25178705ea838360376eeecb",
+      "ml/data/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ml/data/phase3_dataset_manifest.json": "2e38bd9e8367636eb72a2cbc0cab7bec534ecc156ec042dd5ac1919669e0ed70",
+      "ml/data/synthetic_parking_8weeks_ml.csv.gz": "882274bf29e7fc026e4b6aa91e40de6ebdd738aa61564f59af511484274881d6",
+      "ml/data/synthetic_parking_8weeks_raw.csv": "eb2b30880602b263d8025396f9def658273b7d996129a77c6f4bef3a78c3aab4",
+      "ml/features.py": "18f6fa3eb26e39f4d110ce082c05935243e7c52c835b398e6989d34617f24208",
+      "ml/generate_data.py": "938075163613505a07904ee7d091dce7702830fa80a20d795ea57c0b82d7807c",
+      "ml/phase4_models.py": "c83c70ef3376031ee446bff5f94a3da35d85fbfbea705dd0ab3870940a2b20bd",
+      "ml/phase4_requirements.txt": "6091a5a34cf703ddc3808cb150c05c4c345719ef925eedbf2b17532a277a545e",
+      "ml/prepare_data.py": "b12e0f37e679beedc573ba4c591aeb7e5496f8d1fdbec084f6870126dbe08d2d",
+      "ml/tests/test_phase3.py": "5a76eb33203023e9e0daad559936c5b56e21c21e78e1472c1b9367d8a787dfbc",
+      "ml/tests/test_phase4.py": "6eb108fd2c7b28e18d6d5baa520beb6f48a60eed5a8f9224f1b0b699bac48931",
+      "ml/tools/finalize_phase4.py": "baa46304d97b003d2bf4090d3a72ddcf413282c76e85c1b0547d452584b5fc98",
+      "ml/tools/phase4_preflight.py": "4d789886897015e72ad2aac96c19a36d4bba78ff67f317a58c95b6ea964b6290",
+      "ml/tools/phase4_test_runner.py": "dbd707275006c18b0cbbd9afb9181aa6e56ab07b5cceae663fa5694d6c2650b1",
+      "ml/tools/verify_phase4.py": "1ff8947cd45cf0a402be9d1f6dee1817239e09d4283890926501a053f63afc6a",
+      "ml/train.py": "bc439bac5bc2ac6a14f459eb120c0609c5a3f65115831d54dc42e48888632700",
+      "ml/train_phase4.py": "c025ef1e8032716040a593fdcb38311bde580fc74401375734db95e7a3b9af94",
+      "ml/validate_data.py": "de05fc01848f334790734f40cb6c78b3404e6a97dbbe984e4cac3eb9767eef63",
+      "reports/evidence/phase1_broker_system.json": "7a98f964cf6a5d446a1cf7b4662abc3a3272c5c51dc41f96bbe4c653fd79035a",
+      "reports/evidence/phase1_diagnostic_build.json": "a78d835542290322290f86350576121120b8a97ca6c7956ded021bb87c8d7787",
+      "reports/evidence/phase1_environment.json": "44ee3b9229ec3811c11db4de9ad9f69b80636a65ae8fad34122cccd12bf92c2a",
+      "reports/evidence/phase1_mqtt_baseline.json": "7fcadcee01ea72ea152b5f5727ab0582b99926ade7ff032ed404f1167aef5316",
+      "reports/evidence/phase1_mqtt_connected.json": "34c48f6ecc70ba0c7e96a3e0ff1c4e41c996593a2c2780a49ccb23053089b8b8",
+      "reports/evidence/phase1_mqtt_running.json": "e51661cd58ac5fa1232a403bc9b155d1ca5b79af6763c39c73a4fac8aefd01e1",
+      "reports/evidence/phase1_operator_observation.json": "3df9db32ea8fb23ab0ff8160e1419c354513abf74d7a7806d0d3abaf73af3237",
+      "reports/evidence/phase2_broker_integration.json": "5bf04ef531c2f9070341d94992472e0be57c0cac3e3b75eae8f6aa224104ac1a",
+      "reports/evidence/phase2_final_integration.json": "dc8d2df25366ca10696c531a9877c08b3286444c09a6f7ad878df5081194b3cd",
+      "reports/evidence/phase2_pre_fix_tests.json": "ffe13403f1d99263fcc190c62b38ee2c0f84a9f4badfd119f353702a17bf3545",
+      "reports/evidence/phase2_production_observation.json": "18999ab145b4221021e7932c8b3a54dc3ecda447d8847e0c79515e2e2189e3b3",
+      "reports/evidence/phase2_repository_checks.json": "e9a8616b28c3db01160fa8cee33ce110a19255594ed585aa2c2e07797ce4a0d2",
+      "reports/evidence/phase2_unit_tests.json": "32e9144110ddf892dad094a3343233a9fca4f8044b85fdfccea9e967a87582d1",
+      "reports/evidence/phase3_dataset_validation.json": "d6afc519a0dd825cf70742797b884608cad92bc84c1df095148fcffacfa7094a",
+      "reports/evidence/phase3_final_checks.json": "0d160422d891522ff69bbbb6e20656f213d70653a00054d2d1398b96da0e31e6",
+      "reports/evidence/phase3_tests.json": "2c91a87e36feb6afb404f3385fe41ca59c0092ec8d261e86287613626bc8aa63",
+      "reports/evidence/phase4_contract_tests.json": "154a6a7021aaab9b83799e0b5c7ca720e333ff1ae65b2707714fb595f7420a02",
+      "reports/evidence/phase4_final_checks.json": "b6f2887b8729b2cfdc3eda41aad82b3afeadb913f259affd12ba9ba55ef6ca25",
+      "reports/evidence/phase4_installation_trial.json": "08e4c40a3de7637fd624bc1d970405d114653cf9da5cf8951e5e7978242614bd",
+      "reports/evidence/phase4_isolated_complete_preflight.json": "dc9c3a7e5d34c6cd3de615ef825ecc2c8fd9d1a31744aedbb838077455e5fa3d",
+      "reports/evidence/phase4_isolated_preflight.json": "0314faf31943daec89c355b1c42bba68cd59432c6dbb67a963d8e21f8226c943",
+      "reports/evidence/phase4_local_preflight.json": "b9cffb2c78a5ab13a67f24347a207262805aa0d357a0c5ccfb1b067a7113e571",
+      "reports/evidence/phase4_model_verification.json": "717e639f6e2ee6fd642b4e39b74e4bd2ec567d11cd827f84132697f068317114",
+      "reports/evidence/phase4_native_tests.json": "2e66ba97ce901edf882c5d5584fed76cfbcb1372b062099e97ad95be373c4633",
+      "reports/evidence/phase4_native_tests_final.json": "dedc5e74a4dd7da77ee52677ddcfe559f9e096d549a8fed881ce03d0e7fdeec5",
+      "reports/evidence/phase4_readiness_verification.json": "d39e6db9a352ea16534216377c8eebf9812e63605ce90e155a5f39861b6c0628",
+      "reports/evidence/phase4_reload_diagnosis.json": "6461a6168495c6e8dac1c68f8e607da6c700248bc60c6182abc922e7e678eefb",
+      "reports/evidence/phase4_windows_diagnosis.json": "c7c85a558669dd4137488dcdfca6cb78d5d09a463803ee36cd19859d9896bc7d",
+      "reports/generate_phase1_report.py": "4874df84413c287389a145c05fdc61b9e66dc6e335c553e7a1bf372f2522a8d4",
+      "reports/generate_phase2_report.py": "7e1c2ebf5ab9cbe51ef3805992b7057aa5ac7d69624e45d4febb79916390563c",
+      "reports/generate_phase3_report.py": "21cda9d92372fa0484ad27526b4affb7718d8a156880130a4a4fd68e8da12dd9",
+      "reports/generate_phase4_report.py": "17519f6375c5de9b5160ca551f1857db9ddf8a200e4a61b9bf2d7c693e448102",
+      "reports/phase1_mqtt_integration.pdf": "a279c46a6075ff34e3258caa81ee8bbadf0ada2ce8bcf94d93edb7a81399f680",
+      "reports/phase2_fastapi_sqlite.pdf": "c4d6ba0d1a310c6ca2e07a54c087415531db07ad0b62fcc408f9877893515aea",
+      "reports/phase3_acceptance_checklist.md": "97b6c10e0885d252727f787fc3dcfceea568e48d7490724be279ac2b6cd36997",
+      "reports/phase3_historical_dataset_preparation.pdf": "f9e3ee9f9f574b28478114e5b058dac234e202858f05389afc5dd4136471eb1d",
+      "reports/phase4_acceptance_checklist.md": "53c185803c7400c6d697f504fe47589ed4fcd1b910fc70adcdc9ff4850a70e0d",
+      "reports/phase4_local_runtime_review.md": "910c0a2fd86bae8c6bd2a2f500dc61c6aa8af9285801cc8f45676cdea54bcac4",
+      "reports/phase4_machine_learning_model_development.pdf": "b90b573dab3dafeabf451b5e454a4cd0c33b997845db5754515e9452fa6f0336",
+      "requirements.txt": "0290aa8dc2ee9140f3ff422b081d6c36ef863afff31ed99eb2a171f64211135b",
+      "smart-parking-esp32-01.code-workspace": "ae6a157b2729628af56a32dd7c8d67fbf25fd69760bbeb615712f179fc41406e",
+      "smart-parking-esp32-02.code-workspace": "32ea90e51fbfed904a3def7b2d0f917ee648686a906838c606f406819c585bad",
+      "smart-parking-esp32-03.code-workspace": "d51a74cc168284ff962e40a600a285ee9880611bbff9e297de14917ba8a04306"
+    }
+  },
+  "authorized_old_notebook_deletions": {
+    "ml/notebooks/01_synthetic_data_generation_and_eda.ipynb": "0c81e3a226164ba128634e1f910840d8d78803ec16a8f345418dda4b8dd86910",
+    "ml/notebooks/02_feature_engineering.ipynb": "6bd0918ff056dac0a2b2524aa138d4aeeb2976fbaf9cadbcd525b361a6b2d060",
+    "ml/notebooks/03_model_training.ipynb": "2198cda675f22e7e7e47ad82be2bfe616c888c995efdee1cced64ac9308d0951",
+    "ml/notebooks/04_model_evaluation.ipynb": "a99a94f1c22e63e3264f76dc516647da7f9644eab12454b7b59f8e48aa755e3a"
+  },
+  "storage": {
+    "notebooks_bytes": 146023,
+    "data_and_model_bytes": 8190119,
+    "limit_bytes": 50000000
+  },
+  "limitations": [
+    "All data and model evaluation are synthetic; no real-world accuracy or live MQTT verification is claimed.",
+    "Notebook 04 displays archived evidence explicitly; models in notebooks 05-08 are loaded and evaluated without refitting.",
+    "Test scores are recomputed to verify frozen artifacts, not for model selection or tuning.",
+    "Temporary kernelspec is not committed; reproduction requires selecting the approved interpreter or registering the documented local kernel."
+  ]
+}
