@@ -1,5 +1,28 @@
 # Smart Parking integration reports
 
+## Phase 3: Historical Dataset Preparation
+
+[Comprehensive Phase 3 PDF](phase3_historical_dataset_preparation.pdf) documents
+synthetic generation, schema, calculations, causal features, target alignment,
+chronological partitions, actual tests, storage and limitations.
+
+- Raw: **80,640 one-minute rows**, 8 weeks, exactly P1-P12; all explicitly synthetic.
+- Processed: **70,515 rows**, 37 predictors; train 49,360, validation 10,577,
+  test 10,578, with 15-minute boundary purges and integer-rounded 70/15/15 allocation.
+- **18 critical dataset checks and 21 software tests passed.**
+- Dataset/model storage: **7,327,764 bytes (7.328 MB)**; no model trained.
+- Processed format is deterministic gzip CSV: Windows Application Control blocks
+  the existing PyArrow DLL. Parquet remains unverified; dependencies/security
+  policy were preserved. Raw CSV and one compressed processed table are retained.
+- Frozen Phase 1/2 implementation, reports/evidence, notebooks and live data remain unchanged.
+
+See [ML instructions](../ml/README.md),
+[acceptance checklist](phase3_acceptance_checklist.md),
+[dataset validation](evidence/phase3_dataset_validation.json),
+[actual test execution](evidence/phase3_tests.json), and
+[final verification](evidence/phase3_final_checks.json).
+These checks certify synthetic preparation, not real-world accuracy.
+
 ## Phase 2: FastAPI and SQLite
 
 [Comprehensive Phase 2 PDF](phase2_fastapi_sqlite.pdf) documents architecture,
