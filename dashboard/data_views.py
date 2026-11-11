@@ -31,13 +31,23 @@ def slot_snapshot(payload, stale_seconds, now=None):
             if received.utcoffset() is None:
                 raise ValueError('Receipt timestamps must include a timezone')
             age = (now - received).total_seconds()
-        slot['stale'] = slot['stale'] or not slot['observed'] or age is None or age > stale_seconds or age < -2
+        measured_age = None
+        if slot['measured_at']:
+            measured = datetime.fromisoformat(slot['measured_at'].replace('Z', '+00:00'))
+            if measured.utcoffset() is None:
+                raise ValueError('Measurement timestamps must include a timezone')
+            measured_age = (now - measured).total_seconds()
+        measurement_invalid = measured_age is not None and (measured_age > stale_seconds or measured_age < -2)
+        slot['stale'] = slot['stale'] or not slot['observed'] or age is None or age > stale_seconds or age < -2 or measurement_invalid
         slot['reason'] = ('Never observed' if not slot['observed'] else
                           'Receipt clock is ahead' if age is not None and age < -2 else
+                          'Measurement is old or its clock is ahead' if measurement_invalid else
                           'Stale reading' if slot['stale'] else
-                          'Sensor returned UNKNOWN' if slot['occupancy_status'] == 'UNKNOWN' else 'Fresh API telemetry')
+                          'Sensor returned UNKNOWN' if slot['occupancy_status'] == 'UNKNOWN' else
+                          'Fresh receipt; measurement time unavailable' if measured_age is None else 'Fresh API telemetry')
         slot['display_status'] = 'UNKNOWN' if slot['stale'] else slot['occupancy_status']
         slot['age_seconds'] = age
+        slot['measurement_age_seconds'] = measured_age
     slots.sort(key=lambda s: int(s['slot_id'][1:]))
     return slots, statistics(slots)
 
@@ -106,3 +116,40 @@ def live_feature_record(history):
     if not np.isfinite(latest.to_numpy(dtype='float64')).all():
         raise ValueError('Causal feature window is incomplete')
     return {name: float(latest[name]) for name in FEATURE_COLUMNS}
+
+
+def slot_history(items, slot_id, start, end, stale_seconds):
+    """Plot actual receipt events; explicit NaNs break UNKNOWN and expired gaps.
+
+    Historical known readings do not expire merely because the viewer opens the
+    chart later. Freshness limits how far a line can connect between events.
+    Gap rows are chart separators, never synthetic observations or ML inputs.
+    """
+    start, end = pd.Timestamp(start), pd.Timestamp(end)
+    if slot_id not in SLOTS or start.tz is None or end.tz is None or start > end or stale_seconds <= 0:
+        raise ValueError('Valid slot, timezone-aware ordered bounds and positive freshness required')
+    points = []
+    seen = set()
+    for item in items:
+        identity = item['id']
+        if identity in seen:
+            raise ValueError('Duplicate history ID')
+        seen.add(identity)
+        if item['slot_id'] not in SLOTS or item['occupancy_status'] not in ('OCCUPIED', 'VACANT', 'UNKNOWN') or item['applied_current'] not in (0, 1):
+            raise ValueError('Invalid history identity, state or acceptance flag')
+        stamp = pd.Timestamp(item['received_at'])
+        if pd.isna(stamp) or stamp.tz is None:
+            raise ValueError('Receipt timestamps must be present and timezone-aware')
+        if item['slot_id'] == slot_id and item['applied_current'] == 1 and start <= stamp <= end:
+            points.append((stamp.tz_convert('UTC'), identity, item['occupancy_status']))
+    points.sort(key=lambda row: (row[0], row[1]))
+    rows = []
+    previous = None
+    for stamp, identity, state in points:
+        if previous is not None and stamp - previous > pd.Timedelta(seconds=stale_seconds):
+            rows.append((previous + pd.Timedelta(seconds=stale_seconds), np.nan, None))
+        rows.append((stamp, {'OCCUPIED': 1.0, 'VACANT': 0.0}.get(state, np.nan), identity))
+        previous = stamp
+    result = pd.DataFrame(rows, columns=['timestamp', slot_id, 'observation_id'])
+    result['timestamp'] = pd.to_datetime(result.timestamp, utc=True).dt.tz_convert(TIMEZONE)
+    return result
