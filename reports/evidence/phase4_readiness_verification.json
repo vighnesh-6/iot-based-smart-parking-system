@@ -1,0 +1,23 @@
+{
+  "source": "actual_phase4_readiness_verification",
+  "recorded_at_utc": "2026-11-11T06:25:32.652182+00:00",
+  "phase4_complete": false,
+  "model_training_and_evaluation": "BLOCKED; no approved native Windows runtime yet",
+  "contract_tests_passed": true,
+  "contract_tests_count": 15,
+  "native_model_reload": "NOT RUN",
+  "protected_paths_changed": [],
+  "phase3_code_and_dataset_hashes_intact": true,
+  "phase1_phase2_phase3_report_index_sections_preserved": true,
+  "python_syntax_checks": "PASS",
+  "pdf": {
+    "pages": 8,
+    "bytes": 115400,
+    "sha256": "351da1342589ad9d82f82ebda7b4caaf36192b07c9fa16c53b123bf87b185102",
+    "visual_review": "PASS: all eight rendered pages inspected; blocked status and unavailable scores clearly labelled"
+  },
+  "trained_model_files": [],
+  "security_settings_or_dependencies_changed": false,
+  "commits_created": 0,
+  "pushes_performed": 0
+}
