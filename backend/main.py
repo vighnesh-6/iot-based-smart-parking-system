@@ -3,6 +3,7 @@
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 import sqlite3
+import hmac
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import JSONResponse
@@ -19,7 +20,11 @@ def create_app(settings=None, *, topics=None):
     @asynccontextmanager
     async def lifespan(app):
         configured = settings or Settings.from_env()
-        database = Database(configured.database_path, configured.database_timeout)
+        if configured.database_url:
+            from backend.postgres import PostgresDatabase
+            database = PostgresDatabase(configured.database_url, configured.database_timeout)
+        else:
+            database = Database(configured.database_path, configured.database_timeout)
         await run_in_threadpool(database.initialize)
         ingestor = Ingestor(configured, database, topics=topics)
         app.state.database, app.state.ingestor, app.state.settings = database, ingestor, configured
@@ -30,6 +35,23 @@ def create_app(settings=None, *, topics=None):
             await run_in_threadpool(ingestor.stop)
 
     app = FastAPI(title="Smart Parking API", version="2.0.0", lifespan=lifespan)
+
+    @app.middleware('http')
+    async def authenticate(request, call_next):
+        token = app.state.settings.api_bearer_token
+        if token and request.url.path != '/livez':
+            expected = ('Bearer ' + token).encode()
+            supplied = request.headers.get('authorization', '').encode()
+            if not hmac.compare_digest(supplied, expected):
+                return JSONResponse(status_code=401, content={'detail': 'Authentication required'},
+                    headers={'WWW-Authenticate': 'Bearer', 'Cache-Control': 'no-store'})
+        response = await call_next(request)
+        response.headers['Cache-Control'] = 'no-store'
+        return response
+
+    @app.get('/livez', include_in_schema=False)
+    def liveness():
+        return {'status': 'ok'}
 
     @app.exception_handler(sqlite3.Error)
     async def database_error(_request, _error):
