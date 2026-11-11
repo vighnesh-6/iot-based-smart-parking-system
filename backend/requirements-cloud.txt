@@ -1,0 +1,7 @@
+# Hosted builds only. Do not install into the preserved laptop environments.
+fastapi==0.162.2
+uvicorn==0.54.0
+pydantic==2.14.3
+python-dotenv==1.2.4
+paho-mqtt==2.2.0
+psycopg[binary]==3.3.8
