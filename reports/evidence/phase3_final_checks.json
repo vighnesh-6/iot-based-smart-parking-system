@@ -1,0 +1,64 @@
+{
+  "source": "actual_phase3_final_acceptance",
+  "recorded_at_utc": "2026-11-11T04:57:43.812544+00:00",
+  "baseline_commit": "03a82d1fd383930e12563a03a8177d1d467c5db3",
+  "requirements": {
+    "critical_dataset_validation": {
+      "status": "PASS",
+      "evidence": "phase3_dataset_validation.json: 18 checks"
+    },
+    "software_tests": {
+      "status": "PASS",
+      "evidence": "phase3_tests.json: 21 passed, 0 skipped/failures/errors"
+    },
+    "frozen_scope": {
+      "status": "PASS",
+      "changed_protected_paths": []
+    },
+    "phase1_phase2_report_index_preserved": {
+      "status": "PASS"
+    },
+    "existing_dependencies_preserved": {
+      "status": "PASS",
+      "pip_freeze_matches_requirements": true
+    },
+    "notebooks_and_training_placeholder_preserved": {
+      "status": "PASS"
+    },
+    "synthetic_and_live_separation": {
+      "status": "PASS",
+      "live_database_or_mqtt_used": false
+    },
+    "dataset_hashes_and_git_byte_stability": {
+      "status": "PASS",
+      "filter_hash_matches_no_filter": {
+        "ml/data/synthetic_parking_8weeks_raw.csv": true,
+        "ml/data/synthetic_parking_8weeks_ml.csv.gz": true
+      }
+    },
+    "storage_budget": {
+      "status": "PASS",
+      "files": {
+        "ml/data/phase3_dataset_manifest.json": 4489,
+        "ml/data/synthetic_parking_8weeks_ml.csv.gz": 2077563,
+        "ml/data/synthetic_parking_8weeks_raw.csv": 5245712
+      },
+      "total_bytes": 7327764,
+      "limit_bytes": 50000000
+    },
+    "pdf_visual_inspection": {
+      "status": "PASS",
+      "pages": 10,
+      "bytes": 119550,
+      "sha256": "f9e3ee9f9f574b28478114e5b058dac234e202858f05389afc5dd4136471eb1d",
+      "method": "Poppler rendered all ten pages at 1050px; all pages visually reviewed for layout, clipping and legibility"
+    },
+    "processed_format": {
+      "status": "PASS",
+      "format": "CSV.gz",
+      "parquet": "unverified; Application Control blocked Arrow DLL; no bypass or dependency change"
+    }
+  },
+  "critical_passed": true,
+  "limitations": "Synthetic dataset preparation only; no trained model, real-world accuracy or Wokwi runtime pass."
+}
