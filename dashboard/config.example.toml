@@ -1,0 +1,14 @@
+# Optional: set DASHBOARD_CONFIG=dashboard/config.example.toml.
+# Environment variables override this file. Never put credentials in tracked files.
+API_BASE_URL = "http://127.0.0.1:8000"
+# Optional API_BEARER_TOKEN belongs in environment/secrets, never this tracked file.
+PREDICTION_ADAPTER = "in_process"
+# For the Windows subprocess adapter, set ML_PYTHON to your approved interpreter.
+# No machine-specific interpreter path is embedded in the application.
+API_TIMEOUT_SECONDS = 3
+REFRESH_SECONDS = 10
+DASHBOARD_STALE_SECONDS = 30
+HISTORY_MAX_ROWS = 20000
+MODEL_RESULTS_PATH = "ml/artifacts/phase4/model_results.json"
+MODEL_BUNDLE_PATH = "ml/artifacts/phase4/parking_models.joblib"
+DATASET_MANIFEST_PATH = "ml/data/phase3_dataset_manifest.json"
