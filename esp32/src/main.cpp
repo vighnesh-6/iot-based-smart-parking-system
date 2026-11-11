@@ -5,6 +5,9 @@
 #include <cstdio>
 #include <ctime>
 #include "mqtt_config.h"
+#if PARKING_MQTT_TLS
+#include <WiFiClientSecure.h>
+#endif
 
 #ifndef PARKING_BOARD_ID
 #error "Select a board-specific build: esp32_01, esp32_02 or esp32_03"
@@ -93,7 +96,11 @@ constexpr unsigned long kPublishIntervalMs = PARKING_MQTT_PUBLISH_INTERVAL_MS;
 static_assert(kPublishIntervalMs >= 1000UL && kPublishIntervalMs <= 3600000UL,
               "Publish interval must be between one second and one hour");
 constexpr size_t kPayloadCapacity = 1536;
+#if PARKING_MQTT_TLS
+WiFiClientSecure gNetwork;
+#else
 WiFiClient gNetwork;
+#endif
 MQTTClient gMqtt(kPayloadCapacity);
 bool gWifiAttempted = false;
 bool gWasWifiConnected = false;
@@ -336,6 +343,15 @@ void printReading(const ParkingSlot& slot, const DistanceReading& reading) {
 
 void setup() {
   Serial.begin(kSerialBaud);
+#if PARKING_MQTT_TLS
+  if (PARKING_MQTT_CA_CERT[0] == '\0' || PARKING_MQTT_USERNAME[0] == '\0' ||
+      PARKING_MQTT_PASSWORD[0] == '\0' || PARKING_MQTT_PORT != 8883) {
+    Serial.println("Cloud MQTT unavailable: configure verified CA, private identity and TLS port 8883.");
+    while (true) delay(1000);  // Fail closed; never fall back to plaintext/insecure TLS.
+  }
+  gNetwork.setCACert(PARKING_MQTT_CA_CERT);
+  gNetwork.setHandshakeTimeout(5);
+#endif
 
   for (const ParkingSlot& slot : kSlots) {
     pinMode(slot.trigPin, OUTPUT);
