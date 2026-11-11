@@ -1,0 +1,44 @@
+{
+  "source": "actual_phase4_final_acceptance",
+  "recorded_at_utc": "2026-11-11T10:58:36.463770+00:00",
+  "phase4_complete": true,
+  "baseline_commit": "343fe515b7c5c90c39a3d68b02df61510404d002",
+  "critical_passed": true,
+  "local_runtime": "%LOCALAPPDATA%/SmartParking/ml-runtime/Scripts/python.exe",
+  "approved_isolated_imports": true,
+  "native_tests_passed": 21,
+  "model_checks_passed": 28,
+  "protected_paths_changed": [],
+  "phase3_source_dataset_and_pdf_hashes_intact": true,
+  "original_project_venv_freeze_unchanged": true,
+  "original_project_venv_key_wheel_files_sha256": {
+    "sklearn/utils/_openmp_helpers.cp312-win_amd64.pyd": "dec08cd057ac558eb82df7691089008ca5d9e28e7518ee2889761356e79533d2",
+    "sklearn/linear_model/_sag_fast.cp312-win_amd64.pyd": "5b34cef1fac5247d0521b8f5e3e553c6d177ddb04dd9f5ce4d0085f8e5ac7080",
+    "sklearn/neighbors/_partition_nodes.cp312-win_amd64.pyd": "cc8d0cb9609652fccb6f82b1950e71eedd90e76f7d364d31ed76e97d3fda853a"
+  },
+  "policy_changed": false,
+  "dlls_manually_relocated": false,
+  "selected_model": "persistence",
+  "selection_based_on": "validation clipped MAE, then RMSE and simplicity",
+  "models_compared_on_identical_rows": true,
+  "test_used_for_selection": false,
+  "trained_bundle_reload_absolute_tolerance": 1e-12,
+  "model_bundle_sha256": "cfc2adc80cc949e3c097530bca500079b857eee8b931be1e6d7de522f50335e1",
+  "model_bundle_bytes": 851974,
+  "data_model_storage_bytes": 8190119,
+  "pdf": {
+    "pages": 10,
+    "bytes": 120682,
+    "sha256": "b90b573dab3dafeabf451b5e454a4cd0c33b997845db5754515e9452fa6f0336",
+    "visual_inspection": "PASS: all ten pages rendered and inspected; revised pages 5/6/8 reinspected"
+  },
+  "verification_only_recovery": "First exact equality check rejected RF roundoff of 1.78e-15. Original artifact/selection were finalized without retraining or tuning; recovery and verification recomputed metrics with a documented 1e-12 reload tolerance.",
+  "limitations": "Synthetic holdout results only; no real-world accuracy or live Wokwi claim. Phase 5 not started.",
+  "git_policy": "One changed file per meaningful commit and a single final push after this verification.",
+  "phase4_source_hashes_preserved_by_git_filters": {
+    "ml/phase4_models.py": true,
+    "ml/train_phase4.py": true,
+    "ml/tests/test_phase4.py": true,
+    "ml/tools/verify_phase4.py": true
+  }
+}
