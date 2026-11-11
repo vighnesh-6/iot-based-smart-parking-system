@@ -1,0 +1,614 @@
+{
+  "before_database_sha256": "1811930e8212c9bfd7df2d72533da593f3fb45ab2782f35f4dd0f4b6a5dcabe0",
+  "before_remote_head": "ddda28081f326285817c376d759bc098c84ca4be",
+  "before_findings": {
+    "8501": "API_BASE_URL8000; Unsupported read-only endpoint",
+    "8502": "API_BASE_URL8000; Unsupported read-only endpoint",
+    "8000": "new endpoint absent from OpenAPI",
+    "8503": "API_BASE_URL8001; correct stale-data blocking"
+  },
+  "root_cause": "Stale running Streamlit ApiClient modules plus old API8000 process; disk implementation already correct.",
+  "recorded_at_utc": "2026-11-11T20:04:59.570809+00:00",
+  "http": {
+    "8000/health": {
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "database_ok": true,
+        "mqtt": {
+          "connected": true,
+          "subscribed": true,
+          "reconnects": 0,
+          "received": 0,
+          "stored": 0,
+          "history_only": 0,
+          "duplicates": 0,
+          "rejected": 0,
+          "retained_ignored": 0,
+          "queue_overflows": 0,
+          "database_errors": 0,
+          "database_error_active": false,
+          "worker_error_active": false,
+          "last_received_at": null,
+          "last_stored_at": null,
+          "last_error": null,
+          "queue_depth": 0,
+          "worker_alive": true,
+          "network_alive": true,
+          "enabled": true
+        }
+      }
+    },
+    "8501/_stcore/health": {
+      "status": 200,
+      "body": "ok"
+    },
+    "8000/slots": {
+      "status": 200,
+      "body": [
+        {
+          "slot_id": "P1",
+          "device_id": "esp32_01",
+          "occupancy_status": "VACANT",
+          "distance_cm": 101.5,
+          "measured_at": "2026-11-11T18:11:55Z",
+          "received_at": "2026-11-11T18:15:44.676Z",
+          "sequence": 388,
+          "stale": true,
+          "observed": true
+        },
+        {
+          "slot_id": "P2",
+          "device_id": "esp32_01",
+          "occupancy_status": "VACANT",
+          "distance_cm": 101.5,
+          "measured_at": "2026-11-11T18:11:55Z",
+          "received_at": "2026-11-11T18:15:44.676Z",
+          "sequence": 388,
+          "stale": true,
+          "observed": true
+        },
+        {
+          "slot_id": "P3",
+          "device_id": "esp32_01",
+          "occupancy_status": "VACANT",
+          "distance_cm": 101.5,
+          "measured_at": "2026-11-11T18:11:55Z",
+          "received_at": "2026-11-11T18:15:44.676Z",
+          "sequence": 388,
+          "stale": true,
+          "observed": true
+        },
+        {
+          "slot_id": "P4",
+          "device_id": "esp32_01",
+          "occupancy_status": "VACANT",
+          "distance_cm": 101.5,
+          "measured_at": "2026-11-11T18:11:55Z",
+          "received_at": "2026-11-11T18:15:44.676Z",
+          "sequence": 388,
+          "stale": true,
+          "observed": true
+        },
+        {
+          "slot_id": "P5",
+          "device_id": "esp32_02",
+          "occupancy_status": "VACANT",
+          "distance_cm": 101.5,
+          "measured_at": "2026-11-11T18:21:53Z",
+          "received_at": "2026-11-11T18:21:54.937Z",
+          "sequence": 28,
+          "stale": true,
+          "observed": true
+        },
+        {
+          "slot_id": "P6",
+          "device_id": "esp32_02",
+          "occupancy_status": "VACANT",
+          "distance_cm": 101.3,
+          "measured_at": "2026-11-11T18:21:53Z",
+          "received_at": "2026-11-11T18:21:54.937Z",
+          "sequence": 28,
+          "stale": true,
+          "observed": true
+        },
+        {
+          "slot_id": "P7",
+          "device_id": "esp32_02",
+          "occupancy_status": "VACANT",
+          "distance_cm": 101.3,
+          "measured_at": "2026-11-11T18:21:53Z",
+          "received_at": "2026-11-11T18:21:54.937Z",
+          "sequence": 28,
+          "stale": true,
+          "observed": true
+        },
+        {
+          "slot_id": "P8",
+          "device_id": "esp32_02",
+          "occupancy_status": "VACANT",
+          "distance_cm": 101.3,
+          "measured_at": "2026-11-11T18:21:53Z",
+          "received_at": "2026-11-11T18:21:54.937Z",
+          "sequence": 28,
+          "stale": true,
+          "observed": true
+        },
+        {
+          "slot_id": "P9",
+          "device_id": "esp32_03",
+          "occupancy_status": "VACANT",
+          "distance_cm": 101.5,
+          "measured_at": "2026-11-11T18:31:26Z",
+          "received_at": "2026-11-11T18:40:18.221Z",
+          "sequence": 103,
+          "stale": true,
+          "observed": true
+        },
+        {
+          "slot_id": "P10",
+          "device_id": "esp32_03",
+          "occupancy_status": "VACANT",
+          "distance_cm": 101.3,
+          "measured_at": "2026-11-11T18:31:26Z",
+          "received_at": "2026-11-11T18:40:18.221Z",
+          "sequence": 103,
+          "stale": true,
+          "observed": true
+        },
+        {
+          "slot_id": "P11",
+          "device_id": "esp32_03",
+          "occupancy_status": "VACANT",
+          "distance_cm": 101.3,
+          "measured_at": "2026-11-11T18:31:26Z",
+          "received_at": "2026-11-11T18:40:18.221Z",
+          "sequence": 103,
+          "stale": true,
+          "observed": true
+        },
+        {
+          "slot_id": "P12",
+          "device_id": "esp32_03",
+          "occupancy_status": "VACANT",
+          "distance_cm": 101.3,
+          "measured_at": "2026-11-11T18:31:26Z",
+          "received_at": "2026-11-11T18:40:18.221Z",
+          "sequence": 103,
+          "stale": true,
+          "observed": true
+        }
+      ]
+    },
+    "8000/predictions/persistence-live": {
+      "status": 200,
+      "body": {
+        "available": false,
+        "inference_path": "persistence_only_live",
+        "model": "persistence",
+        "data_source": "api_sqlite_telemetry",
+        "horizon_minutes": 15,
+        "evaluated_at": "2026-11-11T20:04:59.655099Z",
+        "prediction_timestamp": null,
+        "target_timestamp": null,
+        "current_occupied": null,
+        "predicted_occupied": null,
+        "freshness_limit_seconds": 30,
+        "blockers": [
+          {
+            "slot_id": "P1",
+            "reason": "Backend marks observation stale"
+          },
+          {
+            "slot_id": "P2",
+            "reason": "Backend marks observation stale"
+          },
+          {
+            "slot_id": "P3",
+            "reason": "Backend marks observation stale"
+          },
+          {
+            "slot_id": "P4",
+            "reason": "Backend marks observation stale"
+          },
+          {
+            "slot_id": "P5",
+            "reason": "Backend marks observation stale"
+          },
+          {
+            "slot_id": "P6",
+            "reason": "Backend marks observation stale"
+          },
+          {
+            "slot_id": "P7",
+            "reason": "Backend marks observation stale"
+          },
+          {
+            "slot_id": "P8",
+            "reason": "Backend marks observation stale"
+          },
+          {
+            "slot_id": "P9",
+            "reason": "Backend marks observation stale"
+          },
+          {
+            "slot_id": "P10",
+            "reason": "Backend marks observation stale"
+          },
+          {
+            "slot_id": "P11",
+            "reason": "Backend marks observation stale"
+          },
+          {
+            "slot_id": "P12",
+            "reason": "Backend marks observation stale"
+          }
+        ],
+        "snapshot": [
+          {
+            "slot_id": "P1",
+            "device_id": "esp32_01",
+            "occupancy_status": "VACANT",
+            "distance_cm": 101.5,
+            "measured_at": "2026-11-11T18:11:55Z",
+            "received_at": "2026-11-11T18:15:44.676Z",
+            "sequence": 388,
+            "stale": true,
+            "observed": true
+          },
+          {
+            "slot_id": "P2",
+            "device_id": "esp32_01",
+            "occupancy_status": "VACANT",
+            "distance_cm": 101.5,
+            "measured_at": "2026-11-11T18:11:55Z",
+            "received_at": "2026-11-11T18:15:44.676Z",
+            "sequence": 388,
+            "stale": true,
+            "observed": true
+          },
+          {
+            "slot_id": "P3",
+            "device_id": "esp32_01",
+            "occupancy_status": "VACANT",
+            "distance_cm": 101.5,
+            "measured_at": "2026-11-11T18:11:55Z",
+            "received_at": "2026-11-11T18:15:44.676Z",
+            "sequence": 388,
+            "stale": true,
+            "observed": true
+          },
+          {
+            "slot_id": "P4",
+            "device_id": "esp32_01",
+            "occupancy_status": "VACANT",
+            "distance_cm": 101.5,
+            "measured_at": "2026-11-11T18:11:55Z",
+            "received_at": "2026-11-11T18:15:44.676Z",
+            "sequence": 388,
+            "stale": true,
+            "observed": true
+          },
+          {
+            "slot_id": "P5",
+            "device_id": "esp32_02",
+            "occupancy_status": "VACANT",
+            "distance_cm": 101.5,
+            "measured_at": "2026-11-11T18:21:53Z",
+            "received_at": "2026-11-11T18:21:54.937Z",
+            "sequence": 28,
+            "stale": true,
+            "observed": true
+          },
+          {
+            "slot_id": "P6",
+            "device_id": "esp32_02",
+            "occupancy_status": "VACANT",
+            "distance_cm": 101.3,
+            "measured_at": "2026-11-11T18:21:53Z",
+            "received_at": "2026-11-11T18:21:54.937Z",
+            "sequence": 28,
+            "stale": true,
+            "observed": true
+          },
+          {
+            "slot_id": "P7",
+            "device_id": "esp32_02",
+            "occupancy_status": "VACANT",
+            "distance_cm": 101.3,
+            "measured_at": "2026-11-11T18:21:53Z",
+            "received_at": "2026-11-11T18:21:54.937Z",
+            "sequence": 28,
+            "stale": true,
+            "observed": true
+          },
+          {
+            "slot_id": "P8",
+            "device_id": "esp32_02",
+            "occupancy_status": "VACANT",
+            "distance_cm": 101.3,
+            "measured_at": "2026-11-11T18:21:53Z",
+            "received_at": "2026-11-11T18:21:54.937Z",
+            "sequence": 28,
+            "stale": true,
+            "observed": true
+          },
+          {
+            "slot_id": "P9",
+            "device_id": "esp32_03",
+            "occupancy_status": "VACANT",
+            "distance_cm": 101.5,
+            "measured_at": "2026-11-11T18:31:26Z",
+            "received_at": "2026-11-11T18:40:18.221Z",
+            "sequence": 103,
+            "stale": true,
+            "observed": true
+          },
+          {
+            "slot_id": "P10",
+            "device_id": "esp32_03",
+            "occupancy_status": "VACANT",
+            "distance_cm": 101.3,
+            "measured_at": "2026-11-11T18:31:26Z",
+            "received_at": "2026-11-11T18:40:18.221Z",
+            "sequence": 103,
+            "stale": true,
+            "observed": true
+          },
+          {
+            "slot_id": "P11",
+            "device_id": "esp32_03",
+            "occupancy_status": "VACANT",
+            "distance_cm": 101.3,
+            "measured_at": "2026-11-11T18:31:26Z",
+            "received_at": "2026-11-11T18:40:18.221Z",
+            "sequence": 103,
+            "stale": true,
+            "observed": true
+          },
+          {
+            "slot_id": "P12",
+            "device_id": "esp32_03",
+            "occupancy_status": "VACANT",
+            "distance_cm": 101.3,
+            "measured_at": "2026-11-11T18:31:26Z",
+            "received_at": "2026-11-11T18:40:18.221Z",
+            "sequence": 103,
+            "stale": true,
+            "observed": true
+          }
+        ]
+      }
+    }
+  },
+  "actual_receipt_ages_seconds": {
+    "P1": 6554.981127,
+    "P2": 6554.981127,
+    "P3": 6554.981127,
+    "P4": 6554.981127,
+    "P5": 6184.720127,
+    "P6": 6184.720127,
+    "P7": 6184.720127,
+    "P8": 6184.720127,
+    "P9": 5081.436127,
+    "P10": 5081.436127,
+    "P11": 5081.436127,
+    "P12": 5081.436127
+  },
+  "actual_api_apptest": {
+    "exceptions": 0,
+    "slot_cards": 12,
+    "metrics": {
+      "Capacity": "12",
+      "Occupied": "0",
+      "Vacant": "0",
+      "Unknown": "12"
+    },
+    "warnings": [
+      "12 slots are unknown; 12 stale and 0 never observed. Diagnostic counts can overlap.",
+      "Persistence-only live prediction unavailable: every slot must have fresh, known, timestamped observations.",
+      "Live prediction unavailable \u2014 all 12 slots must have fresh, known observations.",
+      "This backend process has not received production telemetry yet."
+    ],
+    "manual_refresh_refetched_prediction": true,
+    "prediction_endpoint_calls": 2
+  },
+  "running_dashboard_websocket": {
+    "method": "Streamlit supported WebSocket protocol; client-equivalent timed fragment rerun, not browser rendering",
+    "initial": {
+      "exceptions": [],
+      "cards": [
+        "**P1** \u00b7 :gray[Unknown]",
+        "**P2** \u00b7 :gray[Unknown]",
+        "**P3** \u00b7 :gray[Unknown]",
+        "**P4** \u00b7 :gray[Unknown]",
+        "**P5** \u00b7 :gray[Unknown]",
+        "**P6** \u00b7 :gray[Unknown]",
+        "**P7** \u00b7 :gray[Unknown]",
+        "**P8** \u00b7 :gray[Unknown]",
+        "**P9** \u00b7 :gray[Unknown]",
+        "**P10** \u00b7 :gray[Unknown]",
+        "**P11** \u00b7 :gray[Unknown]",
+        "**P12** \u00b7 :gray[Unknown]"
+      ],
+      "captions": [
+        "Freshness checked: 2026-11-11T20:05:02.029354+00:00 \u00b7 limit 30s for receipt and measurement."
+      ],
+      "auto_rerun": [
+        {
+          "interval": 10.0,
+          "fragment_id": "a89cc629e0b98ee47457e9bea77dd1e9"
+        }
+      ],
+      "finished_status": 0
+    },
+    "after_10_seconds": {
+      "exceptions": [],
+      "cards": [
+        "**P1** \u00b7 :gray[Unknown]",
+        "**P2** \u00b7 :gray[Unknown]",
+        "**P3** \u00b7 :gray[Unknown]",
+        "**P4** \u00b7 :gray[Unknown]",
+        "**P5** \u00b7 :gray[Unknown]",
+        "**P6** \u00b7 :gray[Unknown]",
+        "**P7** \u00b7 :gray[Unknown]",
+        "**P8** \u00b7 :gray[Unknown]",
+        "**P9** \u00b7 :gray[Unknown]",
+        "**P10** \u00b7 :gray[Unknown]",
+        "**P11** \u00b7 :gray[Unknown]",
+        "**P12** \u00b7 :gray[Unknown]"
+      ],
+      "captions": [
+        "Freshness checked: 2026-11-11T20:05:12.617539+00:00 \u00b7 limit 30s for receipt and measurement."
+      ],
+      "auto_rerun": [],
+      "finished_status": 3
+    }
+  },
+  "database_preservation": {
+    "sha256_before": "1811930e8212c9bfd7df2d72533da593f3fb45ab2782f35f4dd0f4b6a5dcabe0",
+    "sha256_after": "1811930e8212c9bfd7df2d72533da593f3fb45ab2782f35f4dd0f4b6a5dcabe0",
+    "identical": true,
+    "table_counts": {
+      "telemetry_messages": 563,
+      "occupancy_observations": 2252,
+      "slot_current": 12,
+      "slots": 12
+    }
+  },
+  "preservation": {
+    "baseline_commit": "ddda28081f326285817c376d759bc098c84ca4be",
+    "protected_paths": [
+      "ml",
+      "esp32",
+      "backend/db.py",
+      "backend/schemas.py",
+      "dashboard/data_views.py",
+      "dashboard/prediction.py"
+    ],
+    "protected_paths_unchanged": true,
+    "full_ml_app_section_unchanged": true,
+    "existing_pdfs_unchanged": true,
+    "model_bundle_sha256": "cfc2adc80cc949e3c097530bca500079b857eee8b931be1e6d7de522f50335e1"
+  },
+  "browser_verification": {
+    "status": "BLOCKED",
+    "reason": "Computer Use could not determine current browser URL sufficiently to enforce policy; no retry or bypass attempted."
+  },
+  "dashboard8502": {
+    "port": 8502,
+    "messages": [
+      "FastAPI: http://127.0.0.1:8000",
+      "Persistence-only live prediction unavailable: every slot must have fresh, known, timestamped observations.",
+      "Last successful Persistence-only prediction: none in this dashboard session"
+    ],
+    "exceptions": [],
+    "finished_status": 0
+  },
+  "openapi_route": {
+    "get": {
+      "summary": "Persistence Forecast",
+      "operationId": "persistence_forecast_predictions_persistence_live_get",
+      "responses": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PersistenceLiveResult"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "post_http_status": 405,
+  "api8000_health": {
+    "status": "ok",
+    "database_ok": true,
+    "mqtt": {
+      "connected": true,
+      "subscribed": true,
+      "reconnects": 0,
+      "received": 0,
+      "stored": 0,
+      "history_only": 0,
+      "duplicates": 0,
+      "rejected": 0,
+      "retained_ignored": 0,
+      "queue_overflows": 0,
+      "database_errors": 0,
+      "database_error_active": false,
+      "worker_error_active": false,
+      "last_received_at": null,
+      "last_stored_at": null,
+      "last_error": null,
+      "queue_depth": 0,
+      "worker_alive": true,
+      "network_alive": true,
+      "enabled": true
+    }
+  },
+  "regression_suites": {
+    "backend": {
+      "command": [
+        "C:\\Users\\vighn\\OneDrive\\Desktop\\iot project\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "backend/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "tests": 51,
+      "output": "test_all_slots_and_individual (test_api.ApiTests.test_all_slots_and_individual) ... ok\ntest_database_failure_503_no_leak (test_api.ApiTests.test_database_failure_503_no_leak) ... ok\ntest_health_and_openapi (test_api.ApiTests.test_health_and_openapi) ... ok\ntest_history_filters (test_api.ApiTests.test_history_filters) ... ok\ntest_invalid_history_queries (test_api.ApiTests.test_invalid_history_queries) ... ok\ntest_mqtt_unavailable_degraded (test_api.ApiTests.test_mqtt_unavailable_degraded) ... ok\ntest_parallel_reads_during_reserved_writer_lock (test_api.ApiTests.test_parallel_reads_during_reserved_writer_lock) ... ok\ntest_stats (test_api.ApiTests.test_stats) ... ok\ntest_api_remains_available_without_broker (test_api.ConfigurationTests.test_api_remains_available_without_broker) ... ok\ntest_invalid_limits_and_identity (test_api.ConfigurationTests.test_invalid_limits_and_identity) ... ok\ntest_password_not_in_repr (test_api.ConfigurationTests.test_password_not_in_repr) ... ok\ntest_project_and_onedrive_paths_rejected (test_api.ConfigurationTests.test_project_and_onedrive_paths_rejected) ... ok\ntest_all_boards_persist_and_reopen (test_database.DatabaseTests.test_all_boards_persist_and_reopen) ... ok\ntest_durable_duplicate_and_slot_order (test_database.DatabaseTests.test_durable_duplicate_and_slot_order) ... ok\ntest_history_filters_and_pagination (test_database.DatabaseTests.test_history_filters_and_pagination) ... ok\ntest_inferred_reboot_and_counter_wrap (test_database.DatabaseTests.test_inferred_reboot_and_counter_wrap) ... ok\ntest_known_database_not_reinitialized (test_database.DatabaseTests.test_known_database_not_reinitialized) ... ok\ntest_late_message_history_only (test_database.DatabaseTests.test_late_message_history_only) ... ok\ntest_locked_database_recoverable (test_database.DatabaseTests.test_locked_database_recoverable) ... ok\ntest_older_device_time_does_not_replace (test_database.DatabaseTests.test_older_device_time_does_not_replace) ... ok\ntest_seed_and_statistics (test_database.DatabaseTests.test_seed_and_statistics) ... ok\ntest_snapshot_rollback_on_database_error (test_database.DatabaseTests.test_snapshot_rollback_on_database_error) ... ok\ntest_stale_is_not_available_and_duplicate_does_not_refresh (test_database.DatabaseTests.test_stale_is_not_available_and_duplicate_does_not_refresh) ... ok\ntest_unknown_existing_database_unchanged (test_database.DatabaseTests.test_unknown_existing_database_unchanged) ... ok\ntest_commit_before_ack (test_ingestion.IngestionTests.test_commit_before_ack) ... ok\ntest_connection_and_subscription_callbacks (test_ingestion.IngestionTests.test_connection_and_subscription_callbacks) ... ok\ntest_database_error_retried_before_ack (test_ingestion.IngestionTests.test_database_error_retried_before_ack) ... MQTT database write failed; holding acknowledgement and retrying\nok\ntest_duplicate_acknowledged (test_ingestion.IngestionTests.test_duplicate_acknowledged) ... ok\ntest_invalid_ack_without_database_write (test_ingestion.IngestionTests.test_invalid_ack_without_database_write) ... ok\ntest_old_connection_generation_no_ack (test_ingestion.IngestionTests.test_old_connection_generation_no_ack) ... ok\ntest_overflow_unacknowledged_and_reconnect_requested (test_ingestion.IngestionTests.test_overflow_unacknowledged_and_reconnect_requested) ... ok\ntest_rejected_connection_subscription_and_ack (test_ingestion.IngestionTests.test_rejected_connection_subscription_and_ack) ... ok\ntest_retained_oversized_unknown_topic_qos_rejected (test_ingestion.IngestionTests.test_retained_oversized_unknown_topic_qos_rejected) ... ok\ntest_shutdown_failure_no_ack (test_ingestion.IngestionTests.test_shutdown_failure_no_ack) ... MQTT database write failed; holding acknowledgement and retrying\nok\ntest_worker_runs_and_stops_independently (test_ingestion.IngestionTests.test_worker_runs_and_stops_independently) ... ok\ntest_exact_rule_agrees_with_existing_parameter_free_estimator_for_all_counts (test_persistence_live.PersistenceAdapterTests.test_exact_rule_agrees_with_existing_parameter_free_estimator_for_all_counts) ... ok\ntest_freshness_ceiling_cannot_be_weakened_and_stricter_setting_applies (test_persistence_live.PersistenceAdapterTests.test_freshness_ceiling_cannot_be_weakened_and_stricter_setting_applies) ... ok\ntest_missing_duplicate_wrong_device_and_unexpected_slots_block (test_persistence_live.PersistenceAdapterTests.test_missing_duplicate_wrong_device_and_unexpected_slots_block) ... ok\ntest_no_input_mutation (test_persistence_live.PersistenceAdapterTests.test_no_input_mutation) ... ok\ntest_receipt_and_measurement_missing_old_future_naive_invalid_block (test_persistence_live.PersistenceAdapterTests.test_receipt_and_measurement_missing_old_future_naive_invalid_block) ... ok\ntest_stale_unknown_unobserved_or_invalid_distance_block (test_persistence_live.PersistenceAdapterTests.test_stale_unknown_unobserved_or_invalid_distance_block) ... ok\ntest_database_failure_uses_existing_safe_503_handler (test_persistence_live.PersistenceEndpointTests.test_database_failure_uses_existing_safe_503_handler) ... ok\ntest_real_http_and_isolated_sqlite_success_and_unavailable_are_read_only (test_persistence_live.PersistenceEndpointTests.test_real_http_and_isolated_sqlite_success_and_unavailable_are_read_only) ... ok\ntest_all_three_assignments (test_validation.ValidationTests.test_all_three_assignments) ... ok\ntest_malformed_oversized_duplicate_json (test_validation.ValidationTests.test_malformed_oversized_duplicate_json) ... ok\ntest_reject_duplicate_missing_and_extra_slots (test_validation.ValidationTests.test_reject_duplicate_missing_and_extra_slots) ... ok\ntest_reject_invalid_root_fields (test_validation.ValidationTests.test_reject_invalid_root_fields) ... ok\ntest_reject_invalid_slot_fields (test_validation.ValidationTests.test_reject_invalid_slot_fields) ... ok\ntest_topic_mismatch_and_extra_fields (test_validation.ValidationTests.test_topic_mismatch_and_extra_fields) ... ok\ntest_unknown_and_distance_boundaries (test_validation.ValidationTests.test_unknown_and_distance_boundaries) ... ok\ntest_unsynchronized_and_mixed_startup (test_validation.ValidationTests.test_unsynchronized_and_mixed_startup) ... ok\n\n----------------------------------------------------------------------\nRan 51 tests in 4.583s\n\nOK\n"
+    },
+    "dashboard": {
+      "command": [
+        "C:\\Users\\vighn\\OneDrive\\Desktop\\iot project\\.venv\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "dashboard/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "tests": 45,
+      "output": "test_bounded_pagination_reports_truncation (test_dashboard.ApiTests.test_bounded_pagination_reports_truncation) ... ok\ntest_client_uses_configured_url_get_timeout_and_query (test_dashboard.ApiTests.test_client_uses_configured_url_get_timeout_and_query) ... ok\ntest_complete_pagination_preserves_upper_time_bound (test_dashboard.ApiTests.test_complete_pagination_preserves_upper_time_bound) ... ok\ntest_degraded_health_503_is_readable (test_dashboard.ApiTests.test_degraded_health_503_is_readable) ... ok\ntest_inconsistent_pages_are_rejected (test_dashboard.ApiTests.test_inconsistent_pages_are_rejected) ... ok\ntest_only_supported_read_only_endpoints (test_dashboard.ApiTests.test_only_supported_read_only_endpoints) ... ok\ntest_optional_gateway_token_is_a_header_and_not_configuration_repr (test_dashboard.ApiTests.test_optional_gateway_token_is_a_header_and_not_configuration_repr) ... ok\ntest_persistence_live_endpoint_uses_configured_base_get_and_response_contract (test_dashboard.ApiTests.test_persistence_live_endpoint_uses_configured_base_get_and_response_contract) ... ok\ntest_unreachable_timeout_invalid_json_and_http_errors (test_dashboard.ApiTests.test_unreachable_timeout_invalid_json_and_http_errors) ... ok\ntest_defaults_do_not_depend_on_working_directory (test_dashboard.ConfigTests.test_defaults_do_not_depend_on_working_directory) ... ok\ntest_environment_overrides_toml_and_paths_are_portable (test_dashboard.ConfigTests.test_environment_overrides_toml_and_paths_are_portable) ... ok\ntest_invalid_configuration_rejected (test_dashboard.ConfigTests.test_invalid_configuration_rejected) ... ok\ntest_both_native_adapters_reload_and_predict_identically (test_dashboard.PredictionTests.test_both_native_adapters_reload_and_predict_identically) ... ok\ntest_invalid_adapter_worker_and_response_fail_safely (test_dashboard.PredictionTests.test_invalid_adapter_worker_and_response_fail_safely) ... ok\ntest_model_metrics_are_frozen_synthetic_results (test_dashboard.PredictionTests.test_model_metrics_are_frozen_synthetic_results) ... ok\ntest_api_error_never_shows_fresh_counts (test_dashboard.StreamlitTests.test_api_error_never_shows_fresh_counts) ... 2026-11-12 01:34:33.859 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_automatic_refresh_can_be_disabled_without_busy_loop (test_dashboard.StreamlitTests.test_automatic_refresh_can_be_disabled_without_busy_loop) ... 2026-11-12 01:34:34.382 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_complete_fixture_history_calls_actual_saved_model (test_dashboard.StreamlitTests.test_complete_fixture_history_calls_actual_saved_model) ... 2026-11-12 01:34:34.623 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_fresh_grid_counts_metrics_and_manual_refresh (test_dashboard.StreamlitTests.test_fresh_grid_counts_metrics_and_manual_refresh) ... 2026-11-12 01:34:36.590 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_history_chart_and_filter_invalidation (test_dashboard.StreamlitTests.test_history_chart_and_filter_invalidation) ... 2026-11-12 01:34:36.827 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_history_truncation_and_failed_refresh_are_explicit (test_dashboard.StreamlitTests.test_history_truncation_and_failed_refresh_are_explicit) ... 2026-11-12 01:34:37.694 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_incomplete_history_cannot_produce_live_forecast (test_dashboard.StreamlitTests.test_incomplete_history_cannot_produce_live_forecast) ... 2026-11-12 01:34:38.118 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_stale_snapshot_has_twelve_unknown_and_no_live_prediction (test_dashboard.StreamlitTests.test_stale_snapshot_has_twelve_unknown_and_no_live_prediction) ... 2026-11-12 01:34:38.397 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_synthetic_example_genuine_worker_outputs_are_separate (test_dashboard.StreamlitTests.test_synthetic_example_genuine_worker_outputs_are_separate) ... 2026-11-12 01:34:38.583 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_backend_stale_flag_is_never_overridden (test_dashboard.ViewTests.test_backend_stale_flag_is_never_overridden) ... ok\ntest_empty_and_invalid_history (test_dashboard.ViewTests.test_empty_and_invalid_history) ... ok\ntest_future_intervention_does_not_change_history (test_dashboard.ViewTests.test_future_intervention_does_not_change_history) ... ok\ntest_history_only_unknown_and_partial_coverage_produce_gaps (test_dashboard.ViewTests.test_history_only_unknown_and_partial_coverage_produce_gaps) ... ok\ntest_invalid_snapshot_identity_distance_and_missing_slots (test_dashboard.ViewTests.test_invalid_snapshot_identity_distance_and_missing_slots) ... ok\ntest_live_features_reuse_frozen_pipeline_and_reject_gaps (test_dashboard.ViewTests.test_live_features_reuse_frozen_pipeline_and_reject_gaps) ... ok\ntest_minute_asof_never_uses_future_or_expired_readings (test_dashboard.ViewTests.test_minute_asof_never_uses_future_or_expired_readings) ... ok\ntest_twelve_slots_counts_and_numeric_order (test_dashboard.ViewTests.test_twelve_slots_counts_and_numeric_order) ... ok\ntest_unseen_stale_unknown_and_future_receipts_are_not_vacant (test_dashboard.ViewTests.test_unseen_stale_unknown_and_future_receipts_are_not_vacant) ... ok\ntest_available_fixture_displays_equal_counts_and_separate_label (test_persistence_panel.PersistencePanelTests.test_available_fixture_displays_equal_counts_and_separate_label) ... 2026-11-12 01:34:41.050 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_cached_success_expires_and_does_not_keep_showing_old_forecast (test_persistence_panel.PersistencePanelTests.test_cached_success_expires_and_does_not_keep_showing_old_forecast) ... 2026-11-12 01:34:41.375 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_prediction_api_error_does_not_break_existing_pages (test_persistence_panel.PersistencePanelTests.test_prediction_api_error_does_not_break_existing_pages) ... 2026-11-12 01:34:41.635 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_stale_response_hides_forecast_and_explains_blocked_slot (test_persistence_panel.PersistencePanelTests.test_stale_response_hides_forecast_and_explains_blocked_slot) ... 2026-11-12 01:34:41.828 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_filter_boundaries_and_history_only (test_phase6.SparseHistoryTests.test_filter_boundaries_and_history_only) ... ok\ntest_invalid_timezone_and_duplicate_records_are_rejected (test_phase6.SparseHistoryTests.test_invalid_timezone_and_duplicate_records_are_rejected) ... ok\ntest_original_twenty_two_event_failure_is_fixed_without_changing_minutes (test_phase6.SparseHistoryTests.test_original_twenty_two_event_failure_is_fixed_without_changing_minutes) ... ok\ntest_recent_receipts_cannot_hide_old_or_future_measurements (test_phase6.SparseHistoryTests.test_recent_receipts_cannot_hide_old_or_future_measurements) ... ok\ntest_single_observation_uses_markers_and_real_receipt_axis (test_phase6.SparseHistoryTests.test_single_observation_uses_markers_and_real_receipt_axis) ... ok\ntest_unknown_and_long_gaps_break_lines_and_partial_slots_remain_visible (test_phase6.SparseHistoryTests.test_unknown_and_long_gaps_break_lines_and_partial_slots_remain_visible) ... ok\ntest_entrypoint_recovers_pre_phase6_cached_view_module (test_startup_imports.StartupImportTests.test_entrypoint_recovers_pre_phase6_cached_view_module) ... ok\ntest_every_dashboard_import_in_entrypoint_exists_and_is_callable (test_startup_imports.StartupImportTests.test_every_dashboard_import_in_entrypoint_exists_and_is_callable) ... ok\n\n----------------------------------------------------------------------\nRan 45 tests in 13.942s\n\nOK\n"
+    },
+    "ml": {
+      "command": [
+        "C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Scripts\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ml/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "tests": 42,
+      "output": "test_calendar_is_local_and_cyclic (test_phase3.FeatureTests.test_calendar_is_local_and_cyclic) ... ok\ntest_each_lag_uses_exact_past_minute (test_phase3.FeatureTests.test_each_lag_uses_exact_past_minute) ... ok\ntest_future_intervention_cannot_change_any_past_feature (test_phase3.FeatureTests.test_future_intervention_cannot_change_any_past_feature) ... ok\ntest_invalid_timestamp_or_source_fails_instead_of_imputation (test_phase3.FeatureTests.test_invalid_timestamp_or_source_fails_instead_of_imputation) ... ok\ntest_no_missing_features_after_filtering (test_phase3.FeatureTests.test_no_missing_features_after_filtering) ... ok\ntest_prefix_computation_equals_full_past (test_phase3.FeatureTests.test_prefix_computation_equals_full_past) ... ok\ntest_rolling_features_use_only_past (test_phase3.FeatureTests.test_rolling_features_use_only_past) ... ok\ntest_split_ratios_rounding_and_purged_label_boundaries (test_phase3.FeatureTests.test_split_ratios_rounding_and_purged_label_boundaries) ... ok\ntest_target_exact_future_timestamp_and_value (test_phase3.FeatureTests.test_target_exact_future_timestamp_and_value) ... ok\ntest_all_slots_binary_and_total (test_phase3.GenerationTests.test_all_slots_binary_and_total) ... ok\ntest_complete_dwell_times_and_persistence (test_phase3.GenerationTests.test_complete_dwell_times_and_persistence) ... ok\ntest_each_slot_arrives_and_departs (test_phase3.GenerationTests.test_each_slot_arrives_and_departs) ... ok\ntest_exact_timeline_and_timezone (test_phase3.GenerationTests.test_exact_timeline_and_timezone) ... ok\ntest_fixed_seed_and_changed_seed (test_phase3.GenerationTests.test_fixed_seed_and_changed_seed) ... ok\ntest_invalid_days (test_phase3.GenerationTests.test_invalid_days) ... ok\ntest_source_and_missing_values (test_phase3.GenerationTests.test_source_and_missing_values) ... ok\ntest_committed_artifact_roundtrip_and_fingerprints (test_phase3.SerializationTests.test_committed_artifact_roundtrip_and_fingerprints) ... ok\ntest_existing_raw_output_is_never_overwritten (test_phase3.SerializationTests.test_existing_raw_output_is_never_overwritten) ... ok\ntest_invalid_raw_count_does_not_overflow_into_valid_value (test_phase3.SerializationTests.test_invalid_raw_count_does_not_overflow_into_valid_value) ... ok\ntest_processed_bytes_are_reproducible_without_duplicate_file (test_phase3.SerializationTests.test_processed_bytes_are_reproducible_without_duplicate_file) ... ok\ntest_raw_csv_roundtrip (test_phase3.SerializationTests.test_raw_csv_roundtrip) ... ok\ntest_bundle_selects_model_and_clips (test_phase4.ContractTests.test_bundle_selects_model_and_clips) ... ok\ntest_checksum_rejected_before_unpickling (test_phase4.ContractTests.test_checksum_rejected_before_unpickling) ... ok\ntest_clipping_preserves_fractional_counts (test_phase4.ContractTests.test_clipping_preserves_fractional_counts) ... ok\ntest_constant_r2_is_explicitly_undefined (test_phase4.ContractTests.test_constant_r2_is_explicitly_undefined) ... ok\ntest_dict_and_frame_interfaces_agree (test_phase4.ContractTests.test_dict_and_frame_interfaces_agree) ... ok\ntest_fake_bundle_roundtrip_is_contract_only (test_phase4.ContractTests.test_fake_bundle_roundtrip_is_contract_only) ... ok\ntest_manifest_verifies_frozen_checksums (test_phase4.ContractTests.test_manifest_verifies_frozen_checksums) ... ok\ntest_metric_alignment_and_target_range (test_phase4.ContractTests.test_metric_alignment_and_target_range) ... ok\ntest_metric_mathematics_and_clipping_frequency (test_phase4.ContractTests.test_metric_mathematics_and_clipping_frequency) ... ok\ntest_named_input_reorders_safely (test_phase4.ContractTests.test_named_input_reorders_safely) ... ok\ntest_partition_reader_does_not_read_test_during_validation (test_phase4.ContractTests.test_partition_reader_does_not_read_test_during_validation) ... ok\ntest_persistence_uses_current_total (test_phase4.ContractTests.test_persistence_uses_current_total) ... ok\ntest_reject_missing_extra_duplicate_and_target_columns (test_phase4.ContractTests.test_reject_missing_extra_duplicate_and_target_columns) ... ok\ntest_reject_nonfinite_strings_booleans_and_wrong_totals (test_phase4.ContractTests.test_reject_nonfinite_strings_booleans_and_wrong_totals) ... ok\ntest_reload_agreement_allows_only_tiny_roundoff (test_phase4.ContractTests.test_reload_agreement_allows_only_tiny_roundoff) ... ok\ntest_selection_is_validation_only_and_tie_prefers_simple (test_phase4.ContractTests.test_selection_is_validation_only_and_tie_prefers_simple) ... ok\ntest_identical_validation_row_counts (test_phase4.NativeModelTests.test_identical_validation_row_counts) ... ok\ntest_native_metric_agreement (test_phase4.NativeModelTests.test_native_metric_agreement) ... ok\ntest_preprocessing_fitted_on_train_only (test_phase4.NativeModelTests.test_preprocessing_fitted_on_train_only) ... ok\ntest_seeded_forest_training_repeats (test_phase4.NativeModelTests.test_seeded_forest_training_repeats) ... ok\ntest_trained_bundle_reload_predictions (test_phase4.NativeModelTests.test_trained_bundle_reload_predictions) ... ok\n\n----------------------------------------------------------------------\nRan 42 tests in 7.112s\n\nOK\n"
+    },
+    "circuits": {
+      "command": [
+        "C:\\Users\\vighn\\OneDrive\\Desktop\\iot project\\.venv\\Scripts\\python.exe",
+        "-B",
+        "esp32/tests/test_circuits.py"
+      ],
+      "exit_code": 0,
+      "tests": 3,
+      "output": "test_generated_circuits_have_not_drifted (__main__.CircuitTests.test_generated_circuits_have_not_drifted) ... ok\ntest_independent_simulations (__main__.CircuitTests.test_independent_simulations) ... ok\ntest_twelve_slot_overview (__main__.CircuitTests.test_twelve_slot_overview) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.162s\n\nOK\n"
+    }
+  },
+  "total_python_tests": 141,
+  "resolution": "Restarted only stale API8000 and dashboards8501/8502; on-disk client, GET route and response schema were already correct. Added an explicit client contract regression test.",
+  "preserved": "Mosquitto, API8001, dashboard8503, VS Code, SQLite history, all frozen artifacts and original 37-feature ML pipeline unchanged.",
+  "verification_limitations": "No browser rendering verification; supported HTTP/AppTest/WebSocket checks only. All current slots stale; no genuine forecast claimed. Process counters reset normally on API restart, while history remains intact."
+}
