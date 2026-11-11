@@ -1,0 +1,40 @@
+{
+  "source": "actual_phase4_test_execution",
+  "recorded_at_utc": "2026-11-11T10:45:19.247450+00:00",
+  "native_tests_requested": true,
+  "passed": true,
+  "tests_run": 20,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 1.437,
+  "test_ids": [
+    "ml.tests.test_phase4.ContractTests.test_bundle_selects_model_and_clips",
+    "ml.tests.test_phase4.ContractTests.test_checksum_rejected_before_unpickling",
+    "ml.tests.test_phase4.ContractTests.test_clipping_preserves_fractional_counts",
+    "ml.tests.test_phase4.ContractTests.test_constant_r2_is_explicitly_undefined",
+    "ml.tests.test_phase4.ContractTests.test_dict_and_frame_interfaces_agree",
+    "ml.tests.test_phase4.ContractTests.test_fake_bundle_roundtrip_is_contract_only",
+    "ml.tests.test_phase4.ContractTests.test_manifest_verifies_frozen_checksums",
+    "ml.tests.test_phase4.ContractTests.test_metric_alignment_and_target_range",
+    "ml.tests.test_phase4.ContractTests.test_metric_mathematics_and_clipping_frequency",
+    "ml.tests.test_phase4.ContractTests.test_named_input_reorders_safely",
+    "ml.tests.test_phase4.ContractTests.test_partition_reader_does_not_read_test_during_validation",
+    "ml.tests.test_phase4.ContractTests.test_persistence_uses_current_total",
+    "ml.tests.test_phase4.ContractTests.test_reject_missing_extra_duplicate_and_target_columns",
+    "ml.tests.test_phase4.ContractTests.test_reject_nonfinite_strings_booleans_and_wrong_totals",
+    "ml.tests.test_phase4.ContractTests.test_selection_is_validation_only_and_tie_prefers_simple",
+    "ml.tests.test_phase4.NativeModelTests.test_identical_validation_row_counts",
+    "ml.tests.test_phase4.NativeModelTests.test_native_metric_agreement",
+    "ml.tests.test_phase4.NativeModelTests.test_preprocessing_fitted_on_train_only",
+    "ml.tests.test_phase4.NativeModelTests.test_seeded_forest_training_repeats",
+    "ml.tests.test_phase4.NativeModelTests.test_trained_bundle_reload_predictions"
+  ],
+  "runner_output": "test_bundle_selects_model_and_clips (ml.tests.test_phase4.ContractTests.test_bundle_selects_model_and_clips) ... ok\ntest_checksum_rejected_before_unpickling (ml.tests.test_phase4.ContractTests.test_checksum_rejected_before_unpickling) ... ok\ntest_clipping_preserves_fractional_counts (ml.tests.test_phase4.ContractTests.test_clipping_preserves_fractional_counts) ... ok\ntest_constant_r2_is_explicitly_undefined (ml.tests.test_phase4.ContractTests.test_constant_r2_is_explicitly_undefined) ... ok\ntest_dict_and_frame_interfaces_agree (ml.tests.test_phase4.ContractTests.test_dict_and_frame_interfaces_agree) ... ok\ntest_fake_bundle_roundtrip_is_contract_only (ml.tests.test_phase4.ContractTests.test_fake_bundle_roundtrip_is_contract_only) ... ok\ntest_manifest_verifies_frozen_checksums (ml.tests.test_phase4.ContractTests.test_manifest_verifies_frozen_checksums) ... ok\ntest_metric_alignment_and_target_range (ml.tests.test_phase4.ContractTests.test_metric_alignment_and_target_range) ... ok\ntest_metric_mathematics_and_clipping_frequency (ml.tests.test_phase4.ContractTests.test_metric_mathematics_and_clipping_frequency) ... ok\ntest_named_input_reorders_safely (ml.tests.test_phase4.ContractTests.test_named_input_reorders_safely) ... ok\ntest_partition_reader_does_not_read_test_during_validation (ml.tests.test_phase4.ContractTests.test_partition_reader_does_not_read_test_during_validation) ... ok\ntest_persistence_uses_current_total (ml.tests.test_phase4.ContractTests.test_persistence_uses_current_total) ... ok\ntest_reject_missing_extra_duplicate_and_target_columns (ml.tests.test_phase4.ContractTests.test_reject_missing_extra_duplicate_and_target_columns) ... ok\ntest_reject_nonfinite_strings_booleans_and_wrong_totals (ml.tests.test_phase4.ContractTests.test_reject_nonfinite_strings_booleans_and_wrong_totals) ... ok\ntest_selection_is_validation_only_and_tie_prefers_simple (ml.tests.test_phase4.ContractTests.test_selection_is_validation_only_and_tie_prefers_simple) ... ok\ntest_identical_validation_row_counts (ml.tests.test_phase4.NativeModelTests.test_identical_validation_row_counts) ... ok\ntest_native_metric_agreement (ml.tests.test_phase4.NativeModelTests.test_native_metric_agreement) ... ok\ntest_preprocessing_fitted_on_train_only (ml.tests.test_phase4.NativeModelTests.test_preprocessing_fitted_on_train_only) ... ok\ntest_seeded_forest_training_repeats (ml.tests.test_phase4.NativeModelTests.test_seeded_forest_training_repeats) ... ok\ntest_trained_bundle_reload_predictions (ml.tests.test_phase4.NativeModelTests.test_trained_bundle_reload_predictions) ... ok\n\n----------------------------------------------------------------------\nRan 20 tests in 1.434s\n\nOK\n",
+  "source_sha256": {
+    "ml/phase4_models.py": "b671a8dec8c825d1ba16c129b530b9d1ce78ea1936397ba4b3eaf16f5a67833e",
+    "ml/train_phase4.py": "2a28ec7a75237c94c83447029a8300143a09584ee1239d17d57b8a736d7dc8e8",
+    "ml/tests/test_phase4.py": "bdc4aa29f1d657615ce821f0bf30daf5889299d51a94e5b38e9897e1a8e4a5af",
+    "ml/tools/verify_phase4.py": "d129fb61346f2c64062cb78aae7e1c069405784dc32782c72777935d59844d08"
+  }
+}
