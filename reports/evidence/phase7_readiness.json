@@ -1,0 +1,1023 @@
+{
+  "recorded_at_utc": "2026-11-11T21:58:03.108010+00:00",
+  "phase_status": "IMPLEMENTATION VERIFIED; DEPLOYMENT BLOCKED AT ACCOUNT-CONSOLE ACCESS",
+  "local_regressions": {
+    "backend": {
+      "exit_code": 0,
+      "tests": 62,
+      "skipped": 5,
+      "output": "test_all_slots_and_individual (test_api.ApiTests.test_all_slots_and_individual) ... ok\ntest_database_failure_503_no_leak (test_api.ApiTests.test_database_failure_503_no_leak) ... ok\ntest_health_and_openapi (test_api.ApiTests.test_health_and_openapi) ... ok\ntest_history_filters (test_api.ApiTests.test_history_filters) ... ok\ntest_invalid_history_queries (test_api.ApiTests.test_invalid_history_queries) ... ok\ntest_mqtt_unavailable_degraded (test_api.ApiTests.test_mqtt_unavailable_degraded) ... ok\ntest_parallel_reads_during_reserved_writer_lock (test_api.ApiTests.test_parallel_reads_during_reserved_writer_lock) ... ok\ntest_stats (test_api.ApiTests.test_stats) ... ok\ntest_api_remains_available_without_broker (test_api.ConfigurationTests.test_api_remains_available_without_broker) ... ok\ntest_invalid_limits_and_identity (test_api.ConfigurationTests.test_invalid_limits_and_identity) ... ok\ntest_password_not_in_repr (test_api.ConfigurationTests.test_password_not_in_repr) ... ok\ntest_project_and_onedrive_paths_rejected (test_api.ConfigurationTests.test_project_and_onedrive_paths_rejected) ... ok\ntest_auth_protects_api_docs_health_and_forecasts_but_liveness_is_public (test_cloud.CloudTests.test_auth_protects_api_docs_health_and_forecasts_but_liveness_is_public) ... ok\ntest_cloud_fails_closed_and_secrets_are_not_repr (test_cloud.CloudTests.test_cloud_fails_closed_and_secrets_are_not_repr) ... ok\ntest_driver_free_export_preserves_source_and_guards_cloud_history (test_cloud.CloudTests.test_driver_free_export_preserves_source_and_guards_cloud_history) ... ok\ntest_fixed_sql_translation_keeps_values_bound_and_returns_ids (test_cloud.CloudTests.test_fixed_sql_translation_keeps_values_bound_and_returns_ids) ... ok\ntest_missing_local_database_does_not_create_project_file (test_cloud.CloudTests.test_missing_local_database_does_not_create_project_file) ... ok\ntest_tls_context_verifies_certificate_and_hostname (test_cloud.CloudTests.test_tls_context_verifies_certificate_and_hostname) ... ok\ntest_all_boards_persist_and_reopen (test_database.DatabaseTests.test_all_boards_persist_and_reopen) ... ok\ntest_durable_duplicate_and_slot_order (test_database.DatabaseTests.test_durable_duplicate_and_slot_order) ... ok\ntest_history_filters_and_pagination (test_database.DatabaseTests.test_history_filters_and_pagination) ... ok\ntest_inferred_reboot_and_counter_wrap (test_database.DatabaseTests.test_inferred_reboot_and_counter_wrap) ... ok\ntest_known_database_not_reinitialized (test_database.DatabaseTests.test_known_database_not_reinitialized) ... ok\ntest_late_message_history_only (test_database.DatabaseTests.test_late_message_history_only) ... ok\ntest_locked_database_recoverable (test_database.DatabaseTests.test_locked_database_recoverable) ... ok\ntest_older_device_time_does_not_replace (test_database.DatabaseTests.test_older_device_time_does_not_replace) ... ok\ntest_seed_and_statistics (test_database.DatabaseTests.test_seed_and_statistics) ... ok\ntest_snapshot_rollback_on_database_error (test_database.DatabaseTests.test_snapshot_rollback_on_database_error) ... ok\ntest_stale_is_not_available_and_duplicate_does_not_refresh (test_database.DatabaseTests.test_stale_is_not_available_and_duplicate_does_not_refresh) ... ok\ntest_unknown_existing_database_unchanged (test_database.DatabaseTests.test_unknown_existing_database_unchanged) ... ok\ntest_commit_before_ack (test_ingestion.IngestionTests.test_commit_before_ack) ... ok\ntest_connection_and_subscription_callbacks (test_ingestion.IngestionTests.test_connection_and_subscription_callbacks) ... ok\ntest_database_error_retried_before_ack (test_ingestion.IngestionTests.test_database_error_retried_before_ack) ... MQTT database write failed; holding acknowledgement and retrying\nok\ntest_duplicate_acknowledged (test_ingestion.IngestionTests.test_duplicate_acknowledged) ... ok\ntest_invalid_ack_without_database_write (test_ingestion.IngestionTests.test_invalid_ack_without_database_write) ... ok\ntest_old_connection_generation_no_ack (test_ingestion.IngestionTests.test_old_connection_generation_no_ack) ... ok\ntest_overflow_unacknowledged_and_reconnect_requested (test_ingestion.IngestionTests.test_overflow_unacknowledged_and_reconnect_requested) ... ok\ntest_rejected_connection_subscription_and_ack (test_ingestion.IngestionTests.test_rejected_connection_subscription_and_ack) ... ok\ntest_retained_oversized_unknown_topic_qos_rejected (test_ingestion.IngestionTests.test_retained_oversized_unknown_topic_qos_rejected) ... ok\ntest_shutdown_failure_no_ack (test_ingestion.IngestionTests.test_shutdown_failure_no_ack) ... MQTT database write failed; holding acknowledgement and retrying\nok\ntest_worker_runs_and_stops_independently (test_ingestion.IngestionTests.test_worker_runs_and_stops_independently) ... ok\ntest_exact_rule_agrees_with_existing_parameter_free_estimator_for_all_counts (test_persistence_live.PersistenceAdapterTests.test_exact_rule_agrees_with_existing_parameter_free_estimator_for_all_counts) ... ok\ntest_freshness_ceiling_cannot_be_weakened_and_stricter_setting_applies (test_persistence_live.PersistenceAdapterTests.test_freshness_ceiling_cannot_be_weakened_and_stricter_setting_applies) ... ok\ntest_missing_duplicate_wrong_device_and_unexpected_slots_block (test_persistence_live.PersistenceAdapterTests.test_missing_duplicate_wrong_device_and_unexpected_slots_block) ... ok\ntest_no_input_mutation (test_persistence_live.PersistenceAdapterTests.test_no_input_mutation) ... ok\ntest_receipt_and_measurement_missing_old_future_naive_invalid_block (test_persistence_live.PersistenceAdapterTests.test_receipt_and_measurement_missing_old_future_naive_invalid_block) ... ok\ntest_stale_unknown_unobserved_or_invalid_distance_block (test_persistence_live.PersistenceAdapterTests.test_stale_unknown_unobserved_or_invalid_distance_block) ... ok\ntest_database_failure_uses_existing_safe_503_handler (test_persistence_live.PersistenceEndpointTests.test_database_failure_uses_existing_safe_503_handler) ... ok\ntest_real_http_and_isolated_sqlite_success_and_unavailable_are_read_only (test_persistence_live.PersistenceEndpointTests.test_real_http_and_isolated_sqlite_success_and_unavailable_are_read_only) ... ok\ntest_all_twelve_slots_history_duplicates_and_sequence (test_postgres_integration.PostgresIntegrationTests.test_all_twelve_slots_history_duplicates_and_sequence) ... skipped 'Disposable PostgreSQL CI database not configured; not a runtime pass'\ntest_import_preserves_exact_history_and_refuses_nonempty_destination (test_postgres_integration.PostgresIntegrationTests.test_import_preserves_exact_history_and_refuses_nonempty_destination) ... skipped 'Disposable PostgreSQL CI database not configured; not a runtime pass'\ntest_reordered_and_reset_sequences_match_sqlite (test_postgres_integration.PostgresIntegrationTests.test_reordered_and_reset_sequences_match_sqlite) ... skipped 'Disposable PostgreSQL CI database not configured; not a runtime pass'\ntest_sql_editor_export_executes_transactionally (test_postgres_integration.PostgresIntegrationTests.test_sql_editor_export_executes_transactionally) ... skipped 'Disposable PostgreSQL CI database not configured; not a runtime pass'\ntest_two_writers_duplicate_detection_is_atomic (test_postgres_integration.PostgresIntegrationTests.test_two_writers_duplicate_detection_is_atomic) ... skipped 'Disposable PostgreSQL CI database not configured; not a runtime pass'\ntest_all_three_assignments (test_validation.ValidationTests.test_all_three_assignments) ... ok\ntest_malformed_oversized_duplicate_json (test_validation.ValidationTests.test_malformed_oversized_duplicate_json) ... ok\ntest_reject_duplicate_missing_and_extra_slots (test_validation.ValidationTests.test_reject_duplicate_missing_and_extra_slots) ... ok\ntest_reject_invalid_root_fields (test_validation.ValidationTests.test_reject_invalid_root_fields) ... ok\ntest_reject_invalid_slot_fields (test_validation.ValidationTests.test_reject_invalid_slot_fields) ... ok\ntest_topic_mismatch_and_extra_fields (test_validation.ValidationTests.test_topic_mismatch_and_extra_fields) ... ok\ntest_unknown_and_distance_boundaries (test_validation.ValidationTests.test_unknown_and_distance_boundaries) ... ok\ntest_unsynchronized_and_mixed_startup (test_validation.ValidationTests.test_unsynchronized_and_mixed_startup) ... ok\n\n----------------------------------------------------------------------\nRan 62 tests in 6.062s\n\nOK (skipped=5)\n"
+    },
+    "dashboard": {
+      "exit_code": 0,
+      "tests": 45,
+      "skipped": 0,
+      "output": "test_bounded_pagination_reports_truncation (test_dashboard.ApiTests.test_bounded_pagination_reports_truncation) ... ok\ntest_client_uses_configured_url_get_timeout_and_query (test_dashboard.ApiTests.test_client_uses_configured_url_get_timeout_and_query) ... ok\ntest_complete_pagination_preserves_upper_time_bound (test_dashboard.ApiTests.test_complete_pagination_preserves_upper_time_bound) ... ok\ntest_degraded_health_503_is_readable (test_dashboard.ApiTests.test_degraded_health_503_is_readable) ... ok\ntest_inconsistent_pages_are_rejected (test_dashboard.ApiTests.test_inconsistent_pages_are_rejected) ... ok\ntest_only_supported_read_only_endpoints (test_dashboard.ApiTests.test_only_supported_read_only_endpoints) ... ok\ntest_optional_gateway_token_is_a_header_and_not_configuration_repr (test_dashboard.ApiTests.test_optional_gateway_token_is_a_header_and_not_configuration_repr) ... ok\ntest_persistence_live_endpoint_uses_configured_base_get_and_response_contract (test_dashboard.ApiTests.test_persistence_live_endpoint_uses_configured_base_get_and_response_contract) ... ok\ntest_unreachable_timeout_invalid_json_and_http_errors (test_dashboard.ApiTests.test_unreachable_timeout_invalid_json_and_http_errors) ... ok\ntest_defaults_do_not_depend_on_working_directory (test_dashboard.ConfigTests.test_defaults_do_not_depend_on_working_directory) ... ok\ntest_environment_overrides_toml_and_paths_are_portable (test_dashboard.ConfigTests.test_environment_overrides_toml_and_paths_are_portable) ... ok\ntest_invalid_configuration_rejected (test_dashboard.ConfigTests.test_invalid_configuration_rejected) ... ok\ntest_both_native_adapters_reload_and_predict_identically (test_dashboard.PredictionTests.test_both_native_adapters_reload_and_predict_identically) ... ok\ntest_invalid_adapter_worker_and_response_fail_safely (test_dashboard.PredictionTests.test_invalid_adapter_worker_and_response_fail_safely) ... ok\ntest_model_metrics_are_frozen_synthetic_results (test_dashboard.PredictionTests.test_model_metrics_are_frozen_synthetic_results) ... ok\ntest_api_error_never_shows_fresh_counts (test_dashboard.StreamlitTests.test_api_error_never_shows_fresh_counts) ... 2026-11-12 03:06:48.899 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_automatic_refresh_can_be_disabled_without_busy_loop (test_dashboard.StreamlitTests.test_automatic_refresh_can_be_disabled_without_busy_loop) ... 2026-11-12 03:06:49.465 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_complete_fixture_history_calls_actual_saved_model (test_dashboard.StreamlitTests.test_complete_fixture_history_calls_actual_saved_model) ... 2026-11-12 03:06:49.996 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_fresh_grid_counts_metrics_and_manual_refresh (test_dashboard.StreamlitTests.test_fresh_grid_counts_metrics_and_manual_refresh) ... 2026-11-12 03:06:52.142 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_history_chart_and_filter_invalidation (test_dashboard.StreamlitTests.test_history_chart_and_filter_invalidation) ... 2026-11-12 03:06:52.348 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_history_truncation_and_failed_refresh_are_explicit (test_dashboard.StreamlitTests.test_history_truncation_and_failed_refresh_are_explicit) ... 2026-11-12 03:06:53.185 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_incomplete_history_cannot_produce_live_forecast (test_dashboard.StreamlitTests.test_incomplete_history_cannot_produce_live_forecast) ... 2026-11-12 03:06:53.577 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_stale_snapshot_has_twelve_unknown_and_no_live_prediction (test_dashboard.StreamlitTests.test_stale_snapshot_has_twelve_unknown_and_no_live_prediction) ... 2026-11-12 03:06:53.811 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_synthetic_example_genuine_worker_outputs_are_separate (test_dashboard.StreamlitTests.test_synthetic_example_genuine_worker_outputs_are_separate) ... 2026-11-12 03:06:54.062 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_backend_stale_flag_is_never_overridden (test_dashboard.ViewTests.test_backend_stale_flag_is_never_overridden) ... ok\ntest_empty_and_invalid_history (test_dashboard.ViewTests.test_empty_and_invalid_history) ... ok\ntest_future_intervention_does_not_change_history (test_dashboard.ViewTests.test_future_intervention_does_not_change_history) ... ok\ntest_history_only_unknown_and_partial_coverage_produce_gaps (test_dashboard.ViewTests.test_history_only_unknown_and_partial_coverage_produce_gaps) ... ok\ntest_invalid_snapshot_identity_distance_and_missing_slots (test_dashboard.ViewTests.test_invalid_snapshot_identity_distance_and_missing_slots) ... ok\ntest_live_features_reuse_frozen_pipeline_and_reject_gaps (test_dashboard.ViewTests.test_live_features_reuse_frozen_pipeline_and_reject_gaps) ... ok\ntest_minute_asof_never_uses_future_or_expired_readings (test_dashboard.ViewTests.test_minute_asof_never_uses_future_or_expired_readings) ... ok\ntest_twelve_slots_counts_and_numeric_order (test_dashboard.ViewTests.test_twelve_slots_counts_and_numeric_order) ... ok\ntest_unseen_stale_unknown_and_future_receipts_are_not_vacant (test_dashboard.ViewTests.test_unseen_stale_unknown_and_future_receipts_are_not_vacant) ... ok\ntest_available_fixture_displays_equal_counts_and_separate_label (test_persistence_panel.PersistencePanelTests.test_available_fixture_displays_equal_counts_and_separate_label) ... 2026-11-12 03:06:56.382 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_cached_success_expires_and_does_not_keep_showing_old_forecast (test_persistence_panel.PersistencePanelTests.test_cached_success_expires_and_does_not_keep_showing_old_forecast) ... 2026-11-12 03:06:56.676 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_prediction_api_error_does_not_break_existing_pages (test_persistence_panel.PersistencePanelTests.test_prediction_api_error_does_not_break_existing_pages) ... 2026-11-12 03:06:56.863 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_stale_response_hides_forecast_and_explains_blocked_slot (test_persistence_panel.PersistencePanelTests.test_stale_response_hides_forecast_and_explains_blocked_slot) ... 2026-11-12 03:06:57.071 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\nok\ntest_filter_boundaries_and_history_only (test_phase6.SparseHistoryTests.test_filter_boundaries_and_history_only) ... ok\ntest_invalid_timezone_and_duplicate_records_are_rejected (test_phase6.SparseHistoryTests.test_invalid_timezone_and_duplicate_records_are_rejected) ... ok\ntest_original_twenty_two_event_failure_is_fixed_without_changing_minutes (test_phase6.SparseHistoryTests.test_original_twenty_two_event_failure_is_fixed_without_changing_minutes) ... ok\ntest_recent_receipts_cannot_hide_old_or_future_measurements (test_phase6.SparseHistoryTests.test_recent_receipts_cannot_hide_old_or_future_measurements) ... ok\ntest_single_observation_uses_markers_and_real_receipt_axis (test_phase6.SparseHistoryTests.test_single_observation_uses_markers_and_real_receipt_axis) ... ok\ntest_unknown_and_long_gaps_break_lines_and_partial_slots_remain_visible (test_phase6.SparseHistoryTests.test_unknown_and_long_gaps_break_lines_and_partial_slots_remain_visible) ... ok\ntest_entrypoint_recovers_pre_phase6_cached_view_module (test_startup_imports.StartupImportTests.test_entrypoint_recovers_pre_phase6_cached_view_module) ... ok\ntest_every_dashboard_import_in_entrypoint_exists_and_is_callable (test_startup_imports.StartupImportTests.test_every_dashboard_import_in_entrypoint_exists_and_is_callable) ... ok\n\n----------------------------------------------------------------------\nRan 45 tests in 14.086s\n\nOK\n"
+    },
+    "ml": {
+      "exit_code": 0,
+      "tests": 42,
+      "skipped": 0,
+      "output": "test_calendar_is_local_and_cyclic (test_phase3.FeatureTests.test_calendar_is_local_and_cyclic) ... ok\ntest_each_lag_uses_exact_past_minute (test_phase3.FeatureTests.test_each_lag_uses_exact_past_minute) ... ok\ntest_future_intervention_cannot_change_any_past_feature (test_phase3.FeatureTests.test_future_intervention_cannot_change_any_past_feature) ... ok\ntest_invalid_timestamp_or_source_fails_instead_of_imputation (test_phase3.FeatureTests.test_invalid_timestamp_or_source_fails_instead_of_imputation) ... ok\ntest_no_missing_features_after_filtering (test_phase3.FeatureTests.test_no_missing_features_after_filtering) ... ok\ntest_prefix_computation_equals_full_past (test_phase3.FeatureTests.test_prefix_computation_equals_full_past) ... ok\ntest_rolling_features_use_only_past (test_phase3.FeatureTests.test_rolling_features_use_only_past) ... ok\ntest_split_ratios_rounding_and_purged_label_boundaries (test_phase3.FeatureTests.test_split_ratios_rounding_and_purged_label_boundaries) ... ok\ntest_target_exact_future_timestamp_and_value (test_phase3.FeatureTests.test_target_exact_future_timestamp_and_value) ... ok\ntest_all_slots_binary_and_total (test_phase3.GenerationTests.test_all_slots_binary_and_total) ... ok\ntest_complete_dwell_times_and_persistence (test_phase3.GenerationTests.test_complete_dwell_times_and_persistence) ... ok\ntest_each_slot_arrives_and_departs (test_phase3.GenerationTests.test_each_slot_arrives_and_departs) ... ok\ntest_exact_timeline_and_timezone (test_phase3.GenerationTests.test_exact_timeline_and_timezone) ... ok\ntest_fixed_seed_and_changed_seed (test_phase3.GenerationTests.test_fixed_seed_and_changed_seed) ... ok\ntest_invalid_days (test_phase3.GenerationTests.test_invalid_days) ... ok\ntest_source_and_missing_values (test_phase3.GenerationTests.test_source_and_missing_values) ... ok\ntest_committed_artifact_roundtrip_and_fingerprints (test_phase3.SerializationTests.test_committed_artifact_roundtrip_and_fingerprints) ... ok\ntest_existing_raw_output_is_never_overwritten (test_phase3.SerializationTests.test_existing_raw_output_is_never_overwritten) ... ok\ntest_invalid_raw_count_does_not_overflow_into_valid_value (test_phase3.SerializationTests.test_invalid_raw_count_does_not_overflow_into_valid_value) ... ok\ntest_processed_bytes_are_reproducible_without_duplicate_file (test_phase3.SerializationTests.test_processed_bytes_are_reproducible_without_duplicate_file) ... ok\ntest_raw_csv_roundtrip (test_phase3.SerializationTests.test_raw_csv_roundtrip) ... ok\ntest_bundle_selects_model_and_clips (test_phase4.ContractTests.test_bundle_selects_model_and_clips) ... ok\ntest_checksum_rejected_before_unpickling (test_phase4.ContractTests.test_checksum_rejected_before_unpickling) ... ok\ntest_clipping_preserves_fractional_counts (test_phase4.ContractTests.test_clipping_preserves_fractional_counts) ... ok\ntest_constant_r2_is_explicitly_undefined (test_phase4.ContractTests.test_constant_r2_is_explicitly_undefined) ... ok\ntest_dict_and_frame_interfaces_agree (test_phase4.ContractTests.test_dict_and_frame_interfaces_agree) ... ok\ntest_fake_bundle_roundtrip_is_contract_only (test_phase4.ContractTests.test_fake_bundle_roundtrip_is_contract_only) ... ok\ntest_manifest_verifies_frozen_checksums (test_phase4.ContractTests.test_manifest_verifies_frozen_checksums) ... ok\ntest_metric_alignment_and_target_range (test_phase4.ContractTests.test_metric_alignment_and_target_range) ... ok\ntest_metric_mathematics_and_clipping_frequency (test_phase4.ContractTests.test_metric_mathematics_and_clipping_frequency) ... ok\ntest_named_input_reorders_safely (test_phase4.ContractTests.test_named_input_reorders_safely) ... ok\ntest_partition_reader_does_not_read_test_during_validation (test_phase4.ContractTests.test_partition_reader_does_not_read_test_during_validation) ... ok\ntest_persistence_uses_current_total (test_phase4.ContractTests.test_persistence_uses_current_total) ... ok\ntest_reject_missing_extra_duplicate_and_target_columns (test_phase4.ContractTests.test_reject_missing_extra_duplicate_and_target_columns) ... ok\ntest_reject_nonfinite_strings_booleans_and_wrong_totals (test_phase4.ContractTests.test_reject_nonfinite_strings_booleans_and_wrong_totals) ... ok\ntest_reload_agreement_allows_only_tiny_roundoff (test_phase4.ContractTests.test_reload_agreement_allows_only_tiny_roundoff) ... ok\ntest_selection_is_validation_only_and_tie_prefers_simple (test_phase4.ContractTests.test_selection_is_validation_only_and_tie_prefers_simple) ... ok\ntest_identical_validation_row_counts (test_phase4.NativeModelTests.test_identical_validation_row_counts) ... ok\ntest_native_metric_agreement (test_phase4.NativeModelTests.test_native_metric_agreement) ... ok\ntest_preprocessing_fitted_on_train_only (test_phase4.NativeModelTests.test_preprocessing_fitted_on_train_only) ... ok\ntest_seeded_forest_training_repeats (test_phase4.NativeModelTests.test_seeded_forest_training_repeats) ... ok\ntest_trained_bundle_reload_predictions (test_phase4.NativeModelTests.test_trained_bundle_reload_predictions) ... ok\n\n----------------------------------------------------------------------\nRan 42 tests in 7.140s\n\nOK\n"
+    },
+    "circuits": {
+      "exit_code": 0,
+      "tests": 3,
+      "skipped": 0,
+      "output": "test_generated_circuits_have_not_drifted (__main__.CircuitTests.test_generated_circuits_have_not_drifted) ... ok\ntest_independent_simulations (__main__.CircuitTests.test_independent_simulations) ... ok\ntest_twelve_slot_overview (__main__.CircuitTests.test_twelve_slot_overview) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.132s\n\nOK\n"
+    }
+  },
+  "local_passed": 147,
+  "local_skipped": 5,
+  "linux_runs": [
+    {
+      "run_id": 43104923886,
+      "head_sha": "51576cb55de02c04451e0c292977159bb237b343",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/vighnesh-6/iot-based-smart-parking-system/actions/runs/43104923886",
+      "jobs": [
+        {
+          "id": 130805643299,
+          "run_id": 43104923886,
+          "workflow_name": "Phase 7 Linux readiness",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/vighnesh-6/iot-based-smart-parking-system/actions/runs/43104923886",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOVpPBfs8AAAAedJ-4Iw",
+          "head_sha": "51576cb55de02c04451e0c292977159bb237b343",
+          "url": "https://api.github.com/repos/vighnesh-6/iot-based-smart-parking-system/actions/jobs/130805643299",
+          "html_url": "https://github.com/vighnesh-6/iot-based-smart-parking-system/actions/runs/43104923886/job/130805643299",
+          "status": "completed",
+          "conclusion": "failure",
+          "created_at": "2026-11-11T21:39:09Z",
+          "started_at": "2026-11-11T21:39:12Z",
+          "completed_at": "2026-11-11T21:39:32Z",
+          "name": "verify",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-11-11T21:39:12Z",
+              "completed_at": "2026-11-11T21:39:13Z"
+            },
+            {
+              "name": "Initialize containers",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-11-11T21:39:13Z",
+              "completed_at": "2026-11-11T21:39:27Z"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-11-11T21:39:27Z",
+              "completed_at": "2026-11-11T21:39:28Z"
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "failure",
+              "number": 4,
+              "started_at": "2026-11-11T21:39:28Z",
+              "completed_at": "2026-11-11T21:39:30Z"
+            },
+            {
+              "name": "Install hosted-only pinned dependencies",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 5,
+              "started_at": "2026-11-11T21:39:30Z",
+              "completed_at": "2026-11-11T21:39:30Z"
+            },
+            {
+              "name": "PostgreSQL and backend regressions",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 6,
+              "started_at": "2026-11-11T21:39:30Z",
+              "completed_at": "2026-11-11T21:39:30Z"
+            },
+            {
+              "name": "Dashboard regressions and native model adapters",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 7,
+              "started_at": "2026-11-11T21:39:30Z",
+              "completed_at": "2026-11-11T21:39:30Z"
+            },
+            {
+              "name": "Frozen ML regression and reload tests",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 8,
+              "started_at": "2026-11-11T21:39:30Z",
+              "completed_at": "2026-11-11T21:39:30Z"
+            },
+            {
+              "name": "Circuit static and firmware host regressions",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 9,
+              "started_at": "2026-11-11T21:39:30Z",
+              "completed_at": "2026-11-11T21:39:30Z"
+            },
+            {
+              "name": "Compile three local and three TLS firmware targets",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 10,
+              "started_at": "2026-11-11T21:39:30Z",
+              "completed_at": "2026-11-11T21:39:30Z"
+            },
+            {
+              "name": "Linux saved-model interface verification",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 11,
+              "started_at": "2026-11-11T21:39:30Z",
+              "completed_at": "2026-11-11T21:39:30Z"
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 20,
+              "started_at": "2026-11-11T21:39:30Z",
+              "completed_at": "2026-11-11T21:39:30Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-11-11T21:39:30Z",
+              "completed_at": "2026-11-11T21:39:30Z"
+            },
+            {
+              "name": "Stop containers",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 22,
+              "started_at": "2026-11-11T21:39:30Z",
+              "completed_at": "2026-11-11T21:39:30Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 23,
+              "started_at": "2026-11-11T21:39:30Z",
+              "completed_at": "2026-11-11T21:39:30Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/vighnesh-6/iot-based-smart-parking-system/check-runs/130805643299",
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "runner_id": 1000000113,
+          "runner_name": "GitHub Actions 1000000113",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ],
+      "failure_annotations": [
+        {
+          "path": ".github",
+          "blob_href": "https://github.com/vighnesh-6/iot-based-smart-parking-system/blob/51576cb55de02c04451e0c292977159bb237b343/.github",
+          "start_line": 2,
+          "start_column": null,
+          "end_line": 2,
+          "end_column": null,
+          "annotation_level": "warning",
+          "title": "",
+          "message": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+          "raw_details": ""
+        },
+        {
+          "path": ".github",
+          "blob_href": "https://github.com/vighnesh-6/iot-based-smart-parking-system/blob/51576cb55de02c04451e0c292977159bb237b343/.github",
+          "start_line": 19,
+          "start_column": null,
+          "end_line": 19,
+          "end_column": null,
+          "annotation_level": "failure",
+          "title": "",
+          "message": "The version '3.12.10' with architecture 'x64' was not found for Ubuntu 26.04.\nThe list of all available versions can be found here: https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json",
+          "raw_details": ""
+        },
+        {
+          "path": ".github",
+          "blob_href": "https://github.com/vighnesh-6/iot-based-smart-parking-system/blob/51576cb55de02c04451e0c292977159bb237b343/.github",
+          "start_line": 1,
+          "start_column": null,
+          "end_line": 1,
+          "end_column": null,
+          "annotation_level": "notice",
+          "title": "",
+          "message": "\"The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748\"",
+          "raw_details": ""
+        }
+      ]
+    },
+    {
+      "run_id": 43105710451,
+      "head_sha": "03f79356e58e1a66e51634b3c82ec0832a073b8d",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/vighnesh-6/iot-based-smart-parking-system/actions/runs/43105710451",
+      "jobs": [
+        {
+          "id": 130808357776,
+          "run_id": 43105710451,
+          "workflow_name": "Phase 7 Linux readiness",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/vighnesh-6/iot-based-smart-parking-system/actions/runs/43105710451",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOVpPBfs8AAAAedMkjkA",
+          "head_sha": "03f79356e58e1a66e51634b3c82ec0832a073b8d",
+          "url": "https://api.github.com/repos/vighnesh-6/iot-based-smart-parking-system/actions/jobs/130808357776",
+          "html_url": "https://github.com/vighnesh-6/iot-based-smart-parking-system/actions/runs/43105710451/job/130808357776",
+          "status": "completed",
+          "conclusion": "failure",
+          "created_at": "2026-11-11T21:44:30Z",
+          "started_at": "2026-11-11T21:44:38Z",
+          "completed_at": "2026-11-11T21:45:10Z",
+          "name": "verify",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-11-11T21:44:39Z",
+              "completed_at": "2026-11-11T21:44:40Z"
+            },
+            {
+              "name": "Initialize containers",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-11-11T21:44:40Z",
+              "completed_at": "2026-11-11T21:44:54Z"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-11-11T21:44:54Z",
+              "completed_at": "2026-11-11T21:44:55Z"
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-11-11T21:44:55Z",
+              "completed_at": "2026-11-11T21:45:02Z"
+            },
+            {
+              "name": "Install hosted-only pinned dependencies",
+              "status": "completed",
+              "conclusion": "failure",
+              "number": 5,
+              "started_at": "2026-11-11T21:45:02Z",
+              "completed_at": "2026-11-11T21:45:05Z"
+            },
+            {
+              "name": "PostgreSQL and backend regressions",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 6,
+              "started_at": "2026-11-11T21:45:05Z",
+              "completed_at": "2026-11-11T21:45:05Z"
+            },
+            {
+              "name": "Dashboard regressions and native model adapters",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 7,
+              "started_at": "2026-11-11T21:45:05Z",
+              "completed_at": "2026-11-11T21:45:05Z"
+            },
+            {
+              "name": "Frozen ML regression and reload tests",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 8,
+              "started_at": "2026-11-11T21:45:05Z",
+              "completed_at": "2026-11-11T21:45:05Z"
+            },
+            {
+              "name": "Circuit static and firmware host regressions",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 9,
+              "started_at": "2026-11-11T21:45:05Z",
+              "completed_at": "2026-11-11T21:45:05Z"
+            },
+            {
+              "name": "Compile three local and three TLS firmware targets",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 10,
+              "started_at": "2026-11-11T21:45:05Z",
+              "completed_at": "2026-11-11T21:45:05Z"
+            },
+            {
+              "name": "Linux saved-model interface verification",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 11,
+              "started_at": "2026-11-11T21:45:05Z",
+              "completed_at": "2026-11-11T21:45:05Z"
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 20,
+              "started_at": "2026-11-11T21:45:05Z",
+              "completed_at": "2026-11-11T21:45:05Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-11-11T21:45:05Z",
+              "completed_at": "2026-11-11T21:45:05Z"
+            },
+            {
+              "name": "Stop containers",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 22,
+              "started_at": "2026-11-11T21:45:05Z",
+              "completed_at": "2026-11-11T21:45:08Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 23,
+              "started_at": "2026-11-11T21:45:08Z",
+              "completed_at": "2026-11-11T21:45:09Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/vighnesh-6/iot-based-smart-parking-system/check-runs/130808357776",
+          "labels": [
+            "ubuntu-24.04"
+          ],
+          "runner_id": 1000000114,
+          "runner_name": "GitHub Actions 1000000114",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ],
+      "failure_annotations": [
+        {
+          "path": ".github",
+          "blob_href": "https://github.com/vighnesh-6/iot-based-smart-parking-system/blob/03f79356e58e1a66e51634b3c82ec0832a073b8d/.github",
+          "start_line": 2,
+          "start_column": null,
+          "end_line": 2,
+          "end_column": null,
+          "annotation_level": "warning",
+          "title": "",
+          "message": "Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+          "raw_details": ""
+        },
+        {
+          "path": ".github",
+          "blob_href": "https://github.com/vighnesh-6/iot-based-smart-parking-system/blob/03f79356e58e1a66e51634b3c82ec0832a073b8d/.github",
+          "start_line": 90,
+          "start_column": null,
+          "end_line": 90,
+          "end_column": null,
+          "annotation_level": "failure",
+          "title": "",
+          "message": "Process completed with exit code 1.",
+          "raw_details": ""
+        }
+      ]
+    },
+    {
+      "run_id": 43106498231,
+      "head_sha": "02b6eba5f9f1567946656c728494a70fdbc5818b",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/vighnesh-6/iot-based-smart-parking-system/actions/runs/43106498231",
+      "jobs": [
+        {
+          "id": 130811093873,
+          "run_id": 43106498231,
+          "workflow_name": "Phase 7 Linux readiness",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/vighnesh-6/iot-based-smart-parking-system/actions/runs/43106498231",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOVpPBfs8AAAAedPLjcQ",
+          "head_sha": "02b6eba5f9f1567946656c728494a70fdbc5818b",
+          "url": "https://api.github.com/repos/vighnesh-6/iot-based-smart-parking-system/actions/jobs/130811093873",
+          "html_url": "https://github.com/vighnesh-6/iot-based-smart-parking-system/actions/runs/43106498231/job/130811093873",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-11-11T21:49:57Z",
+          "started_at": "2026-11-11T21:50:00Z",
+          "completed_at": "2026-11-11T21:54:55Z",
+          "name": "verify",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-11-11T21:50:01Z",
+              "completed_at": "2026-11-11T21:50:01Z"
+            },
+            {
+              "name": "Initialize containers",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-11-11T21:50:01Z",
+              "completed_at": "2026-11-11T21:50:19Z"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-11-11T21:50:19Z",
+              "completed_at": "2026-11-11T21:50:20Z"
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-11-11T21:50:20Z",
+              "completed_at": "2026-11-11T21:50:30Z"
+            },
+            {
+              "name": "Install hosted-only pinned dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-11-11T21:50:30Z",
+              "completed_at": "2026-11-11T21:50:58Z"
+            },
+            {
+              "name": "PostgreSQL and backend regressions",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-11-11T21:50:58Z",
+              "completed_at": "2026-11-11T21:51:02Z"
+            },
+            {
+              "name": "Dashboard regressions and native model adapters",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-11-11T21:51:02Z",
+              "completed_at": "2026-11-11T21:51:15Z"
+            },
+            {
+              "name": "Frozen ML regression and reload tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-11-11T21:51:15Z",
+              "completed_at": "2026-11-11T21:51:24Z"
+            },
+            {
+              "name": "Circuit static and firmware host regressions",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-11-11T21:51:24Z",
+              "completed_at": "2026-11-11T21:51:29Z"
+            },
+            {
+              "name": "Compile three local and three TLS firmware targets",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-11-11T21:51:29Z",
+              "completed_at": "2026-11-11T21:54:50Z"
+            },
+            {
+              "name": "Linux saved-model interface verification",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-11-11T21:54:50Z",
+              "completed_at": "2026-11-11T21:54:53Z"
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20,
+              "started_at": "2026-11-11T21:54:53Z",
+              "completed_at": "2026-11-11T21:54:53Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-11-11T21:54:53Z",
+              "completed_at": "2026-11-11T21:54:53Z"
+            },
+            {
+              "name": "Stop containers",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 22,
+              "started_at": "2026-11-11T21:54:53Z",
+              "completed_at": "2026-11-11T21:54:54Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 23,
+              "started_at": "2026-11-11T21:54:54Z",
+              "completed_at": "2026-11-11T21:54:54Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/vighnesh-6/iot-based-smart-parking-system/check-runs/130811093873",
+          "labels": [
+            "ubuntu-24.04"
+          ],
+          "runner_id": 1000000116,
+          "runner_name": "GitHub Actions 1000000116",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ]
+    },
+    {
+      "run_id": 43106716753,
+      "head_sha": "0980b786625b6de6fa22415d61b8f9082bbfd0dc",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/vighnesh-6/iot-based-smart-parking-system/actions/runs/43106716753",
+      "jobs": [
+        {
+          "id": 130811836879,
+          "run_id": 43106716753,
+          "workflow_name": "Phase 7 Linux readiness",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/vighnesh-6/iot-based-smart-parking-system/actions/runs/43106716753",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOVpPBfs8AAAAedP45zw",
+          "head_sha": "0980b786625b6de6fa22415d61b8f9082bbfd0dc",
+          "url": "https://api.github.com/repos/vighnesh-6/iot-based-smart-parking-system/actions/jobs/130811836879",
+          "html_url": "https://github.com/vighnesh-6/iot-based-smart-parking-system/actions/runs/43106716753/job/130811836879",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-11-11T21:51:26Z",
+          "started_at": "2026-11-11T21:51:29Z",
+          "completed_at": "2026-11-11T21:55:48Z",
+          "name": "verify",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-11-11T21:51:30Z",
+              "completed_at": "2026-11-11T21:51:31Z"
+            },
+            {
+              "name": "Initialize containers",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-11-11T21:51:31Z",
+              "completed_at": "2026-11-11T21:51:45Z"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-11-11T21:51:45Z",
+              "completed_at": "2026-11-11T21:51:47Z"
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-11-11T21:51:47Z",
+              "completed_at": "2026-11-11T21:51:56Z"
+            },
+            {
+              "name": "Install hosted-only pinned dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-11-11T21:51:56Z",
+              "completed_at": "2026-11-11T21:52:20Z"
+            },
+            {
+              "name": "PostgreSQL and backend regressions",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-11-11T21:52:20Z",
+              "completed_at": "2026-11-11T21:52:26Z"
+            },
+            {
+              "name": "Dashboard regressions and native model adapters",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-11-11T21:52:26Z",
+              "completed_at": "2026-11-11T21:52:37Z"
+            },
+            {
+              "name": "Frozen ML regression and reload tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-11-11T21:52:37Z",
+              "completed_at": "2026-11-11T21:52:45Z"
+            },
+            {
+              "name": "Circuit static and firmware host regressions",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-11-11T21:52:45Z",
+              "completed_at": "2026-11-11T21:52:49Z"
+            },
+            {
+              "name": "Compile three local and three TLS firmware targets",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-11-11T21:52:49Z",
+              "completed_at": "2026-11-11T21:55:43Z"
+            },
+            {
+              "name": "Linux saved-model interface verification",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-11-11T21:55:43Z",
+              "completed_at": "2026-11-11T21:55:44Z"
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20,
+              "started_at": "2026-11-11T21:55:44Z",
+              "completed_at": "2026-11-11T21:55:45Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-11-11T21:55:45Z",
+              "completed_at": "2026-11-11T21:55:45Z"
+            },
+            {
+              "name": "Stop containers",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 22,
+              "started_at": "2026-11-11T21:55:45Z",
+              "completed_at": "2026-11-11T21:55:45Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 23,
+              "started_at": "2026-11-11T21:55:45Z",
+              "completed_at": "2026-11-11T21:55:45Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/vighnesh-6/iot-based-smart-parking-system/check-runs/130811836879",
+          "labels": [
+            "ubuntu-24.04"
+          ],
+          "runner_id": 1000000117,
+          "runner_name": "GitHub Actions 1000000117",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ]
+    }
+  ],
+  "linux_verification_passed": true,
+  "linux_evidence_basis": "GitHub public run/job/step conclusions for the exact source commit. Raw authenticated logs were not retrieved; test count inventory is derived from source/local discovery, not claimed as archived Linux stdout.",
+  "regression_inventory": {
+    "backend": 62,
+    "dashboard": 45,
+    "ml": 42,
+    "circuits": 3,
+    "total": 152,
+    "linux_postgres_tests": 5
+  },
+  "cloud_simulation_setup_checks": [
+    {
+      "board": 1,
+      "diagram_copy_identical": true,
+      "target_path_correct": true,
+      "overwrite_refused": true,
+      "source": "isolated filesystem fixtures, not Wokwi runtime"
+    },
+    {
+      "board": 2,
+      "diagram_copy_identical": true,
+      "target_path_correct": true,
+      "overwrite_refused": true,
+      "source": "isolated filesystem fixtures, not Wokwi runtime"
+    },
+    {
+      "board": 3,
+      "diagram_copy_identical": true,
+      "target_path_correct": true,
+      "overwrite_refused": true,
+      "source": "isolated filesystem fixtures, not Wokwi runtime"
+    }
+  ],
+  "preservation": {
+    "baseline_commit": "b1ac0944a84a276238ed2f8e249af8809bd795ed",
+    "protected_paths": [
+      "ml",
+      "database",
+      "backend/db.py",
+      "backend/schemas.py",
+      "backend/persistence_live.py",
+      "dashboard/data_views.py",
+      "dashboard/prediction.py",
+      "esp32/diagram.json",
+      "esp32/simulations"
+    ],
+    "all_unchanged": true,
+    "existing_pdf_hashes": {
+      "reports/phase1_mqtt_integration.pdf": "a279c46a6075ff34e3258caa81ee8bbadf0ada2ce8bcf94d93edb7a81399f680",
+      "reports/phase2_fastapi_sqlite.pdf": "c4d6ba0d1a310c6ca2e07a54c087415531db07ad0b62fcc408f9877893515aea",
+      "reports/phase3_historical_dataset_preparation.pdf": "f9e3ee9f9f574b28478114e5b058dac234e202858f05389afc5dd4136471eb1d",
+      "reports/phase4_machine_learning_model_development.pdf": "b90b573dab3dafeabf451b5e454a4cd0c33b997845db5754515e9452fa6f0336",
+      "reports/phase5_streamlit_dashboard.pdf": "b74180fe5febf29a3b59265c581486a5f9cef7cf1995dbde057391664dbc87c5",
+      "reports/phase6_end_to_end_integration_and_deployment.pdf": "65d168ed33e3579fc95524d4779931ee5dc7ca38e73e9692640b7568f5f38efe",
+      "reports/phase6_persistence_only_live_supplement.pdf": "dbf13f963b41f83c43982133c86ecdeb89f4bffb9406c09c000680edd1cd5ffb"
+    },
+    "database_sha256": "1811930e8212c9bfd7df2d72533da593f3fb45ab2782f35f4dd0f4b6a5dcabe0",
+    "database_bytes": 401408,
+    "model_sha256": "cfc2adc80cc949e3c097530bca500079b857eee8b931be1e6d7de522f50335e1"
+  },
+  "actual_local_persistence_endpoint": {
+    "available": false,
+    "inference_path": "persistence_only_live",
+    "model": "persistence",
+    "data_source": "api_sqlite_telemetry",
+    "horizon_minutes": 15,
+    "evaluated_at": "2026-11-11T21:58:02.949338Z",
+    "prediction_timestamp": null,
+    "target_timestamp": null,
+    "current_occupied": null,
+    "predicted_occupied": null,
+    "freshness_limit_seconds": 30,
+    "blockers": [
+      {
+        "slot_id": "P1",
+        "reason": "Backend marks observation stale"
+      },
+      {
+        "slot_id": "P2",
+        "reason": "Backend marks observation stale"
+      },
+      {
+        "slot_id": "P3",
+        "reason": "Backend marks observation stale"
+      },
+      {
+        "slot_id": "P4",
+        "reason": "Backend marks observation stale"
+      },
+      {
+        "slot_id": "P5",
+        "reason": "Backend marks observation stale"
+      },
+      {
+        "slot_id": "P6",
+        "reason": "Backend marks observation stale"
+      },
+      {
+        "slot_id": "P7",
+        "reason": "Backend marks observation stale"
+      },
+      {
+        "slot_id": "P8",
+        "reason": "Backend marks observation stale"
+      },
+      {
+        "slot_id": "P9",
+        "reason": "Backend marks observation stale"
+      },
+      {
+        "slot_id": "P10",
+        "reason": "Backend marks observation stale"
+      },
+      {
+        "slot_id": "P11",
+        "reason": "Backend marks observation stale"
+      },
+      {
+        "slot_id": "P12",
+        "reason": "Backend marks observation stale"
+      }
+    ],
+    "snapshot": [
+      {
+        "slot_id": "P1",
+        "device_id": "esp32_01",
+        "occupancy_status": "VACANT",
+        "distance_cm": 101.5,
+        "measured_at": "2026-11-11T18:11:55Z",
+        "received_at": "2026-11-11T18:15:44.676Z",
+        "sequence": 388,
+        "stale": true,
+        "observed": true
+      },
+      {
+        "slot_id": "P2",
+        "device_id": "esp32_01",
+        "occupancy_status": "VACANT",
+        "distance_cm": 101.5,
+        "measured_at": "2026-11-11T18:11:55Z",
+        "received_at": "2026-11-11T18:15:44.676Z",
+        "sequence": 388,
+        "stale": true,
+        "observed": true
+      },
+      {
+        "slot_id": "P3",
+        "device_id": "esp32_01",
+        "occupancy_status": "VACANT",
+        "distance_cm": 101.5,
+        "measured_at": "2026-11-11T18:11:55Z",
+        "received_at": "2026-11-11T18:15:44.676Z",
+        "sequence": 388,
+        "stale": true,
+        "observed": true
+      },
+      {
+        "slot_id": "P4",
+        "device_id": "esp32_01",
+        "occupancy_status": "VACANT",
+        "distance_cm": 101.5,
+        "measured_at": "2026-11-11T18:11:55Z",
+        "received_at": "2026-11-11T18:15:44.676Z",
+        "sequence": 388,
+        "stale": true,
+        "observed": true
+      },
+      {
+        "slot_id": "P5",
+        "device_id": "esp32_02",
+        "occupancy_status": "VACANT",
+        "distance_cm": 101.5,
+        "measured_at": "2026-11-11T18:21:53Z",
+        "received_at": "2026-11-11T18:21:54.937Z",
+        "sequence": 28,
+        "stale": true,
+        "observed": true
+      },
+      {
+        "slot_id": "P6",
+        "device_id": "esp32_02",
+        "occupancy_status": "VACANT",
+        "distance_cm": 101.3,
+        "measured_at": "2026-11-11T18:21:53Z",
+        "received_at": "2026-11-11T18:21:54.937Z",
+        "sequence": 28,
+        "stale": true,
+        "observed": true
+      },
+      {
+        "slot_id": "P7",
+        "device_id": "esp32_02",
+        "occupancy_status": "VACANT",
+        "distance_cm": 101.3,
+        "measured_at": "2026-11-11T18:21:53Z",
+        "received_at": "2026-11-11T18:21:54.937Z",
+        "sequence": 28,
+        "stale": true,
+        "observed": true
+      },
+      {
+        "slot_id": "P8",
+        "device_id": "esp32_02",
+        "occupancy_status": "VACANT",
+        "distance_cm": 101.3,
+        "measured_at": "2026-11-11T18:21:53Z",
+        "received_at": "2026-11-11T18:21:54.937Z",
+        "sequence": 28,
+        "stale": true,
+        "observed": true
+      },
+      {
+        "slot_id": "P9",
+        "device_id": "esp32_03",
+        "occupancy_status": "VACANT",
+        "distance_cm": 101.5,
+        "measured_at": "2026-11-11T18:31:26Z",
+        "received_at": "2026-11-11T18:40:18.221Z",
+        "sequence": 103,
+        "stale": true,
+        "observed": true
+      },
+      {
+        "slot_id": "P10",
+        "device_id": "esp32_03",
+        "occupancy_status": "VACANT",
+        "distance_cm": 101.3,
+        "measured_at": "2026-11-11T18:31:26Z",
+        "received_at": "2026-11-11T18:40:18.221Z",
+        "sequence": 103,
+        "stale": true,
+        "observed": true
+      },
+      {
+        "slot_id": "P11",
+        "device_id": "esp32_03",
+        "occupancy_status": "VACANT",
+        "distance_cm": 101.3,
+        "measured_at": "2026-11-11T18:31:26Z",
+        "received_at": "2026-11-11T18:40:18.221Z",
+        "sequence": 103,
+        "stale": true,
+        "observed": true
+      },
+      {
+        "slot_id": "P12",
+        "device_id": "esp32_03",
+        "occupancy_status": "VACANT",
+        "distance_cm": 101.3,
+        "measured_at": "2026-11-11T18:31:26Z",
+        "received_at": "2026-11-11T18:40:18.221Z",
+        "sequence": 103,
+        "stale": true,
+        "observed": true
+      }
+    ]
+  },
+  "local_dashboard_http_health": {
+    "8501": 200,
+    "8503": 200
+  },
+  "account_access": {
+    "status": "BLOCKED",
+    "tool_evidence": "cua.getState returned browsers=[] and Browsers: Error: The browser access host is unavailable",
+    "resources_provisioned": false,
+    "account_specific_no_card_eligibility_confirmed": false,
+    "public_dashboard_url": null,
+    "user_console_handoff_requested": true
+  },
+  "security": {
+    "laptop_installations": false,
+    "windows_policy_changes": false,
+    "payment_details_used": false,
+    "private_credentials_retrieved": false,
+    "credential_access_attempt": "Automatic review rejected the proposed use of git credential fill for private CI logs before execution; no retry or bypass. Dependency conflict independently diagnosed from public official PyPI metadata."
+  },
+  "free_tier_audit": {
+    "streamlit": "Free Community Cloud; 12h inactivity sleep; shared resources",
+    "render": "Free web service; 750h/workspace/month; 15min idle sleep; ephemeral disk; no always-on MQTT guarantee",
+    "neon": "Free:1GB storage,100CUh/project/month,5GB egress; 5min idle scale-to-zero",
+    "emqx": "Serverless Spend Limit=0;1M session-minutes and1GB bidirectional traffic/month then suspension",
+    "account_gate": "Any payment/card prompt stops provisioning; console eligibility not established by public pricing alone"
+  },
+  "limitations": [
+    "No service has been provisioned and no public cloud URL exists.",
+    "Real cloud MQTT-to-Neon data flow remains unverified.",
+    "All current local slots stale; no genuine live forecast.",
+    "Wokwi stops or pauses with laptop/simulator; cloud hosting cannot keep it running.",
+    "Full37-feature ML path and Persistence-only freshness gates unchanged.",
+    "Private cloud firmware/header must be configured outside Git and built using existing cached local tools only."
+  ],
+  "pdf_review": {
+    "pages": 5,
+    "visual_review": "PASS: all rendered pages inspected; updated acceptance rows rechecked; no overlap or clipping",
+    "bytes": 14505,
+    "sha256": "af2f19c6caf8e589c83a1ee30bdf388bad958f77e758c8a9cd1991b32e2ccc2f"
+  }
+}
