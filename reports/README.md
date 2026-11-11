@@ -303,3 +303,29 @@ SQLite file hash and frozen artifacts are unchanged. API8001 is a read-only
 verification instance with MQTT disabled; the original collector8000 was left
 running and requires a later normal restart to activate its new route. Cloud
 deployment has not begun. Existing reports remain unchanged.
+
+## Phase 7 - cloud readiness and deployment gate
+
+- [Phase 7 PDF: verified readiness and actual deployment status](phase7_final_cloud_deployment.pdf)
+- [Complete local and public Linux readiness evidence](evidence/phase7_readiness.json)
+- [Zero-cost account/deployment runbook](phase7_deployment_runbook.md)
+- [Reproducible PDF renderer](generate_phase7_report.py)
+- [Successful Linux verification run](https://github.com/vighnesh-6/iot-based-smart-parking-system/actions/runs/43106716753)
+
+PostgreSQL persistence, verified MQTT TLS, configurable API authentication and
+three opt-in cloud firmware targets are implemented. Local Windows results:
+147 passed, five real-PostgreSQL tests explicitly skipped locally. The successful
+Linux run includes real PostgreSQL tests, regression suites, unchanged saved-model
+inference, C++ host tests and all six firmware builds. Raw private CI logs were
+not retrieved; the public run/job/step conclusions are archived as evidence.
+
+**Deployment remains blocked at account-console access.** Computer Use reports
+that the browser access host is unavailable. No provider resources have been
+created, no account-specific card-free eligibility has been confirmed, and no
+public dashboard URL or real cloud telemetry delivery is claimed. The operator
+console handoff is pending. Stop if any provider requires payment details.
+
+The original SQLite file, frozen artifacts, prior PDFs and full 37-feature ML
+pipeline are unchanged. Wokwi telemetry still depends on the laptop/simulator;
+free-tier sleep and quotas prevent a reliable 24/7-monitoring claim. All twelve
+current readings remain stale, so no genuine live forecast is available.
