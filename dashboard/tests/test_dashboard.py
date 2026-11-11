@@ -86,6 +86,20 @@ class ApiTests(unittest.TestCase):
     def test_only_supported_read_only_endpoints(self):
         with self.assertRaises(ValueError): ApiClient(Settings()).get('/delete')
 
+    def test_persistence_live_endpoint_uses_configured_base_get_and_response_contract(self):
+        from backend.persistence_live import PersistenceLiveResult, persistence_live
+        payload = persistence_live(slots()).model_dump(mode='json')
+        settings = Settings(api_base_url='http://127.0.0.1:8000/')
+        with patch('dashboard.api_client.urlopen', return_value=io.BytesIO(json.dumps(payload).encode())) as opening:
+            response = ApiClient(settings).get('/predictions/persistence-live')
+        request = opening.call_args.args[0]
+        self.assertEqual(request.full_url, 'http://127.0.0.1:8000/predictions/persistence-live')
+        self.assertEqual(request.get_method(), 'GET')
+        result = PersistenceLiveResult.model_validate(response)
+        self.assertFalse(result.available)
+        self.assertIsNone(result.predicted_occupied)
+        self.assertEqual(len(result.blockers), 12)
+
     def test_optional_gateway_token_is_a_header_and_not_configuration_repr(self):
         settings = Settings(api_bearer_token='test-fixture-token')
         with patch('dashboard.api_client.urlopen', return_value=io.BytesIO(b'[]')) as opening:
