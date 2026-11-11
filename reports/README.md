@@ -1,5 +1,34 @@
 # Smart Parking integration reports
 
+## Phase 5: Local-first, cloud-ready Streamlit dashboard
+
+[Comprehensive Phase 5 PDF](phase5_streamlit_dashboard.pdf) documents architecture,
+implementation, freshness, causal history, prediction adapters, actual tests,
+limitations and the five separate Phase 6 deployment responsibilities.
+
+- **117 tests passed:** 32 dashboard, 43 existing backend and 42 existing ML tests.
+- Actual AppTest interactions against the existing API rendered 12 slot cards,
+  history/coverage charts and a separate genuine synthetic retrospective forecast.
+- Local dashboard page and health return HTTP 200 on port 8501.
+- Production readings remain incomplete: **0 occupied, 0 vacant, 12 unknown**;
+  P1-P8 unseen, P9-P12 stale. Live forecasting is correctly unavailable.
+- Both execution adapters reuse the unchanged Phase 4 predictor. In-process
+  execution was tested on local Windows, not on a cloud/Linux host.
+- All **119 protected tracked files** remain unchanged. No dependencies were
+  installed or removed, and no security policy or existing service was modified.
+- The project environment already contained extra Jupyter packages beyond the
+  historical requirements snapshot. Their metadata predates Phase 5; the frozen
+  pins are preserved. The exact freeze mismatch is recorded, not concealed.
+- **11 PDF pages** were rendered and visually reviewed. Cloud deployment and
+  real-browser refresh timing remain unverified; no browser control was used.
+
+See [dashboard instructions](../dashboard/README.md),
+[acceptance checklist](phase5_acceptance_checklist.md),
+[actual tests and observations](evidence/phase5_dashboard_verification.json), and
+[final PDF/preservation checks](evidence/phase5_final_checks.json).
+The Phase 1-4 reports and all frozen datasets, notebooks and model artifacts below
+remain unchanged. Synthetic model review never replaces missing live telemetry.
+
 ## Executed Phase 3/4 notebooks
 
 The four title-only notebooks were replaced with these eight manually authored
