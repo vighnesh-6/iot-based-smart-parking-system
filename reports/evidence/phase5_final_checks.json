@@ -1,0 +1,68 @@
+{
+  "source": "actual_phase5_final_local_acceptance",
+  "recorded_at_utc": "2026-11-11T13:36:24.248800+00:00",
+  "baseline_commit": "2eddafe212cc0a79541f70595a9221476416171d",
+  "local_functional_passed": true,
+  "test_suites": {
+    "dashboard": {
+      "tests_run": 32,
+      "passed": true,
+      "exit_code": 0
+    },
+    "backend": {
+      "tests_run": 43,
+      "passed": true,
+      "exit_code": 0
+    },
+    "ml": {
+      "tests_run": 42,
+      "passed": true,
+      "exit_code": 0
+    }
+  },
+  "tests_total": 117,
+  "protected_tracked_files": 119,
+  "all_protected_hashes_preserved": true,
+  "dashboard_sources_match_tested_hashes": true,
+  "no_phase5_dependency_install_or_security_change": true,
+  "existing_jupyter_additions_predate_phase5": true,
+  "frontend_historical_freeze_exact_match": false,
+  "frozen_frontend_pins_preserved": true,
+  "isolated_ml_freeze_unchanged": true,
+  "production_live_forecast": "UNAVAILABLE: 12 unknown, incomplete valid history; never fabricated",
+  "browser_control_used": false,
+  "browser_visual_and_wall_clock_refresh_verification": "NOT PERFORMED; AppTest interaction/refresh-registration evidence only",
+  "cloud_deployed": false,
+  "cloud_native_compatibility": "UNVERIFIED; local Windows in-process execution passed",
+  "pdf": {
+    "path": "reports/phase5_streamlit_dashboard.pdf",
+    "pages": 11,
+    "bytes": 121492,
+    "sha256": "b74180fe5febf29a3b59265c581486a5f9cef7cf1995dbde057391664dbc87c5",
+    "visual_inspection": "PASS: all 11 pages rendered at 1100px and inspected; pages 7/8/11 also inspected individually. No clipping, overlap or unreadable table layout found."
+  },
+  "storage": {
+    "data_model_bytes": 8190119,
+    "data_model_limit_bytes": 50000000
+  },
+  "expected_changed_files": [
+    "README.md",
+    "dashboard/README.md",
+    "dashboard/api_client.py",
+    "dashboard/app.py",
+    "dashboard/config.example.toml",
+    "dashboard/config.py",
+    "dashboard/data_views.py",
+    "dashboard/prediction.py",
+    "dashboard/requirements.txt",
+    "dashboard/tests/test_dashboard.py",
+    "dashboard/tools/verify_local.py",
+    "reports/README.md",
+    "reports/evidence/phase5_dashboard_verification.json",
+    "reports/evidence/phase5_final_checks.json",
+    "reports/generate_phase5_report.py",
+    "reports/phase5_acceptance_checklist.md",
+    "reports/phase5_streamlit_dashboard.pdf"
+  ],
+  "git_policy": "Exactly one meaningful changed file per commit; one final push only after these checks. Actual hashes/remote status verified at delivery."
+}
