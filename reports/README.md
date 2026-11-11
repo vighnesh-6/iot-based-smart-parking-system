@@ -282,3 +282,24 @@ still requires twelve known states. Cloud deployment and Linux runtime verificat
 remain deferred under the no-install/no-credentials constraints. Previous PDFs
 are unchanged. Reproduction commands and zero-cost hosting limitations are in the
 Phase 6 report.
+
+## Phase 6 supplement - Persistence-only live inference
+
+- [Visually reviewed verification supplement](phase6_persistence_only_live_supplement.pdf)
+- [Actual integration and complete regression evidence](evidence/phase6_persistence_live_integration.json)
+- [Reproducible report renderer](generate_phase6_persistence_supplement.py)
+
+The separate `/predictions/persistence-live` endpoint and dashboard panel implement
+the exact Persistence rule without replacing the frozen 37-feature interface.
+All twelve slots must be genuinely observed, known and fresh, including receipt
+and measurement timestamps, within at most 30 seconds. Unavailable responses
+explain each blocker and contain no forecast.
+
+All 140 Python regressions passed (51 backend, 44 dashboard, 42 ML, 3 circuit).
+Real-API AppTest and the running dashboard's WebSocket fragment refresh passed on
+ports 8001/8503. Browser rendering remains blocked by Computer Use policy. Current
+SQLite observations are all stale; no genuine live prediction is claimed. The
+SQLite file hash and frozen artifacts are unchanged. API8001 is a read-only
+verification instance with MQTT disabled; the original collector8000 was left
+running and requires a later normal restart to activate its new route. Cloud
+deployment has not begun. Existing reports remain unchanged.
