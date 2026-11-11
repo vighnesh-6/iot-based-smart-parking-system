@@ -1,8 +1,19 @@
 #pragma once
 
 // Optional private overrides. config.h is excluded by the repository .gitignore.
-#if __has_include("config.h")
+#if defined(PARKING_MQTT_TLS) && PARKING_MQTT_TLS
+#if __has_include("config.cloud.h")
+#include "config.cloud.h"
+#endif
+#elif __has_include("config.h")
 #include "config.h"
+#endif
+
+#ifndef PARKING_MQTT_TLS
+#define PARKING_MQTT_TLS 0
+#endif
+#ifndef PARKING_MQTT_CA_CERT
+#define PARKING_MQTT_CA_CERT ""
 #endif
 
 #ifndef PARKING_WIFI_SSID
