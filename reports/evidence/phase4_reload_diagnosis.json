@@ -1,0 +1,17 @@
+{
+  "source": "actual_saved_bundle_reload_roundoff_diagnosis",
+  "recorded_at_utc": "2026-11-11T10:51:14.424663+00:00",
+  "initial_training_exit": "RuntimeError: Saved/reloaded prediction mismatch",
+  "locked_selected_model": "persistence",
+  "comparison": "Two reloads of the unchanged fitted artifact on identical test features",
+  "maximum_absolute_differences": {
+    "persistence": 0.0,
+    "linear_regression": 0.0,
+    "random_forest": 1.7763568394002505e-15
+  },
+  "correction": "Reload agreement uses absolute tolerance 1e-12, relative tolerance 0; predictions/models/selection/hyperparameters were not changed.",
+  "native_suite_after_correction": "21 passed",
+  "model_refitted": false,
+  "test_metrics_recomputed_for_recovery_and_independent_verification": true,
+  "artifact_sha256": "cfc2adc80cc949e3c097530bca500079b857eee8b931be1e6d7de522f50335e1"
+}
