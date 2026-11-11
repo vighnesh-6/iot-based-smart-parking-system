@@ -1,0 +1,26 @@
+{
+  "source": "actual_phase4_dependency_preflight",
+  "recorded_at_utc": "2026-11-11T10:43:07.808512+00:00",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.12.10",
+  "command": [
+    "C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Scripts\\python.exe",
+    "-B",
+    "-c",
+    "from sklearn.linear_model import LinearRegression; from sklearn.ensemble import RandomForestRegressor; from sklearn.preprocessing import StandardScaler; import joblib; print(\"Required model imports passed\")"
+  ],
+  "security_policy_modified": false,
+  "dependencies_modified": false,
+  "versions": {
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scipy": "1.18.1",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.8.0"
+  },
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\sklearn\\__init__.py\", line 70, in <module>\n    from sklearn.base import clone  # noqa: E402\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\sklearn\\base.py\", line 20, in <module>\n    from sklearn.utils._metadata_requests import _MetadataRequester, _routing_enabled\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\sklearn\\utils\\__init__.py\", line 9, in <module>\n    from sklearn.utils._chunking import gen_batches, gen_even_slices\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\sklearn\\utils\\_chunking.py\", line 11, in <module>\n    from sklearn.utils._param_validation import Interval, validate_params\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\sklearn\\utils\\_param_validation.py\", line 17, in <module>\n    from sklearn.utils.validation import _is_arraylike_not_scalar\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\sklearn\\utils\\validation.py\", line 13, in <module>\n    import joblib\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\joblib\\__init__.py\", line 114, in <module>\n    from ._cloudpickle_wrapper import wrap_non_picklable_objects\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\joblib\\_cloudpickle_wrapper.py\", line 14, in <module>\n    from .externals.loky import wrap_non_picklable_objects\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\joblib\\externals\\loky\\__init__.py\", line 22, in <module>\n    from .cloudpickle_wrapper import wrap_non_picklable_objects\n  File \"C:\\Users\\vighn\\AppData\\Local\\SmartParking\\ml-runtime\\Lib\\site-packages\\joblib\\externals\\loky\\cloudpickle_wrapper.py\", line 3, in <module>\n    from cloudpickle import dumps, loads\nModuleNotFoundError: No module named 'cloudpickle'\n",
+  "native_imports_passed": false
+}
