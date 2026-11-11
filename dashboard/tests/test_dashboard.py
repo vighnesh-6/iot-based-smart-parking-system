@@ -225,6 +225,9 @@ class StreamlitTests(unittest.TestCase):
 
     @staticmethod
     def mock_get(_client, path, **kwargs):
+        if path == '/predictions/persistence-live':
+            from backend.persistence_live import persistence_live
+            return persistence_live(slots(datetime.now(timezone.utc))).model_dump(mode='json')
         if path == '/slots': return slots(datetime.now(timezone.utc))
         if path == '/stats': return {'total_slots': 12, 'occupied': 3, 'vacant': 9, 'unknown': 0}
         if path == '/health': return {'status': 'ok', 'database_ok': True, 'mqtt': {'connected': True, 'received': 0}}
