@@ -1,0 +1,50 @@
+{
+  "source": "actual_phase3_unittest_execution",
+  "recorded_at_utc": "2026-11-11T04:51:54.366581+00:00",
+  "command": ".\\.venv\\Scripts\\python.exe -B -m unittest discover -s ml/tests -v",
+  "tests_run": 21,
+  "passed": true,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 13.156,
+  "test_ids": [
+    "test_phase3.FeatureTests.test_calendar_is_local_and_cyclic",
+    "test_phase3.FeatureTests.test_each_lag_uses_exact_past_minute",
+    "test_phase3.FeatureTests.test_future_intervention_cannot_change_any_past_feature",
+    "test_phase3.FeatureTests.test_invalid_timestamp_or_source_fails_instead_of_imputation",
+    "test_phase3.FeatureTests.test_no_missing_features_after_filtering",
+    "test_phase3.FeatureTests.test_prefix_computation_equals_full_past",
+    "test_phase3.FeatureTests.test_rolling_features_use_only_past",
+    "test_phase3.FeatureTests.test_split_ratios_rounding_and_purged_label_boundaries",
+    "test_phase3.FeatureTests.test_target_exact_future_timestamp_and_value",
+    "test_phase3.GenerationTests.test_all_slots_binary_and_total",
+    "test_phase3.GenerationTests.test_complete_dwell_times_and_persistence",
+    "test_phase3.GenerationTests.test_each_slot_arrives_and_departs",
+    "test_phase3.GenerationTests.test_exact_timeline_and_timezone",
+    "test_phase3.GenerationTests.test_fixed_seed_and_changed_seed",
+    "test_phase3.GenerationTests.test_invalid_days",
+    "test_phase3.GenerationTests.test_source_and_missing_values",
+    "test_phase3.SerializationTests.test_committed_artifact_roundtrip_and_fingerprints",
+    "test_phase3.SerializationTests.test_existing_raw_output_is_never_overwritten",
+    "test_phase3.SerializationTests.test_invalid_raw_count_does_not_overflow_into_valid_value",
+    "test_phase3.SerializationTests.test_processed_bytes_are_reproducible_without_duplicate_file",
+    "test_phase3.SerializationTests.test_raw_csv_roundtrip"
+  ],
+  "runner_output": "test_calendar_is_local_and_cyclic (test_phase3.FeatureTests.test_calendar_is_local_and_cyclic) ... ok\ntest_each_lag_uses_exact_past_minute (test_phase3.FeatureTests.test_each_lag_uses_exact_past_minute) ... ok\ntest_future_intervention_cannot_change_any_past_feature (test_phase3.FeatureTests.test_future_intervention_cannot_change_any_past_feature) ... ok\ntest_invalid_timestamp_or_source_fails_instead_of_imputation (test_phase3.FeatureTests.test_invalid_timestamp_or_source_fails_instead_of_imputation) ... ok\ntest_no_missing_features_after_filtering (test_phase3.FeatureTests.test_no_missing_features_after_filtering) ... ok\ntest_prefix_computation_equals_full_past (test_phase3.FeatureTests.test_prefix_computation_equals_full_past) ... ok\ntest_rolling_features_use_only_past (test_phase3.FeatureTests.test_rolling_features_use_only_past) ... ok\ntest_split_ratios_rounding_and_purged_label_boundaries (test_phase3.FeatureTests.test_split_ratios_rounding_and_purged_label_boundaries) ... ok\ntest_target_exact_future_timestamp_and_value (test_phase3.FeatureTests.test_target_exact_future_timestamp_and_value) ... ok\ntest_all_slots_binary_and_total (test_phase3.GenerationTests.test_all_slots_binary_and_total) ... ok\ntest_complete_dwell_times_and_persistence (test_phase3.GenerationTests.test_complete_dwell_times_and_persistence) ... ok\ntest_each_slot_arrives_and_departs (test_phase3.GenerationTests.test_each_slot_arrives_and_departs) ... ok\ntest_exact_timeline_and_timezone (test_phase3.GenerationTests.test_exact_timeline_and_timezone) ... ok\ntest_fixed_seed_and_changed_seed (test_phase3.GenerationTests.test_fixed_seed_and_changed_seed) ... ok\ntest_invalid_days (test_phase3.GenerationTests.test_invalid_days) ... ok\ntest_source_and_missing_values (test_phase3.GenerationTests.test_source_and_missing_values) ... ok\ntest_committed_artifact_roundtrip_and_fingerprints (test_phase3.SerializationTests.test_committed_artifact_roundtrip_and_fingerprints) ... ok\ntest_existing_raw_output_is_never_overwritten (test_phase3.SerializationTests.test_existing_raw_output_is_never_overwritten) ... ok\ntest_invalid_raw_count_does_not_overflow_into_valid_value (test_phase3.SerializationTests.test_invalid_raw_count_does_not_overflow_into_valid_value) ... ok\ntest_processed_bytes_are_reproducible_without_duplicate_file (test_phase3.SerializationTests.test_processed_bytes_are_reproducible_without_duplicate_file) ... ok\ntest_raw_csv_roundtrip (test_phase3.SerializationTests.test_raw_csv_roundtrip) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 13.156s\n\nOK\n",
+  "source_sha256": {
+    "ml/features.py": "18f6fa3eb26e39f4d110ce082c05935243e7c52c835b398e6989d34617f24208",
+    "ml/generate_data.py": "938075163613505a07904ee7d091dce7702830fa80a20d795ea57c0b82d7807c",
+    "ml/prepare_data.py": "b12e0f37e679beedc573ba4c591aeb7e5496f8d1fdbec084f6870126dbe08d2d",
+    "ml/train.py": "bc439bac5bc2ac6a14f459eb120c0609c5a3f65115831d54dc42e48888632700",
+    "ml/validate_data.py": "de05fc01848f334790734f40cb6c78b3404e6a97dbbe984e4cac3eb9767eef63",
+    "ml/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ml/tests/test_phase3.py": "5a76eb33203023e9e0daad559936c5b56e21c21e78e1472c1b9367d8a787dfbc"
+  },
+  "environment_limits": [
+    "Initial Parquet preparation failed because Windows Application Control blocked pyarrow.lib. Reproduced outside the sandbox; no policy or dependency change.",
+    "A zero-byte newly-created failed Parquet output was removed; no existing dataset or database was removed.",
+    "Initial sandbox unittest run failed on temporary-directory access/cleanup. Rerun with permitted fixture access passed."
+  ],
+  "format_used": "CSV raw plus deterministic gzip CSV processed; optional Parquet path unverified"
+}
