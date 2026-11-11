@@ -12,7 +12,7 @@ import streamlit as st
 
 from dashboard.api_client import ApiClient, ApiError
 from dashboard.config import Settings
-from dashboard.data_views import live_feature_record, minute_history, slot_snapshot
+from dashboard.data_views import live_feature_record, minute_history, slot_snapshot, slot_history
 from dashboard.prediction import PredictionError, predict, read_results, synthetic_example
 
 
@@ -32,6 +32,7 @@ def show_slots(slots=None):
                     if item and item['observed']:
                         age = max(0, int(item['age_seconds'])) if item['age_seconds'] is not None else None
                         st.caption(f"Last receipt: {item['received_at']} · age {age}s")
+                        st.caption(f"Measurement time: {item['measured_at'] or 'unavailable (unsynchronized device clock)'}")
                         distance = item['distance_cm']
                         st.caption(f"Last reported: {item['occupancy_status']} · distance {distance if distance is not None else 'unavailable'} cm")
 
@@ -40,7 +41,7 @@ def draw_history(frame, slot_id=None):
     figure = go.Figure()
     if slot_id:
         values = [None if value != value else float(value) for value in frame[slot_id]]
-        figure.add_trace(go.Scatter(x=frame.timestamp.tolist(), y=values, mode='lines',
+        figure.add_trace(go.Scatter(x=frame.timestamp.tolist(), y=values, mode='lines+markers',
             name=slot_id, connectgaps=False, line={'color': '#007f86', 'shape': 'hv'}))
         figure.update_yaxes(title='0 Vacant / 1 Occupied', range=[-0.1, 1.1], dtick=1)
     else:
@@ -51,7 +52,8 @@ def draw_history(frame, slot_id=None):
             mode='lines', name='Known slot coverage', line={'color': '#b98132', 'dash': 'dot'}))
         figure.update_yaxes(title='Slots', range=[-0.2, 12.5], dtick=2)
     figure.update_layout(height=350, margin={'l': 20, 'r': 20, 't': 20, 'b': 20},
-        xaxis_title='Minute origin (Asia/Kolkata; receipt-time reconstruction)',
+        xaxis_title=('Observation receipt (Asia/Kolkata)' if slot_id else
+                     'Minute origin (Asia/Kolkata; receipt-time reconstruction)'),
         legend={'orientation': 'h'}, template='plotly_white')
     st.plotly_chart(figure, width='stretch')
 
@@ -127,6 +129,17 @@ def main():
                 if health['status'] != 'ok':
                     st.warning('Backend reports degraded health.')
                 st.json(health)
+                last_received = health.get('mqtt', {}).get('last_received_at')
+                if last_received:
+                    age = (datetime.now(timezone.utc) - datetime.fromisoformat(last_received.replace('Z', '+00:00'))).total_seconds()
+                    if age < -2:
+                        st.warning('Telemetry receipt clock is ahead; delivery freshness cannot be trusted.')
+                    elif age > settings.stale_seconds:
+                        st.warning(f'No recent MQTT delivery: last receipt {age:.0f}s ago.')
+                    else:
+                        st.caption(f'MQTT last receipt: {age:.0f}s ago. Check individual cards for board coverage.')
+                else:
+                    st.warning('This backend process has not received production telemetry yet.')
                 st.caption('Connected/subscribed indicates transport readiness, not successful sensor delivery. Counters are per backend process.')
             except (ApiError, ValueError) as error:
                 st.warning(f'Health unavailable. {error}')
@@ -149,12 +162,14 @@ def main():
         if st.button('Load telemetry history'):
             st.session_state.pop('history_view', None)
             try:
-                end = datetime.now(timezone.utc).replace(second=0, microsecond=0)
+                end = datetime.now(timezone.utc)
                 start = end - timedelta(hours=hours)
                 with st.spinner('Fetching bounded history pages…'):
                     history = client.history(since=(start - timedelta(seconds=settings.stale_seconds)).isoformat(),
                         until=end.isoformat(), slot_id=None if selected == 'All slots' else selected)
-                    minutes = minute_history(history.items, start, end, settings.stale_seconds)
+                    minutes = (minute_history(history.items, start, end, settings.stale_seconds)
+                        if selected == 'All slots' else
+                        slot_history(history.items, selected, start, end, settings.stale_seconds))
                 st.session_state['history_view'] = (minutes, history.total, len(history.items), history.truncated, end)
                 st.session_state['history_signature'] = signature
             except (ApiError, ValueError, OSError) as error:
@@ -169,6 +184,8 @@ def main():
             elif selected == 'All slots' and not minutes.total_occupied.notna().any():
                 st.info('No complete fresh 12-slot minute snapshots exist in this window. A total occupancy trend cannot be established.')
             draw_history(minutes, None if selected == 'All slots' else selected)
+            if selected != 'All slots':
+                st.caption(f'{minutes[selected].notna().sum()} known-state observations plotted at actual receipt times. UNKNOWN readings and long gaps break the line. Closely spaced receipts may overlap; zoom to inspect.')
             st.caption('Only accepted-current observations contribute. UNKNOWN, missing or expired readings produce gaps. No backward fill or future observations are used.')
         else:
             st.info('Choose a window and load history. The result is a historical extraction, not an automatically refreshed live feed.')
