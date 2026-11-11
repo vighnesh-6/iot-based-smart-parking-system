@@ -1,0 +1,8 @@
+# Keep Phase 4 source fingerprints stable without changing frozen Phase 3 files.
+phase4_models.py -text
+train_phase4.py -text
+tests/test_phase4.py -text
+tools/phase4_preflight.py -text
+tools/phase4_test_runner.py -text
+tools/verify_phase4.py -text
+tools/finalize_phase4.py -text
