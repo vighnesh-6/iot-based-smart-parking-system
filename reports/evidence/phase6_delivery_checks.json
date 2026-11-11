@@ -1,0 +1,25 @@
+{
+  "source": "actual_phase6_delivery_checks",
+  "pdf": {
+    "path": "reports\\phase6_end_to_end_integration_and_deployment.pdf",
+    "pages": 8,
+    "bytes": 89996,
+    "sha256": "65d168ed33e3579fc95524d4779931ee5dc7ca38e73e9692640b7568f5f38efe",
+    "visual_review": "All 8 pages rendered and inspected; pages 5 and 8 also inspected individually. No clipping, overlap or unreadable table layout found."
+  },
+  "tested_source_sha256": {
+    "dashboard/app.py": "64d6aabdec30b96d6267e37f82f4ac9286dd2f13d99b1e3c84b61b307148bd6a",
+    "dashboard/data_views.py": "431c5a8cea8d0fec6f0cc4d553ad297766c524b48731bc0433c9f53e9b753792",
+    "dashboard/tests/test_phase6.py": "38ce8bbf7e0433521629bab321c6d12d158e910a194b0f96ccb84250e8b76bc0"
+  },
+  "tests": {
+    "dashboard": 38,
+    "backend": 43,
+    "passed": true
+  },
+  "sequential_messages": 40,
+  "matched_slot_observations": 160,
+  "cloud_deployed": false,
+  "credentials_used": false,
+  "push_status": "Not attempted: latest instruction prohibits credential use; authenticated GitHub push is outside current constraints."
+}
