@@ -1,0 +1,40 @@
+{
+  "source": "actual_local_windows_readiness_investigation",
+  "recorded_at_utc": "2026-11-11T06:16:04.545661+00:00",
+  "python": "3.12.10",
+  "python_bits": 64,
+  "wheel_tag": "cp312-cp312-win_amd64",
+  "abi_tag_matches_interpreter": true,
+  "pip_check": "No broken requirements found.",
+  "blocked_module_integrity": {
+    "sklearn/utils/_openmp_helpers.cp312-win_amd64.pyd": {
+      "record_hash_matches": true
+    },
+    "sklearn/linear_model/_sag_fast.cp312-win_amd64.pyd": {
+      "record_hash_matches": true
+    },
+    "sklearn/neighbors/_partition_nodes.cp312-win_amd64.pyd": {
+      "record_hash_matches": true
+    }
+  },
+  "partition_nodes_authenticode": "NotSigned",
+  "native_preflight": "phase4_local_preflight.json: failed on sklearn.neighbors._partition_nodes",
+  "code_integrity_event": {
+    "id": 3077,
+    "file": "pyarrow/lib.cp312-win_amd64.pyd",
+    "policy_id": "{0283ac0f-fff1-49ae-ada1-8a933130cad6}",
+    "message": "Enterprise signing requirements or code integrity policy denied image load",
+    "direct_sklean_event_correlated": false
+  },
+  "current_python_signature_mitigation_flags": 0,
+  "local_alternatives": {
+    "normal_Python312": "Scientific packages absent",
+    "Python314_directory": "Incomplete; no python.exe",
+    "bundled_runtimes": "No sklearn",
+    "WSL": "Not installed"
+  },
+  "compatible_approved_local_runtime_identified": false,
+  "security_or_dependencies_modified": false,
+  "existing_phase3_source_hashes_intact": true,
+  "proposed_remedy": "Security-owner-approved local scientific Python deployment authorizing native packages under existing policy; no installation or policy change authorized/performed. Reinstall or new venv alone is not a proven fix."
+}
