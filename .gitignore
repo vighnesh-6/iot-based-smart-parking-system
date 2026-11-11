@@ -24,6 +24,7 @@ credentials.*
 **/credentials.*
 config.h
 config.local.h
+config.cloud.h
 *.pem
 *.key
 *.p12
