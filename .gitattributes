@@ -1,0 +1,5 @@
+# Preserve released dataset bytes and checksums on Windows and Linux checkouts.
+ml/data/*.csv -text
+ml/data/*.csv.gz -text
+ml/data/*.json -text
+ml/data/*.parquet -text
