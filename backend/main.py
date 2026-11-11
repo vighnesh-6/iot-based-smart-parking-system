@@ -12,6 +12,7 @@ from backend.config import DEVICES, Settings
 from backend.db import Database, statistics
 from backend.mqtt_ingest import Ingestor
 from backend.schemas import HistoryPage, SlotStatus, State, Statistics
+from backend.persistence_live import PersistenceLiveResult, persistence_live
 
 
 def create_app(settings=None, *, topics=None):
@@ -67,6 +68,11 @@ def create_app(settings=None, *, topics=None):
     @app.get("/stats", response_model=Statistics)
     def stats():
         return statistics(slots())
+
+    @app.get("/predictions/persistence-live", response_model=PersistenceLiveResult)
+    def persistence_forecast():
+        # One database snapshot, separate from the frozen 37-feature ML path.
+        return persistence_live(slots(), app.state.settings.stale_seconds)
 
     @app.get("/health")
     def health():
