@@ -1,0 +1,60 @@
+name: Phase 7 Linux readiness
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: parking_test
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports: [5432:5432]
+        options: >-
+          --health-cmd "pg_isready -U postgres -d parking_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      LOCALAPPDATA: /tmp/smartparking-ci
+      PHASE7_TEST_DATABASE_URL: postgresql://postgres@127.0.0.1:5432/parking_test
+      PREDICTION_ADAPTER: in_process
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+      - name: Install hosted-only pinned dependencies
+        run: python -m pip install -r backend/requirements-cloud.txt -r dashboard/requirements.txt platformio==6.1.18
+      - name: PostgreSQL and backend regressions
+        run: python -B -m unittest discover -s backend/tests -v
+      - name: Dashboard regressions and native model adapters
+        run: PHASE5_TEST_ML_PYTHON="$(command -v python)" python -B -m unittest discover -s dashboard/tests -v
+      - name: Frozen ML regression and reload tests
+        run: python -B -m unittest discover -s ml/tests -v
+      - name: Circuit static and firmware host regressions
+        run: |
+          python -B esp32/tests/test_circuits.py
+          python -B esp32/tools/run_host_tests.py
+      - name: Compile three local and three TLS firmware targets
+        run: pio run --project-dir esp32 -e esp32_01 -e esp32_02 -e esp32_03 -e esp32_01_cloud -e esp32_02_cloud -e esp32_03_cloud
+      - name: Linux saved-model interface verification
+        run: |
+          python -B - <<'PY'
+          import json, hashlib, platform
+          from pathlib import Path
+          from dashboard.config import Settings
+          from dashboard.prediction import synthetic_example
+          result = synthetic_example(Settings(prediction_adapter='in_process'))
+          assert result['observation_source'] == 'synthetic'
+          assert result['selected_model'] == 'persistence'
+          assert 0 <= result['predictions'][0] <= 12
+          print(json.dumps({'platform':platform.platform(),'python':platform.python_version(),
+              'bundle_sha256':hashlib.sha256(Path('ml/artifacts/phase4/parking_models.joblib').read_bytes()).hexdigest(),
+              'actual_synthetic_retrospective_result':result},indent=2))
+          PY
