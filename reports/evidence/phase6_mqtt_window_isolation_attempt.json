@@ -1,0 +1,318 @@
+{
+  "label": "phase6_window_isolation_attempt",
+  "source": "read_only_production_mqtt_subscription",
+  "source_commit": "7b5b62722d82bc984c0c36526f719fbe38e93b6e",
+  "started_at_utc": "2026-11-11T17:41:58.713Z",
+  "requested_duration_seconds": 30.0,
+  "broker": {
+    "host": "127.0.0.1",
+    "port": 1883
+  },
+  "expected_states": {},
+  "connack": "Success",
+  "suback": [
+    "Granted QoS 1",
+    "Granted QoS 1",
+    "Granted QoS 1"
+  ],
+  "observer_disconnects": [],
+  "messages": [
+    {
+      "received_at_utc": "2026-11-11T17:41:59.945Z",
+      "elapsed_seconds": 1.234,
+      "topic": "smartparking/esp32_01/telemetry",
+      "qos": 1,
+      "payload": {
+        "schema_version": 1,
+        "device_id": "esp32_01",
+        "sequence": 28,
+        "timestamp": "2026-11-11T17:41:48Z",
+        "clock_synced": true,
+        "uptime_ms": 144318,
+        "slots": [
+          {
+            "slot_id": "P1",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:41:48Z"
+          },
+          {
+            "slot_id": "P2",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:41:48Z"
+          },
+          {
+            "slot_id": "P3",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:41:48Z"
+          },
+          {
+            "slot_id": "P4",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:41:48Z"
+          }
+        ]
+      }
+    },
+    {
+      "received_at_utc": "2026-11-11T17:42:04.989Z",
+      "elapsed_seconds": 6.281,
+      "topic": "smartparking/esp32_01/telemetry",
+      "qos": 1,
+      "payload": {
+        "schema_version": 1,
+        "device_id": "esp32_01",
+        "sequence": 29,
+        "timestamp": "2026-11-11T17:41:53Z",
+        "clock_synced": true,
+        "uptime_ms": 149318,
+        "slots": [
+          {
+            "slot_id": "P1",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:41:53Z"
+          },
+          {
+            "slot_id": "P2",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:41:53Z"
+          },
+          {
+            "slot_id": "P3",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:41:53Z"
+          },
+          {
+            "slot_id": "P4",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:41:53Z"
+          }
+        ]
+      }
+    },
+    {
+      "received_at_utc": "2026-11-11T17:42:09.975Z",
+      "elapsed_seconds": 11.266,
+      "topic": "smartparking/esp32_01/telemetry",
+      "qos": 1,
+      "payload": {
+        "schema_version": 1,
+        "device_id": "esp32_01",
+        "sequence": 30,
+        "timestamp": "2026-11-11T17:41:58Z",
+        "clock_synced": true,
+        "uptime_ms": 154318,
+        "slots": [
+          {
+            "slot_id": "P1",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:41:58Z"
+          },
+          {
+            "slot_id": "P2",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:41:58Z"
+          },
+          {
+            "slot_id": "P3",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:41:58Z"
+          },
+          {
+            "slot_id": "P4",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:41:58Z"
+          }
+        ]
+      }
+    },
+    {
+      "received_at_utc": "2026-11-11T17:42:15.047Z",
+      "elapsed_seconds": 16.344,
+      "topic": "smartparking/esp32_01/telemetry",
+      "qos": 1,
+      "payload": {
+        "schema_version": 1,
+        "device_id": "esp32_01",
+        "sequence": 31,
+        "timestamp": "2026-11-11T17:42:03Z",
+        "clock_synced": true,
+        "uptime_ms": 159318,
+        "slots": [
+          {
+            "slot_id": "P1",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:42:03Z"
+          },
+          {
+            "slot_id": "P2",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:42:03Z"
+          },
+          {
+            "slot_id": "P3",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:42:03Z"
+          },
+          {
+            "slot_id": "P4",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:42:03Z"
+          }
+        ]
+      }
+    },
+    {
+      "received_at_utc": "2026-11-11T17:42:20.069Z",
+      "elapsed_seconds": 21.359,
+      "topic": "smartparking/esp32_01/telemetry",
+      "qos": 1,
+      "payload": {
+        "schema_version": 1,
+        "device_id": "esp32_01",
+        "sequence": 32,
+        "timestamp": "2026-11-11T17:42:08Z",
+        "clock_synced": true,
+        "uptime_ms": 164318,
+        "slots": [
+          {
+            "slot_id": "P1",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:42:08Z"
+          },
+          {
+            "slot_id": "P2",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:42:08Z"
+          },
+          {
+            "slot_id": "P3",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:42:08Z"
+          },
+          {
+            "slot_id": "P4",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:42:08Z"
+          }
+        ]
+      }
+    },
+    {
+      "received_at_utc": "2026-11-11T17:42:25.108Z",
+      "elapsed_seconds": 26.391,
+      "topic": "smartparking/esp32_01/telemetry",
+      "qos": 1,
+      "payload": {
+        "schema_version": 1,
+        "device_id": "esp32_01",
+        "sequence": 33,
+        "timestamp": "2026-11-11T17:42:13Z",
+        "clock_synced": true,
+        "uptime_ms": 169318,
+        "slots": [
+          {
+            "slot_id": "P1",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:42:13Z"
+          },
+          {
+            "slot_id": "P2",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:42:13Z"
+          },
+          {
+            "slot_id": "P3",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:42:13Z"
+          },
+          {
+            "slot_id": "P4",
+            "distance_cm": 101.5,
+            "occupancy_status": "VACANT",
+            "timestamp": "2026-11-11T17:42:13Z"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "retained_ignored": 0,
+  "duplicates_ignored": 0,
+  "ended_at_utc": "2026-11-11T17:42:28.723Z",
+  "elapsed_seconds": 30.016,
+  "devices": {
+    "esp32_01": {
+      "valid_unique_messages": 6,
+      "fully_timestamped_messages": 6,
+      "wall_intervals_seconds": [
+        5.047,
+        4.985,
+        5.078,
+        5.015,
+        5.032
+      ],
+      "device_intervals_ms": [
+        5000,
+        5000,
+        5000,
+        5000,
+        5000
+      ],
+      "median_wall_interval_seconds": 5.032,
+      "expected_state_matching_messages": 6,
+      "minimum_messages_passed": true,
+      "periodic_device_cadence_passed": true,
+      "timestamp_observation_passed": true,
+      "expected_states_observed": true
+    },
+    "esp32_02": {
+      "valid_unique_messages": 0,
+      "fully_timestamped_messages": 0,
+      "wall_intervals_seconds": [],
+      "device_intervals_ms": [],
+      "median_wall_interval_seconds": null,
+      "expected_state_matching_messages": 0,
+      "minimum_messages_passed": false,
+      "periodic_device_cadence_passed": false,
+      "timestamp_observation_passed": false,
+      "expected_states_observed": false
+    },
+    "esp32_03": {
+      "valid_unique_messages": 0,
+      "fully_timestamped_messages": 0,
+      "wall_intervals_seconds": [],
+      "device_intervals_ms": [],
+      "median_wall_interval_seconds": null,
+      "expected_state_matching_messages": 0,
+      "minimum_messages_passed": false,
+      "periodic_device_cadence_passed": false,
+      "timestamp_observation_passed": false,
+      "expected_states_observed": false
+    }
+  },
+  "capture_checks_passed": false,
+  "provenance_limit": "Topic/payload observation alone is not simulator process/Serial provenance. Reconnection requires separate controlled evidence."
+}
