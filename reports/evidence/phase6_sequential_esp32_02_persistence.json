@@ -1,0 +1,238 @@
+{
+  "source": "actual_sequential_mqtt_to_sqlite_verification",
+  "device_id": "esp32_02",
+  "topic": "smartparking/esp32_02/telemetry",
+  "slots": [
+    "P5",
+    "P6",
+    "P7",
+    "P8"
+  ],
+  "started_at_utc": "2026-11-11T18:19:18.943Z",
+  "ended_at_utc": "2026-11-11T18:20:48.969Z",
+  "duration_seconds": 90.032,
+  "valid_messages": 16,
+  "sequences": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "receipt_intervals_seconds": [
+    5.953,
+    5.005,
+    4.995,
+    5.0,
+    8.619,
+    0.529,
+    5.544,
+    4.987,
+    5.013,
+    4.997,
+    4.993,
+    4.999,
+    5.05,
+    4.993,
+    5.071
+  ],
+  "repeated_sequences": 1,
+  "history_only_messages": 1,
+  "strict_uninterrupted_cadence": false,
+  "publication_age_seconds": {
+    "min": 1.104,
+    "max": 4.723
+  },
+  "message_database_matches": [
+    {
+      "sequence": 0,
+      "uptime_ms": 3353,
+      "sqlite_matches": [
+        {
+          "id": 430,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 1,
+      "uptime_ms": 9317,
+      "sqlite_matches": [
+        {
+          "id": 431,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "uptime_ms": 14317,
+      "sqlite_matches": [
+        {
+          "id": 432,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 3,
+      "uptime_ms": 19317,
+      "sqlite_matches": [
+        {
+          "id": 433,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 4,
+      "uptime_ms": 24317,
+      "sqlite_matches": [
+        {
+          "id": 434,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 5,
+      "uptime_ms": 29317,
+      "sqlite_matches": [
+        {
+          "id": 435,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 5,
+      "uptime_ms": 33436,
+      "sqlite_matches": [
+        {
+          "id": 436,
+          "applied_current": 0
+        }
+      ]
+    },
+    {
+      "sequence": 6,
+      "uptime_ms": 38830,
+      "sqlite_matches": [
+        {
+          "id": 437,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 7,
+      "uptime_ms": 43830,
+      "sqlite_matches": [
+        {
+          "id": 438,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 8,
+      "uptime_ms": 48830,
+      "sqlite_matches": [
+        {
+          "id": 439,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 9,
+      "uptime_ms": 53830,
+      "sqlite_matches": [
+        {
+          "id": 440,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 10,
+      "uptime_ms": 58830,
+      "sqlite_matches": [
+        {
+          "id": 441,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 11,
+      "uptime_ms": 63830,
+      "sqlite_matches": [
+        {
+          "id": 442,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 12,
+      "uptime_ms": 68830,
+      "sqlite_matches": [
+        {
+          "id": 443,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 13,
+      "uptime_ms": 73830,
+      "sqlite_matches": [
+        {
+          "id": 444,
+          "applied_current": 1
+        }
+      ]
+    },
+    {
+      "sequence": 14,
+      "uptime_ms": 78830,
+      "sqlite_matches": [
+        {
+          "id": 445,
+          "applied_current": 1
+        }
+      ]
+    }
+  ],
+  "database_device_counts_at_check": {
+    "esp32_01": 413,
+    "esp32_02": 31,
+    "esp32_03": 12
+  },
+  "acceptance": {
+    "capture_duration": true,
+    "broker_and_subscription": true,
+    "no_invalid_payloads": true,
+    "enough_messages": true,
+    "sequence_progression": true,
+    "applied_sequence_progression": true,
+    "periodic_device_cadence": true,
+    "receipt_cadence": true,
+    "all_captured_messages_persisted": true,
+    "sqlite_integrity": true
+  },
+  "passed": true,
+  "limitations": "Sequential board test only; no simultaneous twelve-slot freshness, controlled reconnection, occupancy transitions or independent clock accuracy established."
+}
