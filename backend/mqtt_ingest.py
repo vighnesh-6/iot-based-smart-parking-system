@@ -4,6 +4,7 @@ import logging
 import queue
 import sqlite3
 import threading
+import ssl
 
 import paho.mqtt.client as mqtt
 
@@ -33,6 +34,10 @@ class Ingestor:
             protocol=mqtt.MQTTv311, manual_ack=True)
         if settings.mqtt_username:
             self.client.username_pw_set(settings.mqtt_username, settings.mqtt_password)
+        if settings.mqtt_tls:
+            context = ssl.create_default_context(cafile=settings.mqtt_ca_file or None)
+            context.minimum_version = ssl.TLSVersion.TLSv1_2
+            self.client.tls_set_context(context)
         self.client.connect_timeout = 3
         self.client.on_connect = self.on_connect
         self.client.on_disconnect = self.on_disconnect
