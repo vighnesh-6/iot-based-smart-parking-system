@@ -23,7 +23,7 @@ class ApiClient:
         self.settings = settings
 
     def get(self, path, *, params=None, degraded_health=False):
-        if path not in ('/slots', '/stats', '/health', '/history'):
+        if path not in ('/slots', '/stats', '/health', '/history', '/predictions/persistence-live'):
             raise ValueError('Unsupported read-only endpoint')
         url = self.settings.api_base_url.rstrip('/') + path
         if params:
