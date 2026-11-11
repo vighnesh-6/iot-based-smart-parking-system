@@ -3,6 +3,7 @@
 from dataclasses import dataclass, field
 import os
 from pathlib import Path
+from urllib.parse import urlsplit, parse_qs
 
 from dotenv import dotenv_values
 
@@ -24,7 +25,7 @@ def safe_database_path(value):
 
 @dataclass(frozen=True)
 class Settings:
-    database_path: Path
+    database_path: Path | None = None
     mqtt_host: str = "127.0.0.1"
     mqtt_port: int = 1883
     mqtt_client_id: str = "smartparking-backend"
@@ -34,9 +35,30 @@ class Settings:
     stale_seconds: int = 30
     queue_size: int = 256
     database_timeout: float = 2.0
+    database_url: str = field(default='', repr=False)
+    mqtt_tls: bool = False
+    mqtt_ca_file: str = ''
+    api_bearer_token: str = field(default='', repr=False)
+    deployment_mode: str = 'local'
 
     def __post_init__(self):
-        object.__setattr__(self, "database_path", safe_database_path(self.database_path))
+        if self.database_url:
+            url = urlsplit(self.database_url)
+            options = parse_qs(url.query)
+            if url.scheme not in ('postgresql', 'postgres') or not url.hostname or not url.path.strip('/'):
+                raise ValueError('DATABASE_URL must identify a PostgreSQL database')
+            if options.get('sslmode', ['verify-full']) != ['verify-full']:
+                raise ValueError('PostgreSQL requires verified TLS (sslmode=verify-full)')
+        elif self.database_path is None:
+            raise ValueError('Set DATABASE_URL or an external DATABASE_PATH')
+        else:
+            object.__setattr__(self, "database_path", safe_database_path(self.database_path))
+        if self.deployment_mode not in ('local', 'cloud'):
+            raise ValueError('DEPLOYMENT_MODE must be local or cloud')
+        if self.deployment_mode == 'cloud' and (not self.database_url or not self.mqtt_tls or
+                not self.mqtt_enabled or not self.mqtt_username or not self.mqtt_password or
+                len(self.api_bearer_token) < 32):
+            raise ValueError('Cloud requires PostgreSQL, MQTT TLS/authentication and an API token of at least 32 characters')
         if not self.mqtt_host or not self.mqtt_client_id or self.mqtt_client_id.startswith("smartparking-esp32_"):
             raise ValueError("Backend requires its own nonempty MQTT identity and host")
         if not 1 <= self.mqtt_port <= 65535 or self.stale_seconds < 1 or self.queue_size < 1 or self.database_timeout <= 0:
@@ -51,11 +73,20 @@ class Settings:
         enabled = str(env.get("MQTT_ENABLED", "true")).lower()
         if enabled not in {"true", "false"}:
             raise ValueError("MQTT_ENABLED must be true or false")
-        return cls(database_path=Path(env.get("DATABASE_PATH") or default),
+        tls = str(env.get('MQTT_TLS', 'false')).lower()
+        if tls not in {'true', 'false'}:
+            raise ValueError('MQTT_TLS must be true or false')
+        database_url = env.get('DATABASE_URL') or ''
+        path = env.get('DATABASE_PATH') or default
+        return cls(database_path=Path(path) if path else None,
                    mqtt_host=env.get("MQTT_HOST") or "127.0.0.1",
                    mqtt_port=int(env.get("MQTT_PORT", 1883)),
                    mqtt_client_id=env.get("MQTT_CLIENT_ID") or "smartparking-backend",
                    mqtt_username=env.get("MQTT_USERNAME") or "",
                    mqtt_password=env.get("MQTT_PASSWORD") or "",
                    mqtt_enabled=enabled == "true", stale_seconds=int(env.get("STALE_SECONDS", 30)),
-                   queue_size=int(env.get("INGEST_QUEUE_SIZE", 256)))
+                   queue_size=int(env.get("INGEST_QUEUE_SIZE", 256)),
+                   database_url=database_url, mqtt_tls=tls == 'true',
+                   mqtt_ca_file=env.get('MQTT_CA_FILE') or '',
+                   api_bearer_token=env.get('API_BEARER_TOKEN') or '',
+                   deployment_mode=env.get('DEPLOYMENT_MODE') or 'local')
