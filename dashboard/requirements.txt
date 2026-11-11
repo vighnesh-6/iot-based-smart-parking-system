@@ -1,0 +1,7 @@
+# Frontend/in-process prediction deployment manifest; existing environments are untouched.
+# Install only into an approved compatible environment. Not a cloud deployment claim.
+-r ../ml/phase4_requirements.txt
+streamlit==1.67.0
+plotly==7.1.0
+pydantic==2.14.3
+python-dotenv==1.2.4
