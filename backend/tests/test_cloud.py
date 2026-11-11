@@ -1,6 +1,9 @@
 """Cloud configuration/auth/TLS tests; no credentials, network broker or live DB."""
 from dataclasses import replace
 import io
+import hashlib
+from pathlib import Path
+import tempfile
 import ssl
 import unittest
 from unittest.mock import Mock, patch
@@ -10,7 +13,9 @@ from urllib.request import Request, urlopen
 from backend.config import Settings
 from backend.mqtt_ingest import Ingestor
 from backend.postgres import Connection, POSTGRES_SCHEMA, Row
-from support import http_server, test_settings, request
+from backend.db import Database
+from backend.tools.import_sqlite_history import export_sql
+from support import http_server, test_settings, request, validated
 
 
 class CloudTests(unittest.TestCase):
@@ -68,6 +73,18 @@ class CloudTests(unittest.TestCase):
     def test_missing_local_database_does_not_create_project_file(self):
         with patch.dict('os.environ',{'DATABASE_URL':'postgresql://example.invalid/parking','LOCALAPPDATA':'','DATABASE_PATH':''}):
             self.assertIsNone(Settings.from_env().database_path)
+
+    def test_driver_free_export_preserves_source_and_guards_cloud_history(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source=Path(directory)/'export.db'
+            database=Database(source);database.initialize();database.persist(validated())
+            before=hashlib.sha256(source.read_bytes()).hexdigest()
+            script,result=export_sql(source)
+            self.assertEqual(result['source_sha256'],before)
+            self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(),before)
+            self.assertEqual(result['copied_rows']['occupancy_observations'],4)
+            self.assertIn("RAISE EXCEPTION 'Destination must be recognized and empty'",script)
+            self.assertTrue(script.endswith('COMMIT;\n'))
 
 
 if __name__ == '__main__': unittest.main(verbosity=2)
