@@ -25,8 +25,19 @@ class PostgresIntegrationTests(unittest.TestCase):
         cls.database.initialize()
 
     def setUp(self):
-        with self.database.raw_connection() as connection:
+        with self.database.connection() as connection:
             connection.execute('TRUNCATE slot_current,occupancy_observations,telemetry_messages RESTART IDENTITY CASCADE')
+            connection.commit()
+
+    def test_transaction_settings_do_not_leak_between_pooled_operations(self):
+        with self.database.raw_connection() as connection:
+            before=connection.execute('SHOW search_path').fetchone()['search_path']
+            with connection.transaction():
+                self.database.configure_transaction(connection)
+                self.assertEqual(connection.execute('SELECT current_schema() AS schema').fetchone()['schema'],'smartparking')
+            self.assertEqual(connection.execute('SHOW search_path').fetchone()['search_path'],before)
+        self.database.persist(validated())
+        self.assertEqual(self.database.history()['total'],4)
 
     def test_all_twelve_slots_history_duplicates_and_sequence(self):
         for board in range(1,4):
