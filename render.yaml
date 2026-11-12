@@ -4,6 +4,7 @@ services:
     name: smart-parking-api
     runtime: python
     plan: free
+    region: singapore
     buildCommand: pip install -r backend/requirements-cloud.txt
     startCommand: python -m uvicorn backend.main:app --host 0.0.0.0 --port $PORT --workers 1
     healthCheckPath: /livez
@@ -13,6 +14,8 @@ services:
       - key: DEPLOYMENT_MODE
         value: cloud
       - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_EXPECTED_HOST
         sync: false
       - key: MQTT_TLS
         value: "true"
@@ -27,6 +30,6 @@ services:
       - key: MQTT_PASSWORD
         sync: false
       - key: API_BEARER_TOKEN
-        sync: false
+        generateValue: true
       - key: STALE_SECONDS
         value: "30"
