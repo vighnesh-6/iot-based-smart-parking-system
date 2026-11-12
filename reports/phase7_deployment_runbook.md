@@ -62,15 +62,23 @@ Official references (audited November 2026):
    |---|---|
    | `DEPLOYMENT_MODE` | `cloud` |
    | `DATABASE_URL` | Private Neon connection URL with verified TLS |
+   | `DATABASE_EXPECTED_HOST` | Exact hostname confirmed inside only the separate `smart-parking` Neon project |
    | `MQTT_TLS`, `MQTT_PORT` | `true`, `8883` |
    | `MQTT_HOST` | Assigned EMQX hostname |
    | `MQTT_CLIENT_ID` | `smartparking-cloud-backend` |
    | `MQTT_USERNAME`, `MQTT_PASSWORD` | Private backend MQTT identity |
-   | `API_BEARER_TOKEN` | Private random value of at least32 characters |
+   | `API_BEARER_TOKEN` | Render generates a private random256-bit value from the Blueprint; later copy it only into Streamlit's private secrets |
    | `STALE_SECONDS` | `30` (unchanged) |
 
    `/livez` is public minimal process liveness; all other routes require the token
    when configured. `/health` provides authenticated database/MQTT diagnostics.
+   Cloud startup rejects a connection URL whose hostname differs from
+   `DATABASE_EXPECTED_HOST` before opening any database connection. Confirm the
+   Neon project heading is `smart-parking` when copying both values; never open,
+   connect to, or reuse credentials from the unrelated Sector Rotation project.
+   A pooled hostname and its direct hostname are different: copy the exact host
+   used by the chosen connection URL into the expected-host setting. If Neon adds
+   `sslmode=require`, change that parameter privately to `sslmode=verify-full`.
 4. Copy the recognized SQLite history without installing a driver locally:
 
    ```powershell
