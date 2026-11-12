@@ -79,6 +79,8 @@ Official references (audited November 2026):
    A pooled hostname and its direct hostname are different: copy the exact host
    used by the chosen connection URL into the expected-host setting. If Neon adds
    `sslmode=require`, change that parameter privately to `sslmode=verify-full`.
+   PostgreSQL search path and query timeouts are transaction-local, so the
+   application also supports the selected Neon transaction-pooler endpoint.
 4. Copy the recognized SQLite history without installing a driver locally:
 
    ```powershell
