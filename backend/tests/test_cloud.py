@@ -20,11 +20,13 @@ from support import http_server, test_settings, request, validated
 
 class CloudTests(unittest.TestCase):
     def test_cloud_fails_closed_and_secrets_are_not_repr(self):
-        values = dict(database_url='postgresql://example.invalid/parking?sslmode=verify-full',
+        values = dict(database_url='postgresql://ep-parking-pooler.us-east-2.aws.neon.tech/parking?sslmode=verify-full',
+            database_expected_host='ep-parking-pooler.us-east-2.aws.neon.tech',
             mqtt_tls=True, mqtt_username='fixture', mqtt_password='fixture',
             api_bearer_token='x'*32, deployment_mode='cloud')
         settings = Settings(**values)
         for key, bad in [('database_url',''),('mqtt_tls',False),('mqtt_enabled',False),
+                         ('database_expected_host',''),
                          ('mqtt_username',''),('mqtt_password',''),('api_bearer_token','short')]:
             with self.subTest(key=key), self.assertRaises(ValueError): replace(settings, **{key:bad})
         self.assertNotIn(settings.database_url, repr(settings))
@@ -32,6 +34,17 @@ class CloudTests(unittest.TestCase):
         for url in ('sqlite:///x','postgresql://example.invalid/x?sslmode=disable',
                     'postgresql://example.invalid/x?sslmode=require'):
             with self.assertRaises(ValueError): Settings(database_url=url)
+
+    def test_cloud_rejects_another_project_hostname_before_any_database_access(self):
+        environment = {'DEPLOYMENT_MODE':'cloud', 'DATABASE_EXPECTED_HOST':'ep-parking-pooler.us-east-2.aws.neon.tech',
+            'DATABASE_URL':'postgresql://ep-unrelated-pooler.us-east-2.aws.neon.tech/parking?sslmode=verify-full',
+            'MQTT_TLS':'true','MQTT_USERNAME':'fixture','MQTT_PASSWORD':'fixture','API_BEARER_TOKEN':'x'*32}
+        with patch.dict('os.environ',environment), patch('backend.postgres.PostgresDatabase.raw_connection') as connection:
+            with self.assertRaisesRegex(ValueError,'DATABASE_EXPECTED_HOST'): Settings.from_env()
+            connection.assert_not_called()
+            environment['DATABASE_URL']='postgresql://ep-parking-pooler.us-east-2.aws.neon.tech/parking?sslmode=verify-full'
+            with patch.dict('os.environ',environment):
+                self.assertEqual(Settings.from_env().database_expected_host,environment['DATABASE_EXPECTED_HOST'])
 
     def test_tls_context_verifies_certificate_and_hostname(self):
         with test_settings(mqtt_tls=True) as settings:
