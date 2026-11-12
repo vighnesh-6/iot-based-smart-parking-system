@@ -19,7 +19,7 @@ def export_sql(source):
     """Driver-free export for the Neon SQL editor; never installs a laptop package."""
     source = Path(source).resolve(strict=True)
     before = hashlib.sha256(source.read_bytes()).hexdigest()
-    lines = ["BEGIN;", "SET standard_conforming_strings=on;", "SET search_path TO smartparking,public;",
+    lines = ["BEGIN;", "SET LOCAL standard_conforming_strings=on;", "SET LOCAL search_path TO smartparking,public;",
         "SELECT pg_advisory_xact_lock(1397771058);",
         "DO $guard$ BEGIN IF (SELECT COUNT(*) FROM cloud_metadata WHERE version=1)<>1 OR EXISTS(SELECT 1 FROM telemetry_messages) OR EXISTS(SELECT 1 FROM occupancy_observations) OR EXISTS(SELECT 1 FROM slot_current) THEN RAISE EXCEPTION 'Destination must be recognized and empty'; END IF; END $guard$;"]
     counts = {}
@@ -63,6 +63,7 @@ def copy_history(source, destination):
         destination.initialize()
         with destination.raw_connection() as remote:
             with remote.transaction():
+                destination.configure_transaction(remote)
                 remote.execute('SELECT pg_advisory_xact_lock(1397771058)')
                 cloud_registry = {(r['slot_id'],r['device_id']) for r in remote.execute('SELECT slot_id,device_id FROM slots')}
                 if cloud_registry != registry:
