@@ -36,6 +36,7 @@ class Settings:
     queue_size: int = 256
     database_timeout: float = 2.0
     database_url: str = field(default='', repr=False)
+    database_expected_host: str = ''
     mqtt_tls: bool = False
     mqtt_ca_file: str = ''
     api_bearer_token: str = field(default='', repr=False)
@@ -59,6 +60,11 @@ class Settings:
                 not self.mqtt_enabled or not self.mqtt_username or not self.mqtt_password or
                 len(self.api_bearer_token) < 32):
             raise ValueError('Cloud requires PostgreSQL, MQTT TLS/authentication and an API token of at least 32 characters')
+        if self.deployment_mode == 'cloud':
+            expected_host = self.database_expected_host.strip().lower()
+            if (not expected_host.endswith('.neon.tech') or
+                    url.hostname != expected_host):
+                raise ValueError('Cloud database hostname must match DATABASE_EXPECTED_HOST from the separate smart-parking project')
         if not self.mqtt_host or not self.mqtt_client_id or self.mqtt_client_id.startswith("smartparking-esp32_"):
             raise ValueError("Backend requires its own nonempty MQTT identity and host")
         if not 1 <= self.mqtt_port <= 65535 or self.stale_seconds < 1 or self.queue_size < 1 or self.database_timeout <= 0:
@@ -87,6 +93,7 @@ class Settings:
                    mqtt_enabled=enabled == "true", stale_seconds=int(env.get("STALE_SECONDS", 30)),
                    queue_size=int(env.get("INGEST_QUEUE_SIZE", 256)),
                    database_url=database_url, mqtt_tls=tls == 'true',
+                   database_expected_host=env.get('DATABASE_EXPECTED_HOST') or '',
                    mqtt_ca_file=env.get('MQTT_CA_FILE') or '',
                    api_bearer_token=env.get('API_BEARER_TOKEN') or '',
                    deployment_mode=env.get('DEPLOYMENT_MODE') or 'local')
